@@ -1,0 +1,10 @@
+{
+  "description": "Professional company website showcasing ZodiacPluss services with precise design, intuitive navigation, and a polished user experience.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

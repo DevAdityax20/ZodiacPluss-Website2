@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Playball&family=Sora:wght@400;600&family=Song+Myung&family=Sour+Gummy:wdth,wght@100,400&display=swap');
+@import 'tailwindcss';
+
+:root {
+  --background: #f8f6ff;
+  --foreground: #1e1035;
+  --card: #ffffff;
+  --card-foreground: #1e1035;
+  --primary: #14b8a6;
+  --primary-foreground: #ffffff;
+  --secondary: #f3e8ff;
+  --secondary-foreground: #4b1d8e;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #d81b86;
+  --accent-foreground: #ffffff;
+  --border: #e2d9f3;
+  --ring: #14b8a6;
+  --radius: 0.75rem;
+
+  --purple-deep: #2d1b4e;
+  --purple-mid: #5b2d8e;
+  --purple-light: #a855f7;
+  --pink-hot: #d81b86;
+  --teal-brand: #14b8a6;
+  --teal-dark: #0d5f4f;
+  --footer-from: #0d2535;
+  --footer-to: #0b4a3f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--foreground);
+  background: var(--background);
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide scrollbar but keep scrolling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(90, 45, 142, 0.3);
+  border-radius: 3px;
+}

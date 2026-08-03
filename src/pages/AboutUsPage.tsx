@@ -1,0 +1,160 @@
+import FAQSection from '@/components/FAQSection'
+import CredentialsSection from '@/components/CredentialsSection'
+
+interface AboutUsPageProps {
+  onNavigate: (page: string) => void
+}
+
+const team = [
+  {
+    name: 'Dr. Priya Sharma',
+    role: 'Chief Astrologer & Founder',
+    exp: '18 years experience',
+    img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&auto=format&q=80',
+    specialty: 'Vedic Astrology, Numerology',
+  },
+  {
+    name: 'Rahul Mehta',
+    role: 'Lead Therapist',
+    exp: '12 years experience',
+    img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop&auto=format&q=80',
+    specialty: 'Cognitive Behavioral Therapy',
+  },
+  {
+    name: 'Anika Verma',
+    role: 'Tarot & Spiritual Guide',
+    exp: '10 years experience',
+    img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop&auto=format&q=80',
+    specialty: 'Tarot, Crystal Healing',
+  },
+  {
+    name: 'Karan Joshi',
+    role: 'AI & Tech Lead',
+    exp: '8 years experience',
+    img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop&auto=format&q=80',
+    specialty: 'AI-Powered Astro Analysis',
+  },
+]
+
+const values = [
+  { icon: '✦', title: 'Authenticity', desc: 'We combine time-honored traditions with evidence-based insights for genuine guidance.' },
+  { icon: '✦', title: 'Compassion', desc: 'Every individual receives a judgment-free, empathetic, and personalized experience.' },
+  { icon: '✦', title: 'Innovation', desc: 'We leverage AI and technology to deliver astrology for the modern seeker.' },
+  { icon: '✦', title: 'Integrity', desc: 'Your privacy is sacred. All sessions and data are 100% confidential.' },
+]
+
+export default function AboutUsPage({ onNavigate }: AboutUsPageProps) {
+  return (
+    <div className="pt-20" style={{ background: '#f8f6ff' }}>
+      {/* Hero banner */}
+      <div
+        className="relative overflow-hidden py-20 px-6 text-center"
+        style={{
+          background: 'linear-gradient(135deg, #2d1b4e 0%, #4b1d8e 50%, #0d5f4f 100%)',
+        }}
+      >
+        <div className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: 'radial-gradient(circle at 20% 50%, #a855f7 0%, transparent 50%), radial-gradient(circle at 80% 50%, #14b8a6 0%, transparent 50%)',
+          }}
+        />
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 border border-teal-400/40 text-teal-300 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M12 2L13.5 8.5L20 7L15.5 12L20 17L13.5 15.5L12 22L10.5 15.5L4 17L8.5 12L4 7L10.5 8.5L12 2Z"/>
+            </svg>
+            About Us
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Our Story &amp; Mission
+          </h1>
+          <p className="text-white/65 text-lg max-w-2xl mx-auto">
+            Born from the belief that everyone deserves access to meaningful guidance, ZodiacPluss bridges ancient wisdom with modern science.
+          </p>
+        </div>
+      </div>
+
+      {/* Mission section */}
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+          <div>
+            <div className="w-12 h-1 bg-[#d81b86] rounded mb-4" />
+            <h2 className="text-4xl font-bold text-[#1e0d40] mb-5" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Why ZodiacPluss?
+            </h2>
+            <p className="text-[#4a4a6a] leading-relaxed mb-4">
+              Founded in 2018, ZodiacPluss was built on a single conviction: that ancient astrological wisdom and modern psychology are not opposites — they are two sides of the same coin.
+            </p>
+            <p className="text-[#4a4a6a] leading-relaxed mb-6">
+              Our platform gives every person access to certified astrologers, licensed therapists, and AI-powered insights — all in one seamless, private space.
+            </p>
+            <button
+              onClick={() => onNavigate('Services')}
+              className="flex items-center gap-2 bg-[#1e0d40] text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-[#2d1b4e] transition-all"
+            >
+              Explore Services
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+          <div className="relative rounded-3xl overflow-hidden h-72 shadow-2xl">
+            <img
+              src="https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4f5?w=600&h=400&fit=crop&auto=format&q=80"
+              alt="Astrology globe"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#2d1b4e]/60 to-transparent" />
+          </div>
+        </div>
+
+        {/* Values */}
+        <div className="mb-20">
+          <h2 className="text-3xl font-bold text-[#1e0d40] text-center mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Our Core Values
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {values.map((v) => (
+              <div key={v.title} className="bg-white rounded-2xl p-6 shadow-sm border border-purple-100 hover:shadow-md transition-shadow">
+                <div className="text-[#d81b86] text-xl mb-3">{v.icon}</div>
+                <h3 className="font-bold text-[#1e0d40] mb-2">{v.title}</h3>
+                <p className="text-xs text-[#6b5b8f] leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Team */}
+        <div>
+          <h2 className="text-3xl font-bold text-[#1e0d40] text-center mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Meet the Team
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {team.map((member) => (
+              <div key={member.name} className="group text-center">
+                <div className="relative w-28 h-28 mx-auto mb-4 rounded-2xl overflow-hidden shadow-md group-hover:shadow-xl transition-shadow">
+                  <img src={member.img} alt={member.name} className="w-full h-full object-cover"/>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2d1b4e]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+                <h3 className="font-bold text-[#1e0d40] text-sm">{member.name}</h3>
+                <p className="text-[#d81b86] text-xs font-medium mt-0.5">{member.role}</p>
+                <p className="text-[#6b5b8f] text-xs mt-1">{member.exp}</p>
+                <p className="text-[#9b87c9] text-xs mt-0.5 italic">{member.specialty}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Credentials & Licences – below Meet the Team */}
+      <section style={{ background: 'white', padding: 'clamp(48px,6vw,72px) 24px' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+          <CredentialsSection />
+        </div>
+      </section>
+
+      {/* FAQ section */}
+      <FAQSection onNavigate={onNavigate} />
+    </div>
+  )
+}
