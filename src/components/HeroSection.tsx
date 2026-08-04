@@ -1,3 +1,5 @@
+import heroVideo from '@/imports/watermark-removed-generate_a_video_of_this_image.mp4'
+
 interface HeroSectionProps {
   onNavigate: (page: string) => void
 }
@@ -13,13 +15,14 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           borderRadius: "20px",
         }}
       >
-        {/* Background — pastel sunset water with lotus scene */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-        +-   style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1774514195786-7c835b2107ce?w=1600&h=900&fit=crop&auto=format&q=85')",
-            backgroundPosition: "center right",
-          }}
+        {/* Background Video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover object-right"
+          src={heroVideo}
         />
 
         {/* Fallback gradient if image doesn't load */}

@@ -45,10 +45,10 @@ const values = [
 
 export default function AboutUsPage({ onNavigate }: AboutUsPageProps) {
   return (
-    <div className="pt-20" style={{ background: '#f8f6ff' }}>
+    <div className="about-page-shell pt-20 transition-colors duration-300" style={{ background: '#f8f6ff' }}>
       {/* Hero banner */}
       <div
-        className="relative overflow-hidden py-20 px-6 text-center"
+        className="relative overflow-hidden py-20 px-6 text-center transition-all duration-300"
         style={{
           background: 'linear-gradient(135deg, #2d1b4e 0%, #4b1d8e 50%, #0d5f4f 100%)',
         }}
@@ -75,22 +75,22 @@ export default function AboutUsPage({ onNavigate }: AboutUsPageProps) {
       </div>
 
       {/* Mission section */}
-      <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 transition-colors duration-300">
+        <div className="grid gap-12 items-center mb-20 lg:grid-cols-2">
           <div>
             <div className="w-12 h-1 bg-[#d81b86] rounded mb-4" />
-            <h2 className="text-4xl font-bold text-[#1e0d40] mb-5" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h2 className="about-heading text-4xl font-bold text-[#1e0d40] mb-5" style={{ fontFamily: "'Playfair Display', serif" }}>
               Why ZodiacPluss?
             </h2>
-            <p className="text-[#4a4a6a] leading-relaxed mb-4">
+            <p className="about-muted text-[#4a4a6a] leading-relaxed mb-4">
               Founded in 2018, ZodiacPluss was built on a single conviction: that ancient astrological wisdom and modern psychology are not opposites — they are two sides of the same coin.
             </p>
-            <p className="text-[#4a4a6a] leading-relaxed mb-6">
+            <p className="about-muted text-[#4a4a6a] leading-relaxed mb-6">
               Our platform gives every person access to certified astrologers, licensed therapists, and AI-powered insights — all in one seamless, private space.
             </p>
             <button
               onClick={() => onNavigate('Services')}
-              className="flex items-center gap-2 bg-[#1e0d40] text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-[#2d1b4e] transition-all"
+              className="about-button flex items-center gap-2 bg-[#1e0d40] text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-[#2d1b4e] transition-all duration-300"
             >
               Explore Services
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -98,7 +98,7 @@ export default function AboutUsPage({ onNavigate }: AboutUsPageProps) {
               </svg>
             </button>
           </div>
-          <div className="relative rounded-3xl overflow-hidden h-72 shadow-2xl">
+          <div className="relative rounded-3xl overflow-hidden h-72 shadow-2xl transition-all duration-300">
             <img
               src="https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4f5?w=600&h=400&fit=crop&auto=format&q=80"
               alt="Astrology globe"
@@ -113,12 +113,12 @@ export default function AboutUsPage({ onNavigate }: AboutUsPageProps) {
           <h2 className="text-3xl font-bold text-[#1e0d40] text-center mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>
             Our Core Values
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v) => (
-              <div key={v.title} className="bg-white rounded-2xl p-6 shadow-sm border border-purple-100 hover:shadow-md transition-shadow">
+              <div key={v.title} className="about-surface bg-white rounded-2xl p-6 shadow-sm border border-purple-100 hover:shadow-md transition-all duration-300">
                 <div className="text-[#d81b86] text-xl mb-3">{v.icon}</div>
-                <h3 className="font-bold text-[#1e0d40] mb-2">{v.title}</h3>
-                <p className="text-xs text-[#6b5b8f] leading-relaxed">{v.desc}</p>
+                <h3 className="about-heading font-bold text-[#1e0d40] mb-2">{v.title}</h3>
+                <p className="about-muted text-xs text-[#6b5b8f] leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>
@@ -126,20 +126,20 @@ export default function AboutUsPage({ onNavigate }: AboutUsPageProps) {
 
         {/* Team */}
         <div>
-          <h2 className="text-3xl font-bold text-[#1e0d40] text-center mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h2 className="about-heading text-3xl font-bold text-[#1e0d40] text-center mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>
             Meet the Team
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map((member) => (
-              <div key={member.name} className="group text-center">
+              <div key={member.name} className="about-surface group text-center rounded-2xl p-4 transition-all duration-300">
                 <div className="relative w-28 h-28 mx-auto mb-4 rounded-2xl overflow-hidden shadow-md group-hover:shadow-xl transition-shadow">
                   <img src={member.img} alt={member.name} className="w-full h-full object-cover"/>
                   <div className="absolute inset-0 bg-gradient-to-t from-[#2d1b4e]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <h3 className="font-bold text-[#1e0d40] text-sm">{member.name}</h3>
+                <h3 className="about-heading font-bold text-[#1e0d40] text-sm">{member.name}</h3>
                 <p className="text-[#d81b86] text-xs font-medium mt-0.5">{member.role}</p>
-                <p className="text-[#6b5b8f] text-xs mt-1">{member.exp}</p>
-                <p className="text-[#9b87c9] text-xs mt-0.5 italic">{member.specialty}</p>
+                <p className="about-muted text-[#6b5b8f] text-xs mt-1">{member.exp}</p>
+                <p className="about-muted text-[#9b87c9] text-xs mt-0.5 italic">{member.specialty}</p>
               </div>
             ))}
           </div>

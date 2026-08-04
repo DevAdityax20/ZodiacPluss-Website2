@@ -13,10 +13,10 @@ export default function HomePage({ onNavigate, dark }: HomePageProps) {
   return (
     <>
       <HeroSection onNavigate={onNavigate} />
-      <AboutSection onNavigate={onNavigate} />
+      <AboutSection onNavigate={onNavigate} dark={dark} />
       <AppShowcaseSection />
       <ZodiacMissionSection onNavigate={onNavigate} />
-      <div className="pb-6" style={{ background: '#f8f6ff' }}>
+      <div className="pb-6" style={{ background: dark ? '#120e22' : '#f8f6ff' }}>
         <TestimonialsSection />
       </div>
     </>

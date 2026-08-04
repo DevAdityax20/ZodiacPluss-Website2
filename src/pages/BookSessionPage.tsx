@@ -240,7 +240,7 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
               </InfoIcon>
               <div>
                 <div style={{ fontSize: '12px', fontWeight: 600, color: textPrimary, marginBottom: '2px' }}>Email</div>
-                <div style={{ fontSize: '12.5px', color: textMuted }}>hello@zodiacpluss.com</div>
+                <div style={{ fontSize: '12.5px', color: textMuted }}>Rashmi@zodiacpluss.com</div>
               </div>
             </div>
 
@@ -270,13 +270,12 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
               <div>
                 <div style={{ fontSize: '12px', fontWeight: 600, color: textPrimary, marginBottom: '2px' }}>Office</div>
                 <div style={{ fontSize: '12px', color: textMuted, lineHeight: 1.6 }}>
-                  Abhay Towers, 1st Floor, 410 C, Civil Lines<br />
-                  Master Tara Singh Nagar, Jalandhar, Punjab 144001
+                  Building No. 199, Pocket 20, Rohini Sector 24, New Delhi- 110085, India
                 </div>
               </div>
             </div>
 
-            {/* Business Hours */}
+            {/* Company Hours */}
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
               <InfoIcon>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -286,7 +285,7 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
                 </svg>
               </InfoIcon>
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: '12px', fontWeight: 600, color: textPrimary, marginBottom: '6px' }}>Business Hours</div>
+                <div style={{ fontSize: '12px', fontWeight: 600, color: textPrimary, marginBottom: '6px' }}>Company Hours</div>
                 {[
                   ['Monday – Friday', '9:00 AM – 6:00 PM'],
                   ['Saturday', '10:00 AM – 6:00 PM'],
@@ -699,7 +698,7 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
             letterSpacing: '0.3px',
             fontFamily: 'Inter, sans-serif',
           }}>
-            Our Location · Civil Lines, Jalandhar, Punjab 144001
+            Our Location · Building No. 199, Pocket 20, Rohini Sector 24, New Delhi- 110085, India.
           </span>
         </div>
 
@@ -718,10 +717,10 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
               : '1px solid rgba(200,190,230,0.35)',
           }}
         >
-          {/* Google Maps iframe — Civil Lines, Jalandhar */}
+          {/* Google Maps iframe — Rohini, New Delhi */}
           <iframe
             title="ZodiacPluss Office Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13624.86!2d75.55794!3d31.32602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a5a5747a9ef3f%3A0x2de19db7d8c28a7f!2sCivil%20Lines%2C%20Jalandhar%2C%20Punjab%20144001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.402978578928!2d77.118026!3d28.713336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03f2d7f1d2d3%3A0x4f1af8f8f7c8b8d3!2sRohini%20Sector%2024%2C%20Delhi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
             width="100%"
             height="100%"
             style={{
@@ -737,7 +736,7 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
 
           {/* "Open in Maps" overlay button — top-left, matching reference */}
           <a
-            href="https://maps.google.com/maps?q=Civil+Lines,+Jalandhar,+Punjab+144001&z=15"
+            href="https://maps.google.com/maps?q=Building+No.+199,+Pocket+20,+Rohini+Sector+24,+New+Delhi-110085,+India&z=15"
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -816,7 +815,7 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
               color: '#2d2d2d',
               fontFamily: 'Inter, sans-serif',
             }}>
-              Abhay Towers, Civil Lines, Jalandhar
+              Building No. 199, Pocket 20, Rohini Sector 24, New Delhi- 110085, India
             </span>
           </div>
         </div>
