@@ -16,7 +16,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         {/* Background — pastel sunset water with lotus scene */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{
+        +-   style={{
             backgroundImage: "url('https://images.unsplash.com/photo-1774514195786-7c835b2107ce?w=1600&h=900&fit=crop&auto=format&q=85')",
             backgroundPosition: "center right",
           }}

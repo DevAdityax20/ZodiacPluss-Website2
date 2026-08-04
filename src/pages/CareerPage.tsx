@@ -7,6 +7,7 @@ const TEAL_D = '#065350'
 const NAVY   = '#1a1060'
 const DARK   = '#071e19'
 const ACCENT = '#3ecfb3'
+const MAGENTA = '#d81b86'
 
 /* ── Job data from pamphlet ────────────────────────────────────── */
 const jobs = [
