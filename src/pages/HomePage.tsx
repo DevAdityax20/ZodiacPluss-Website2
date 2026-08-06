@@ -3,6 +3,7 @@ import AboutSection from '@/components/AboutSection'
 import AppShowcaseSection from '@/components/AppShowcaseSection'
 import ZodiacMissionSection from '@/components/ZodiacMissionSection'
 import TestimonialsSection from '@/components/TestimonialsSection'
+import HomeAboutTeamSection from '@/components/HomeAboutTeamSection'
 
 interface HomePageProps {
   onNavigate: (page: string) => void
@@ -19,6 +20,7 @@ export default function HomePage({ onNavigate, dark }: HomePageProps) {
       <div className="pb-6" style={{ background: dark ? '#120e22' : '#f8f6ff' }}>
         <TestimonialsSection />
       </div>
+      <HomeAboutTeamSection onNavigate={onNavigate} dark={dark} />
     </>
   )
 }

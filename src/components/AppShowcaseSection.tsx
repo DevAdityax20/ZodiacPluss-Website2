@@ -554,7 +554,7 @@ export default function AppShowcaseSection() {
             </p>
 
             {/* Feature grid */}
-            <div className="grid grid-cols-2 gap-4" style={{ marginBottom: 40 }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4" style={{ marginBottom: 40 }}>
               {features.map((f, i) => (
                 <div key={i} style={{
                   display: 'flex', alignItems: 'flex-start', gap: 11,

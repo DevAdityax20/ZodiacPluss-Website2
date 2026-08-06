@@ -498,14 +498,31 @@ export default function CareerPage({ onNavigate }: CareerPageProps) {
       {/* ─── HERO ─────────────────────────────────────────────── */}
       <section
         style={{
-          background: `linear-gradient(135deg, ${DARK} 0%, #0c2d26 40%, #0a3830 100%)`,
+          background: 'transparent',
           position: 'relative', overflow: 'hidden',
           padding: 'clamp(64px,9vw,104px) 24px clamp(56px,8vw,88px)',
         }}
       >
+        {/* Background video */}
+        <video
+          src="https://res.cloudinary.com/pp0lpskp/video/upload/v1786012790/43832-437611758_medium_owaqen.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
+        />
+
+        {/* Semi-opaque gradient overlay to preserve original look */}
+        <div style={{
+          position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0,
+          background: 'linear-gradient(135deg, rgba(7,30,25,0.65) 0%, rgba(12,45,38,0.55) 40%, rgba(10,56,48,0.6) 100%)'
+        }} />
+
         {/* Radial glow */}
         <div style={{
-          position: 'absolute', inset: 0, pointerEvents: 'none',
+          position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0,
           background: 'radial-gradient(ellipse 70% 80% at 80% 50%, rgba(61,214,172,0.09) 0%, transparent 60%)',
         }} />
 

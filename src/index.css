@@ -252,9 +252,19 @@ body {
   color: #8b80aa !important;
 }
 
+/* ── Footer email input placeholder ─────────────────────────────── */
+.footer-email-input::placeholder {
+  color: rgba(255, 255, 255, 0.72);
+  opacity: 1;
+}
+
+.footer-email-input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.72);
+}
+
 /* ── Footer outer wrapper ──────────────────────────────────────── */
-.dark footer[style*="background: white"] {
-  background: #0e0a1a !important;
+.dark .footer-shell {
+  background: transparent !important;
 }
 
 /* ── AboutBand white sections in ZodiacMissionSection ───────────── */

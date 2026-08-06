@@ -10,43 +10,25 @@ const services = [
     id: "01",
     title: "Personalized Horoscope",
     desc: "Get insights written just for you",
-    bg: "https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=400&h=600&fit=crop&auto=format&q=80",
+    bg: "https://res.cloudinary.com/pp0lpskp/image/upload/v1786017276/card-2_uf00jk.jpg",
   },
   {
     id: "02",
     title: "Live Sessions with Experts",
     desc: "Talk to top astrologers and therapists in real time",
-    bg: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=400&h=600&fit=crop&auto=format&q=80",
+    bg: "https://res.cloudinary.com/pp0lpskp/image/upload/v1786017357/card-11_osbl2y.jpg",
   },
   {
     id: "03",
     title: "AI-Powered Astro Insights",
     desc: "Smart technology meets astrology to reveal what matters most.",
-    bg: "https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4f5?w=400&h=600&fit=crop&auto=format&q=80",
+    bg: "https://res.cloudinary.com/pp0lpskp/image/upload/v1786017278/card-4_pseunb.jpg",
   },
   {
     id: "04",
     title: "Therapy That Helps",
     desc: "Compassionate therapists for mental clarity and healing",
-    bg: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=400&h=600&fit=crop&auto=format&q=80",
-  },
-  {
-    id: "05",
-    title: "Tarot Card of the Day",
-    desc: "Draw a tarot card for daily guidance",
-    bg: "https://images.unsplash.com/photo-1627656349459-58c83faa6bdf?w=400&h=600&fit=crop&auto=format&q=80",
-  },
-  {
-    id: "06",
-    title: "Daily Horoscope",
-    desc: "Start each day with cosmic guidance",
-    bg: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=600&fit=crop&auto=format&q=80",
-  },
-  {
-    id: "07",
-    title: "Community Support",
-    desc: "Connect with like-minded seekers",
-    bg: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=600&fit=crop&auto=format&q=80",
+    bg: "https://res.cloudinary.com/pp0lpskp/image/upload/v1786017276/card-3_x8jb85.jpg",
   },
 ]
 
@@ -144,7 +126,7 @@ export default function AboutSection({ onNavigate, dark = false }: AboutSectionP
             </p>
 
             {/* Feature badges */}
-            <div className="grid grid-cols-2 gap-4 mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {features.map((f) => (
                 <div key={f.label} className="flex items-start gap-3">
                   <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: dark ? 'rgba(139,92,246,0.12)' : '#faf5ff', border: dark ? '1px solid rgba(139,92,246,0.25)' : '1px solid #ede9fe', color: '#5b2d8e' }}>
@@ -159,7 +141,7 @@ export default function AboutSection({ onNavigate, dark = false }: AboutSectionP
             </div>
 
             {/* Buttons */}
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               <button
                 onClick={() => onNavigate("Services")}
                 className="flex items-center gap-2 text-white text-sm font-semibold px-6 py-3 rounded-full transition-all duration-200 shadow-md"

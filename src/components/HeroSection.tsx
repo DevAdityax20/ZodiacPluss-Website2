@@ -1,5 +1,3 @@
-import heroVideo from '@/imports/watermark-removed-generate_a_video_of_this_image.mp4'
-
 interface HeroSectionProps {
   onNavigate: (page: string) => void
 }
@@ -15,14 +13,15 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           borderRadius: "20px",
         }}
       >
-        {/* Background Video */}
+        {/* Background video */}
         <video
+          className="absolute inset-0 h-full w-full object-cover"
+          src="https://res.cloudinary.com/pp0lpskp/video/upload/v1786020353/herocalmnew_m4wklf.mp4"
           autoPlay
-          loop
           muted
+          loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover object-right"
-          src={heroVideo}
+          preload="auto"
         />
 
         {/* Fallback gradient if image doesn't load */}
@@ -64,11 +63,12 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
 
         {/* Text content — left side */}
         <div
-          className="absolute inset-0 flex flex-col justify-center"
+          className="absolute inset-0 flex flex-col justify-center z-10"
           style={{
-            paddingLeft: "clamp(40px, 8vw, 120px)",
-            paddingRight: "clamp(20px, 4vw, 60px)",
-            paddingTop: "clamp(40px, 5vw, 80px)",
+            paddingLeft: "clamp(20px, 6vw, 120px)",
+            paddingRight: "clamp(16px, 4vw, 60px)",
+            paddingTop: "clamp(20px, 4vw, 80px)",
+            paddingBottom: "clamp(80px, 10vw, 100px)",
           }}
         >
           {/* Main heading */}
@@ -76,16 +76,16 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             style={{
               fontFamily: "'Playfair Display', serif",
               fontWeight: 700,
-              lineHeight: 1.05,
+              lineHeight: 1.08,
               marginBottom: "6px",
             }}
           >
             <span
               style={{
                 display: "block",
-                fontSize: "clamp(44px, 6vw, 82px)",
+                fontSize: "clamp(32px, 5.5vw, 82px)",
                 color: "#1a0e40",
-                letterSpacing: "-1.5px",
+                letterSpacing: "-1px",
               }}
             >
               Nurture Your
@@ -93,9 +93,9 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             <span
               style={{
                 display: "block",
-                fontSize: "clamp(44px, 6vw, 82px)",
+                fontSize: "clamp(32px, 5.5vw, 82px)",
                 color: "#c2185b",
-                letterSpacing: "-1.5px",
+                letterSpacing: "-1px",
               }}
             >
               Mind &amp; Future.
@@ -107,10 +107,10 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             style={{
               fontFamily: "'Playfair Display', serif",
               fontWeight: 600,
-              fontSize: "clamp(22px, 3vw, 38px)",
+              fontSize: "clamp(18px, 2.5vw, 38px)",
               color: "#1a0e40",
-              marginTop: "12px",
-              marginBottom: "28px",
+              marginTop: "10px",
+              marginBottom: "20px",
               letterSpacing: "-0.5px",
             }}
           >
@@ -121,13 +121,13 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <div
               style={{
-                width: "clamp(60px, 10vw, 120px)",
+                width: "clamp(40px, 8vw, 120px)",
                 height: "1.5px",
                 background: "linear-gradient(to right, transparent, #d4609a)",
               }}
             />
             {/* Lotus icon */}
-            <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+            <svg width="24" height="24" viewBox="0 0 40 40" fill="none" className="sm:w-7 sm:h-7">
               {/* Center petal */}
               <path d="M20 8 C20 8, 26 14, 26 21 C26 28, 20 32, 20 32 C20 32, 14 28, 14 21 C14 14, 20 8, 20 8Z" fill="#d4609a" opacity="0.7"/>
               {/* Left petal */}
@@ -139,7 +139,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             </svg>
             <div
               style={{
-                width: "clamp(60px, 10vw, 120px)",
+                width: "clamp(40px, 8vw, 120px)",
                 height: "1.5px",
                 background: "linear-gradient(to left, transparent, #d4609a)",
               }}
@@ -149,11 +149,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
 
         {/* Bottom-right action buttons */}
         <div
-          className="absolute flex gap-4"
-          style={{
-            bottom: "clamp(20px, 3vw, 36px)",
-            right: "clamp(20px, 3vw, 40px)",
-          }}
+          className="absolute flex flex-wrap sm:flex-nowrap gap-2 sm:gap-4 z-20 bottom-4 sm:bottom-8 right-4 sm:right-10 max-w-[calc(100%-2rem)] justify-end"
         >
           <button
             onClick={() => onNavigate("Services")}
@@ -166,9 +162,9 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
               WebkitBackdropFilter: "blur(12px)",
               border: "1px solid rgba(255,255,255,0.3)",
               color: "white",
-              fontSize: "14px",
+              fontSize: "13px",
               fontWeight: 500,
-              padding: "12px 24px",
+              padding: "10px 18px",
               borderRadius: "100px",
               cursor: "pointer",
               transition: "all 0.25s ease",
@@ -177,7 +173,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             }}
           >
             Explore Services
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </button>
@@ -192,9 +188,9 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
               WebkitBackdropFilter: "blur(12px)",
               border: "1px solid rgba(255,255,255,0.3)",
               color: "white",
-              fontSize: "14px",
+              fontSize: "13px",
               fontWeight: 500,
-              padding: "12px 24px",
+              padding: "10px 18px",
               borderRadius: "100px",
               cursor: "pointer",
               transition: "all 0.25s ease",
@@ -203,7 +199,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             }}
           >
             Visit Portfolio
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
               <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
             </svg>
