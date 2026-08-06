@@ -89,12 +89,12 @@ function TestimonialCard({ name, quote }: { name: string; quote: string }) {
 
       {/* Name */}
       <p
-        className="absolute leading-normal text-black text-center"
+        className="absolute leading-tight text-black text-center"
         style={{
-          top: '13.41%', right: '65.43%', bottom: '65.85%', left: '7.02%',
+          top: '12%', right: '60%', bottom: '65%', left: '7.02%',
           fontFamily: "'Sora', sans-serif",
           fontWeight: 400,
-          fontSize: '25px',
+          fontSize: 'clamp(15px, 3vw, 24px)',
           wordBreak: 'break-word',
           overflow: 'hidden',
         }}
@@ -104,12 +104,12 @@ function TestimonialCard({ name, quote }: { name: string; quote: string }) {
 
       {/* Quote */}
       <p
-        className="absolute leading-normal text-center"
+        className="absolute leading-snug text-center"
         style={{
-          top: '55.93%', right: '10.01%', bottom: '15.25%', left: '12.78%',
+          top: '52%', right: '8%', bottom: '12%', left: '10%',
           fontFamily: "'Sora', sans-serif",
           fontWeight: 600,
-          fontSize: '18px',
+          fontSize: 'clamp(12px, 2.4vw, 17px)',
           color: '#065350',
           wordBreak: 'break-word',
           whiteSpace: 'pre-wrap',

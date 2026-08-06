@@ -61,50 +61,63 @@ const navItems = [
 ]
 
 export default function MobileBottomNav({ currentPage, onNavigate, dark = false }: MobileBottomNavProps) {
+  // Page matching helper so tabs settle accurately even for sub-pages like About Us or Career
+  const getIsActive = (itemId: string) => {
+    if (currentPage === itemId) return true
+    if (itemId === 'Home' && (currentPage === 'Home' || currentPage === 'About Us')) return true
+    if (itemId === 'Services' && currentPage === 'Services') return true
+    if (itemId === 'Book' && currentPage === 'Book') return true
+    if (itemId === 'Experts' && currentPage === 'Experts') return true
+    if (itemId === 'Resources' && (currentPage === 'Resources' || currentPage === 'Career')) return true
+    return false
+  }
+
   return (
     <div
-      className="md:hidden fixed bottom-0 left-0 right-0 z-50 px-3 py-2 transition-all duration-300"
+      className="md:hidden fixed bottom-3 left-3 right-3 z-50 max-w-md mx-auto transition-all duration-300"
       style={{
         background: dark
-          ? 'rgba(18, 10, 40, 0.88)'
-          : 'rgba(255, 255, 255, 0.82)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        borderTop: dark
-          ? '1px solid rgba(139, 92, 246, 0.25)'
-          : '1px solid rgba(255, 255, 255, 0.65)',
+          ? 'rgba(18, 10, 34, 0.78)'
+          : 'rgba(255, 255, 255, 0.75)',
+        backdropFilter: 'blur(24px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+        borderRadius: '999px',
+        border: dark
+          ? '1px solid rgba(139, 92, 246, 0.3)'
+          : '1px solid rgba(255, 255, 255, 0.85)',
         boxShadow: dark
-          ? '0 -6px 25px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(139, 92, 246, 0.2)'
-          : '0 -6px 25px rgba(90, 45, 142, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
-        paddingBottom: 'calc(0.5rem + env(safe-area-inset-bottom, 0px))',
+          ? '0 12px 36px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+          : '0 12px 36px rgba(31, 15, 61, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.95)',
+        padding: '6px 8px',
       }}
     >
-      <div className="flex items-center justify-around max-w-md mx-auto">
+      <div className="flex items-center justify-around relative">
         {navItems.map((item) => {
-          const isActive = currentPage === item.id || (item.id === 'Book' && currentPage === 'Book')
+          const isActive = getIsActive(item.id)
 
           if (item.isPrimary) {
             return (
               <button
                 key={item.id}
                 onClick={() => onNavigate(item.id)}
-                className="flex flex-col items-center justify-center relative -top-3 group"
+                className="flex flex-col items-center justify-center relative -top-4 group cursor-pointer border-0 bg-transparent p-0"
               >
                 <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg transition-transform duration-200 active:scale-95 group-hover:scale-105"
+                  className="w-13 h-13 rounded-full flex items-center justify-center text-white shadow-xl transition-all duration-300 active:scale-90 group-hover:scale-105"
                   style={{
                     background: 'linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #d81b86 100%)',
-                    boxShadow: '0 4px 15px rgba(20, 184, 166, 0.4)',
+                    boxShadow: '0 6px 20px rgba(20, 184, 166, 0.45)',
+                    border: '3px solid ' + (dark ? '#0e0a1a' : '#ffffff'),
                   }}
                 >
                   {item.icon()}
                 </div>
                 <span
-                  className="text-[10px] font-semibold mt-0.5 tracking-tight"
+                  className="text-[10px] font-bold mt-0.5 tracking-tight transition-colors duration-200"
                   style={{
                     color: isActive
                       ? (dark ? '#2dd4bf' : '#0d9488')
-                      : (dark ? 'rgba(220,210,255,0.7)' : '#6b5b8f'),
+                      : (dark ? 'rgba(220,210,255,0.75)' : '#6b5b8f'),
                   }}
                 >
                   {item.label}
@@ -117,31 +130,21 @@ export default function MobileBottomNav({ currentPage, onNavigate, dark = false 
             <button
               key={item.id}
               onClick={() => onNavigate(item.id)}
-              className="flex flex-col items-center justify-center py-1 px-2 rounded-xl transition-all duration-200 active:scale-95"
+              className="flex flex-col items-center justify-center py-1.5 px-3 rounded-full transition-all duration-300 active:scale-90 cursor-pointer border-0 bg-transparent relative"
               style={{
                 color: isActive
                   ? (dark ? '#2dd4bf' : '#d81b86')
-                  : (dark ? 'rgba(220, 210, 255, 0.65)' : '#7b6a9f'),
+                  : (dark ? 'rgba(220, 210, 255, 0.65)' : '#6b5b8f'),
+                background: isActive
+                  ? (dark ? 'rgba(45, 212, 191, 0.12)' : 'rgba(216, 27, 134, 0.08)')
+                  : 'transparent',
               }}
             >
-              <div
-                className="relative transition-colors duration-200"
-                style={{
-                  color: isActive
-                    ? (dark ? '#2dd4bf' : '#d81b86')
-                    : 'currentColor',
-                }}
-              >
+              <div className="relative transition-transform duration-200">
                 {item.icon(isActive)}
-                {isActive && (
-                  <span
-                    className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full"
-                    style={{ background: dark ? '#2dd4bf' : '#d81b86' }}
-                  />
-                )}
               </div>
               <span
-                className="text-[10px] mt-1 font-medium tracking-tight"
+                className="text-[10px] mt-0.5 tracking-tight transition-all duration-200"
                 style={{
                   fontWeight: isActive ? 700 : 500,
                 }}

@@ -45,7 +45,8 @@ const values = [
     iconColor: '#6fbf3a',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="M12 22V12M12 12C12 12 8 8 5 8c-1.5 0-3 .5-3 2s1.5 2 3 2c2 0 4-2 7-4M12 12c0 0 4-4 7-4 1.5 0 3 .5 3 2s-1.5 2-3 2c-3 0-5-2-7-4" />
+        <path d="M12 12V8c0-2 1-4 3-4s3 2 3 4" />
       </svg>
     ),
   },
@@ -56,8 +57,7 @@ const values = [
     iconColor: '#82c91e',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M12 22V12M12 12C12 12 8 8 5 8c-1.5 0-3 .5-3 2s1.5 2 3 2c2 0 4-2 7-4M12 12c0 0 4-4 7-4 1.5 0 3 .5 3 2s-1.5 2-3 2c-3 0-5-2-7-4" />
-        <path d="M12 12V8c0-2 1-4 3-4s3 2 3 4" />
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
       </svg>
     ),
   },
@@ -67,7 +67,7 @@ const team = [
   {
     name: 'Arjun Patel',
     role: 'Co-founder & CTO',
-    img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop&auto=format&q=80',
+    img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&h=800&fit=crop&auto=format&q=80',
     badge: (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
         <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
@@ -78,7 +78,7 @@ const team = [
   {
     name: 'Sneha Reddy',
     role: 'Head of Product',
-    img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&h=200&fit=crop&auto=format&q=80',
+    img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop&auto=format&q=80',
     badge: (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
         <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
@@ -89,7 +89,7 @@ const team = [
   {
     name: 'Vikram Singh',
     role: 'Lead Astrologer',
-    img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop&auto=format&q=80',
+    img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=800&fit=crop&auto=format&q=80',
     badge: (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
         <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
@@ -100,7 +100,7 @@ const team = [
   {
     name: 'Dr. Meera Nair',
     role: 'Clinical Psychologist',
-    img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&h=200&fit=crop&auto=format&q=80',
+    img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=800&fit=crop&auto=format&q=80',
     badge: (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
@@ -111,7 +111,7 @@ const team = [
   {
     name: 'Rohan Desai',
     role: 'Lead Developer',
-    img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&auto=format&q=80',
+    img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop&auto=format&q=80',
     badge: (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
         <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
@@ -122,7 +122,7 @@ const team = [
   {
     name: 'Ananya Kapoor',
     role: 'UX/UI Designer',
-    img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&auto=format&q=80',
+    img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&h=800&fit=crop&auto=format&q=80',
     badge: (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
         <circle cx="12" cy="12" r="3" /><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
@@ -133,7 +133,7 @@ const team = [
   {
     name: 'Karan Malhotra',
     role: 'Marketing Lead',
-    img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&auto=format&q=80',
+    img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=800&fit=crop&auto=format&q=80',
     badge: (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
         <path d="M3 11l18-5v12L3 14v-3z" /><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
@@ -144,35 +144,13 @@ const team = [
   {
     name: 'Divya Iyer',
     role: 'Content & Community',
-    img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&auto=format&q=80',
+    img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=800&fit=crop&auto=format&q=80',
     badge: (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
       </svg>
     ),
     badgeBg: '#14b8a6',
-  },
-  {
-    name: 'Amit Sharma',
-    role: 'DevOps Engineer',
-    img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&auto=format&q=80',
-    badge: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-        <rect x="2" y="2" width="20" height="8" rx="2" /><rect x="2" y="14" width="20" height="8" rx="2" /><line x1="6" y1="6" x2="6.01" y2="6" /><line x1="6" y1="18" x2="6.01" y2="18" />
-      </svg>
-    ),
-    badgeBg: '#6366f1',
-  },
-  {
-    name: 'Priya Thomas',
-    role: 'Customer Success',
-    img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&auto=format&q=80',
-    badge: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-      </svg>
-    ),
-    badgeBg: '#ec4899',
   },
 ]
 
@@ -432,80 +410,94 @@ export default function HomeAboutTeamSection({ onNavigate, dark }: HomeAboutTeam
       </div>
 
       {/* ── Meet Our Team ─────────────────────────────────────────── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-        {/* Section header */}
-        <div className="text-center mb-10 sm:mb-14">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="#82c91e">
-              <path d="M12 2L13.5 8.5L20 7L15.5 12L20 17L13.5 15.5L12 22L10.5 15.5L4 17L8.5 12L4 7L10.5 8.5L12 2Z" />
-            </svg>
-            <span className="text-[11px] font-bold tracking-[0.2em] uppercase" style={{ color: '#82c91e' }}>
-              MEET OUR TEAM
-            </span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="#82c91e">
-              <path d="M12 2L13.5 8.5L20 7L15.5 12L20 17L13.5 15.5L12 22L10.5 15.5L4 17L8.5 12L4 7L10.5 8.5L12 2Z" />
-            </svg>
-          </div>
-
-          <h2
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4"
-            style={{ color: headingColor }}
-          >
-            The Minds Behind{' '}
-            <span style={GRADIENT_TEXT}>ZodiacPluss</span>
-          </h2>
-          <p className="text-sm sm:text-base max-w-xl mx-auto leading-relaxed" style={{ color: bodyColor }}>
-            A passionate team of astrologers, therapists, engineers, and creators united by one
-            purpose — guiding you toward clarity and healing.
-          </p>
-        </div>
-
-        {/* Team grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-5">
-          {team.map((member) => (
-            <div
-              key={member.name}
-              className="group flex flex-col items-center rounded-2xl p-3 sm:p-5 transition-all duration-300 hover:shadow-lg"
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* Left Column: Heading, Subtitle & CTA */}
+          <div className="lg:col-span-4 lg:sticky lg:top-28">
+            <span
+              className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase px-3.5 py-1 rounded-full mb-4"
               style={{
-                background: cardBg,
-                border: dark ? '1px solid rgba(255,255,255,0.06)' : '1px solid #f1f5f9',
-                boxShadow: dark ? 'none' : '0 2px 12px rgba(0,0,0,0.04)',
+                color: '#14b8a6',
+                background: dark ? 'rgba(20,184,166,0.12)' : 'rgba(20,184,166,0.1)',
+                border: '1px solid rgba(20,184,166,0.25)',
               }}
             >
-              {/* Avatar with badge */}
-              <div className="relative mb-3 sm:mb-4">
+              OUR TEAM
+            </span>
+
+            <h2
+              className="text-3xl sm:text-4xl lg:text-[2.5rem] font-extrabold leading-[1.12] mb-5 tracking-tight"
+              style={{ color: headingColor, fontFamily: "'Inter', sans-serif" }}
+            >
+              Meet the Guides Behind the{' '}
+              <span style={GRADIENT_TEXT}>Magic</span>
+            </h2>
+
+            <p
+              className="text-sm sm:text-base leading-relaxed mb-8 max-w-md"
+              style={{ color: bodyColor }}
+            >
+              Not just experts — astrologers, therapists, storytellers, and digital innovators. A crew of 30+ specialists across India and abroad, all obsessed with your holistic well-being.
+            </p>
+
+            <button
+              onClick={() => onNavigate?.('Career')}
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 cursor-pointer shadow-sm group hover:scale-[1.03]"
+              style={{
+                color: headingColor,
+                border: dark ? '1.5px solid rgba(255,255,255,0.25)' : '1.5px solid #1a1a2e',
+                background: 'transparent',
+              }}
+            >
+              <span
+                className="w-5 h-5 rounded-full border flex items-center justify-center transition-colors group-hover:bg-[#14b8a6] group-hover:border-[#14b8a6]"
+                style={{ borderColor: headingColor }}
+              >
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                  <circle cx="12" cy="12" r="3" fill="currentColor" />
+                </svg>
+              </span>
+              JOIN OUR CREW
+            </button>
+          </div>
+
+          {/* Right Column: Editorial Portrait Cards Grid */}
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+            {team.map((member) => (
+              <div
+                key={member.name}
+                className="group relative rounded-2xl sm:rounded-[24px] overflow-hidden aspect-[3/4] shadow-md transition-all duration-500 hover:shadow-2xl hover:-translate-y-1.5 cursor-pointer border border-black/5"
+              >
+                {/* Portrait Photo */}
+                <img
+                  src={member.img}
+                  alt={member.name}
+                  className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
+                />
+
+                {/* Dark Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
+
+                {/* Top Badge Icon */}
                 <div
-                  className="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] rounded-full overflow-hidden"
-                  style={{ border: '3px solid #f1f5f9' }}
-                >
-                  <img
-                    src={member.img}
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div
-                  className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full flex items-center justify-center shadow-sm"
-                  style={{ background: member.badgeBg }}
+                  className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md bg-black/30 border border-white/20 text-white shadow-sm"
+                  style={{ background: member.badgeBg ? `${member.badgeBg}aa` : undefined }}
                 >
                   {member.badge}
                 </div>
-              </div>
 
-              <h3
-                className="text-xs sm:text-sm font-bold text-center mb-0.5 leading-tight"
-                style={{ color: headingColor }}
-              >
-                {member.name}
-              </h3>
-              <p className="text-[10px] sm:text-xs text-center mb-3 leading-snug" style={{ color: bodyColor }}>
-                {member.role}
-              </p>
-              <div className="mt-auto">
-                <LinkedInIcon />
+                {/* Bottom Left Member Info Overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-5 z-10 flex flex-col justify-end">
+                  <h3 className="text-base sm:text-lg font-bold text-white leading-tight tracking-wide drop-shadow-sm group-hover:text-[#2dd4bf] transition-colors">
+                    {member.name}
+                  </h3>
+                  <p className="text-[10.5px] sm:text-[11px] font-semibold text-white/80 uppercase tracking-widest mt-1">
+                    {member.role}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 

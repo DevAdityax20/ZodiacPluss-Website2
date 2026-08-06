@@ -12,7 +12,7 @@ interface HomePageProps {
 
 export default function HomePage({ onNavigate, dark }: HomePageProps) {
   return (
-    <>
+    <div className="w-full overflow-hidden pb-16 md:pb-0 transition-colors duration-300">
       <HeroSection onNavigate={onNavigate} />
       <AboutSection onNavigate={onNavigate} dark={dark} />
       <AppShowcaseSection />
@@ -21,6 +21,6 @@ export default function HomePage({ onNavigate, dark }: HomePageProps) {
         <TestimonialsSection />
       </div>
       <HomeAboutTeamSection onNavigate={onNavigate} dark={dark} />
-    </>
+    </div>
   )
 }
