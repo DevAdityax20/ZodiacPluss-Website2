@@ -645,17 +645,30 @@ export default function AppShowcaseSection() {
               Everything you need for guidance, growth and well‑being.
             </p>
 
-            {/* App showcase image – displayed exactly as provided */}
-            <img
-              src={appShowcaseImg}
-              alt="ZodiacPluss app screens – home, astrologer profile, and sessions"
+            {/* App showcase demo video */}
+            <div
+              className="w-full relative rounded-3xl overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.01]"
               style={{
-                width: '100%',
-                height: 'auto',
-                display: 'block',
-                objectFit: 'contain',
+                border: '1px solid rgba(20, 184, 166, 0.2)',
+                background: '#ffffff',
               }}
-            />
+            >
+              <video
+                src="https://res.cloudinary.com/pp0lpskp/video/upload/v1786110825/i_need_this_video_in_white_bac_h7d3bv.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  maxHeight: 640,
+                  display: 'block',
+                  objectFit: 'contain',
+                }}
+              />
+            </div>
           </div>
 
         </div>

@@ -12,7 +12,7 @@ const GRADIENT_TEXT: React.CSSProperties = {
 }
 
 const FOUNDER_IMG =
-  'https://res.cloudinary.com/pp0lpskp/image/upload/v1786016135/rashmi_ji_new_ecec6e.jpg'
+  'https://res.cloudinary.com/pp0lpskp/image/upload/v1786110800/Gemini_Generated_Image_ewlcdkewlcdkewlc_z5v0bp.png'
 
 const values = [
   {
@@ -362,24 +362,24 @@ export default function HomeAboutTeamSection({ onNavigate, dark }: HomeAboutTeam
 
             {/* Founder portrait */}
             <div
-              className="relative sm:absolute sm:bottom-0 sm:right-0 w-full sm:w-[46%] h-[240px] sm:h-[92%] order-1 sm:order-none shrink-0"
-              style={{ borderRadius: '0 0 0 0', overflow: 'hidden' }}
+              className="relative sm:absolute sm:top-0 sm:bottom-0 sm:right-0 w-full sm:w-[48%] h-[300px] sm:h-full order-1 sm:order-none shrink-0"
+              style={{ overflow: 'hidden' }}
             >
               <img
                 src={FOUNDER_IMG}
-                alt="Misses Rahmi, Founder of ZodiacPluss"
-                className="w-full h-full object-cover object-top sm:object-[center_15%]"
+                alt="Mrs. Rashmi, Founder & CEO of ZodiacPluss"
+                className="w-full h-full object-cover object-top sm:object-[center_15%] transition-transform duration-500 hover:scale-105"
               />
               <div
                 className="absolute inset-0 pointer-events-none hidden sm:block"
                 style={{
-                  background: `linear-gradient(to right, ${founderCardBg} 0%, transparent 40%)`,
+                  background: `linear-gradient(to right, ${founderCardBg} 0%, rgba(238,247,252,0.4) 30%, transparent 65%)`,
                 }}
               />
               <div
                 className="absolute inset-0 pointer-events-none sm:hidden"
                 style={{
-                  background: `linear-gradient(to top, ${founderCardBg} 0%, transparent 50%)`,
+                  background: `linear-gradient(to top, ${founderCardBg} 0%, rgba(238,247,252,0.2) 35%, transparent 70%)`,
                 }}
               />
             </div>

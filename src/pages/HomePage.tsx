@@ -1,5 +1,6 @@
 import HeroSection from '@/components/HeroSection'
 import AboutSection from '@/components/AboutSection'
+import CredentialsSection from '@/components/CredentialsSection'
 import AppShowcaseSection from '@/components/AppShowcaseSection'
 import ZodiacMissionSection from '@/components/ZodiacMissionSection'
 import TestimonialsSection from '@/components/TestimonialsSection'
@@ -15,6 +16,7 @@ export default function HomePage({ onNavigate, dark }: HomePageProps) {
     <div className="w-full overflow-hidden pb-16 md:pb-0 transition-colors duration-300">
       <HeroSection onNavigate={onNavigate} />
       <AboutSection onNavigate={onNavigate} dark={dark} />
+      <CredentialsSection dark={dark} />
       <AppShowcaseSection />
       <ZodiacMissionSection onNavigate={onNavigate} />
       <div className="pb-6" style={{ background: dark ? '#120e22' : '#f8f6ff' }}>

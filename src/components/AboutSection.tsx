@@ -172,7 +172,10 @@ export default function AboutSection({ onNavigate, dark = false }: AboutSectionP
             onMouseLeave={() => setPaused(false)}
           >
             {/* Carousel viewport */}
-            <div className="relative overflow-hidden rounded-2xl" style={{ height: 340 }}>
+            <div
+              className="relative overflow-hidden rounded-2xl shadow-xl w-full"
+              style={{ height: "clamp(240px, 32vw, 420px)" }}
+            >
               {/* Sliding track */}
               <div
                 className="flex h-full"
@@ -185,52 +188,36 @@ export default function AboutSection({ onNavigate, dark = false }: AboutSectionP
                 {services.map((svc, i) => (
                   <div
                     key={svc.id}
-                    className="h-full flex-shrink-0 px-2"
+                    className="h-full flex-shrink-0 px-1"
                     style={{ width: `${100 / total}%` }}
                   >
-                    <div className="w-full h-full rounded-2xl overflow-hidden relative group cursor-pointer">
-                      {/* Background image */}
+                    <div className="w-full h-full rounded-2xl overflow-hidden relative group cursor-pointer border border-white/20">
+                      {/* Background image - edge-to-edge fit with zero black borders */}
                       <div
-                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"
                         style={{ backgroundImage: `url('${svc.bg}')` }}
                       />
-                      {/* Gradient overlay */}
+                      {/* Gentle ambient gradient for card depth */}
                       <div
-                        className="absolute inset-0 transition-opacity duration-500"
+                        className="absolute inset-0 transition-opacity duration-500 pointer-events-none"
                         style={{
                           background: i === activeIndex
-                            ? "linear-gradient(160deg, rgba(10,30,60,0.45) 0%, rgba(5,15,35,0.8) 100%)"
-                            : "linear-gradient(160deg, rgba(5,15,35,0.6) 0%, rgba(5,10,25,0.88) 100%)",
+                            ? "linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.25) 100%)"
+                            : "linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%)",
                         }}
                       />
-                      {/* Content */}
-                      <div className="relative z-10 p-5 sm:p-6 h-full flex flex-col justify-between">
-                        <div className="flex items-center justify-between">
-                          <span className="text-xs font-mono text-white/40 font-semibold">{svc.id}</span>
-                          {i === activeIndex && (
-                            <div className="w-10 h-10 rounded-full bg-teal-400/20 border border-teal-400/40 flex items-center justify-center">
-                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" strokeWidth="1.5">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
-                              </svg>
-                            </div>
-                          )}
-                        </div>
-                        <div>
-                          <h3 className="text-white font-bold text-lg sm:text-xl leading-snug mb-2">
-                            {svc.title}
-                          </h3>
-                          <p className="text-white/60 text-sm leading-relaxed mb-4 max-w-xs">
-                            {svc.desc}
-                          </p>
-                          {i === activeIndex && (
-                            <button className="w-9 h-9 rounded-full bg-teal-500 flex items-center justify-center hover:bg-teal-400 transition-colors shadow-lg shadow-teal-500/30">
-                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
-                              </svg>
-                            </button>
-                          )}
-                        </div>
+                      {/* Minimalist index indicator */}
+                      <div className="relative z-10 p-4 sm:p-5 flex items-center justify-between pointer-events-none">
+                        <span className="text-xs font-mono text-white/70 font-bold px-2 py-0.5 rounded bg-black/30 backdrop-blur-sm">
+                          {svc.id}
+                        </span>
+                        {i === activeIndex && (
+                          <div className="w-8 h-8 rounded-full bg-teal-500/90 text-white flex items-center justify-center shadow-md">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                              <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -240,7 +227,8 @@ export default function AboutSection({ onNavigate, dark = false }: AboutSectionP
               {/* Nav arrows */}
               <button
                 onClick={goPrev}
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/25 transition-all z-20"
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/40 backdrop-blur-md border border-white/30 flex items-center justify-center text-white hover:bg-black/60 transition-all z-20 shadow-lg cursor-pointer"
+                aria-label="Previous slide"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M15 18l-6-6 6-6"/>
@@ -248,7 +236,8 @@ export default function AboutSection({ onNavigate, dark = false }: AboutSectionP
               </button>
               <button
                 onClick={goNext}
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/25 transition-all z-20"
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/40 backdrop-blur-md border border-white/30 flex items-center justify-center text-white hover:bg-black/60 transition-all z-20 shadow-lg cursor-pointer"
+                aria-label="Next slide"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M9 18l6-6-6-6"/>
