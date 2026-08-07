@@ -31,7 +31,7 @@ export default function Navbar({ currentPage, onNavigate, overlay = false, dark 
           <img
             src="https://res.cloudinary.com/pp0lpskp/image/upload/v1786032742/Zodiac_Colored_Logo_croped-removebg-preview_appzet.png"
             alt="ZodiacPluss Logo"
-            className="w-11 h-11 object-contain flex-shrink-0"
+            className="w-18 h-18 object-contain flex-shrink-0"
           />
           <div className="leading-tight">
             <div className="flex items-center gap-0.2">
