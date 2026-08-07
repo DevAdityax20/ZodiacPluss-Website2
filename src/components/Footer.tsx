@@ -13,17 +13,17 @@ const TEAL_TEXT = '#0d4f4a'
 const DIVIDER = 'rgba(255, 255, 255, 0.28)'
 
 const navLinks = [
-  { label: 'Home', page: 'Home', arrow: true },
-  { label: 'Services', page: 'Services', arrow: false },
-  { label: 'About', page: 'About', arrow: false },
-  { label: 'Contact', page: 'Contact', arrow: false },
-  { label: 'Blog', page: 'Blog', arrow: false },
+  { label: 'Home', page: 'Home'},
+  { label: 'Services', page: 'Services'},
+  { label: 'About', page: 'About'},
+  { label: 'Contact', page: 'Contact'},
+  { label: 'Blog', page: 'Blog' },
 ]
 
 const contactItems = [
-  { label: '3333333333', href: 'tel:3333333333' },
-  { label: '3333333333', href: 'tel:3333333333' },
-  { label: 'hello@zodiacpluss.com', href: 'mailto:hello@zodiacpluss.com' },
+  { label: '+91 9868111414', href: 'tel:+91 9868111414' },
+  { label: '+91 9811577859', href: 'tel:+91 9811577859' },
+  { label: 'info@zodiacpluss.com', href: 'mailto:hello@zodiacpluss.com' },
   { label: 'Playstore', href: '#' },
   { label: 'App store', href: '#' },
 ]
@@ -49,8 +49,8 @@ function BackToTopButton() {
       style={{
         width: '44px',
         height: '44px',
-        right: 'clamp(14px, 3vw, 32px)',
-        bottom: 'calc(100% - 22px)',
+        right: 'clamp(14px, 3vw, 10px)',
+        bottom: 'calc(20% - 22px)',
         background: 'linear-gradient(180deg, #d4edb8 0%, #a2d180 100%)',
         border: '2.5px solid rgba(255, 255, 255, 0.65)',
       }}
@@ -118,23 +118,19 @@ export default function Footer({ onNavigate }: FooterProps) {
               >
                 <div className="flex items-center gap-3 px-4 pt-[14px] pb-3">
                   <div
-                    className="shrink-0 flex items-center justify-center overflow-hidden"
+                    className="shrink-0 flex items-center justify-center"
                     style={{
-                      width: '54px',
-                      height: '54px',
-                      borderRadius: '50%',
-                      background: 'rgba(255, 255, 255, 0.58)',
-                      border: '1.5px solid rgba(255, 255, 255, 0.7)',
+                      
                     }}
                   >
-                    <img src={logoImg} alt="ZodiacPluss" className="w-[42px] h-[42px] object-contain" />
+                    <img src={logoImg} alt="ZodiacPluss" className="w-[px] h-[60px] object-contain" />
                   </div>
                   <div className="min-w-0 text-left">
-                    <div className="text-[17px] font-bold leading-none tracking-tight" style={{ color: TEAL_TEXT }}>
+                    <div className="text-[25px] font-bold leading-none tracking-tight" style={{ color: TEAL_TEXT }}>
                       ZodiacPluss
                     </div>
                     <div
-                      className="text-[10px] font-medium mt-1 tracking-[0.02em]"
+                      className="text-[15px] font-medium mt-1 tracking-[0.02em]"
                       style={{ color: 'rgba(13, 79, 74, 0.68)' }}
                     >
                       services Pvt. Ltd.
@@ -143,7 +139,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 </div>
 
                 <div
-                  className="px-3 py-[9px] text-center"
+                  className="px-3 py-[5px] text-center"
                   style={{
                     background: TEAL_DARK,
                     borderTop: '1px solid rgba(255, 255, 255, 0.1)',
@@ -290,7 +286,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 ZodiacPluss Services Pvt. Ltd.
               </div>
               <div className="text-[10px] sm:text-[11px]" style={{ color: '#8a9a96' }}>
-                Copyright © 2024, All rights reserved
+                Copyright © 2026, All rights reserved
               </div>
             </div>
 
