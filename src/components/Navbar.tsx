@@ -15,34 +15,36 @@ export default function Navbar({ currentPage, onNavigate, overlay = false, dark 
 
   return (
     <nav
-      className="w-full z-50"
+      className="sticky top-0 w-full z-50 transition-all duration-300"
       style={{
-        background: dark ? "#120e22" : "#ffffff",
-        borderBottom: dark ? "1px solid rgba(139,92,246,0.2)" : "1px solid #e5e7eb",
-        transition: "background 0.3s ease, border-color 0.3s ease",
+        background: dark ? "rgba(18, 14, 34, 0.78)" : "rgba(255, 255, 255, 0.82)",
+        backdropFilter: "blur(20px) saturate(180%)",
+        WebkitBackdropFilter: "blur(20px) saturate(180%)",
+        borderBottom: dark ? "1px solid rgba(139, 92, 246, 0.25)" : "1px solid rgba(255, 255, 255, 0.7)",
+        boxShadow: dark ? "0 4px 24px rgba(0, 0, 0, 0.5)" : "0 4px 24px rgba(31, 38, 135, 0.06)",
       }}
     >
-      <div className="max-w-[1320px] mx-auto flex items-center justify-between px-8 py-3.5">
+      <div className="max-w-[1320px] mx-auto flex items-center justify-between px-4 sm:px-8 py-2.5">
         {/* Logo */}
         <button
           onClick={() => onNavigate("Home")}
-          className="flex items-center gap-3"
+          className="flex items-center gap-1.5 cursor-pointer border-0 bg-transparent p-0"
         >
           <img
             src="https://res.cloudinary.com/pp0lpskp/image/upload/v1786032742/Zodiac_Colored_Logo_croped-removebg-preview_appzet.png"
             alt="ZodiacPluss Logo"
-            className="w-18 h-18 object-contain flex-shrink-0"
+            className="w-10 h-10 sm:w-11 sm:h-11 object-contain flex-shrink-0"
           />
-          <div className="leading-tight">
-            <div className="flex items-center gap-0.2">
+          <div className="leading-tight text-left">
+            <div className="flex items-center gap-0.5">
               <span
-                className="text-[15px] font-bold tracking-[0.02em]"
+                className="text-[15px] sm:text-[16px] font-extrabold tracking-tight"
                 style={{ color: dark ? "#e9d5ff" : "#1a1a2e", fontFamily: "'Inter', sans-serif" }}
               >
                 ZodiacPluss
               </span>
               {/* Small lotus leaf */}
-              <svg width="10" height="10" viewBox="0 0 27 23" className="-mt-1.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="10" height="10" viewBox="0 0 27 23" className="-mt-1" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16.9955 5.23258C16.9955 5.23258 13.2157 6.09422 11.5134 8.82218C9.8111 11.5501 10.831 15.1113 10.831 15.1113C10.831 15.1113 14.6108 14.2497 16.3131 11.5217C18.0154 8.79375 16.9955 5.23258 16.9955 5.23258Z" fill="#13352C"/>
                 <path d="M9.06368 13.1615C9.03535 12.3317 9.09732 11.5304 9.2479 10.7799C9.44551 9.79491 9.79668 8.89344 10.2917 8.10066C10.6208 7.57362 11.0252 7.07669 11.4986 6.6152C10.3244 5.17046 8.70127 4.43803 8.70127 4.43803C8.70127 4.43803 6.32219 7.7019 6.90176 10.6381C7.1973 12.1353 8.20508 13.2578 9.12181 13.9988C9.09487 13.7415 9.07387 13.4606 9.06368 13.1615Z" fill="#13352C"/>
                 <path d="M7.40645 14.4747C6.38087 13.4429 5.73551 12.2852 5.48846 11.0335C5.37608 10.4642 5.34472 9.85933 5.39329 9.22686C3.43909 9.16719 1.63342 9.88003 1.63342 9.88003C1.63342 9.88003 2.05894 13.6523 4.59799 15.0796C5.89278 15.8075 7.48695 15.7849 8.73866 15.588C8.31719 15.2939 7.85308 14.924 7.40645 14.4747Z" fill="#13352C"/>
@@ -51,7 +53,7 @@ export default function Navbar({ currentPage, onNavigate, overlay = false, dark 
               </svg>
             </div>
             <div
-              className="text-[8.5px] tracking-[0.04em] font-medium"
+              className="text-[8.5px] sm:text-[9px] tracking-[0.03em] font-medium"
               style={{ color: dark ? "#9b87c9" : "#6b7280" }}
             >
               Your Personal Wellness Companion
@@ -115,19 +117,39 @@ export default function Navbar({ currentPage, onNavigate, overlay = false, dark 
           </button>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className="lg:hidden p-2 rounded-lg"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={dark ? "#e9d5ff" : "#1a1a2e"} strokeWidth="2">
-            {mobileOpen ? (
-              <path d="M18 6L6 18M6 6l12 12"/>
+        {/* Mobile controls: Theme toggle + Sidebar button */}
+        <div className="lg:hidden flex items-center gap-1.5">
+          <button
+            onClick={onToggleTheme}
+            className="w-8 h-8 rounded-full flex items-center justify-center shadow-sm transition-transform duration-200 hover:scale-105"
+            style={{ background: "linear-gradient(135deg, #0d9488, #14b8a6)" }}
+            title={dark ? "Switch to light mode" : "Switch to dark mode"}
+          >
+            {dark ? (
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="5"/>
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+              </svg>
             ) : (
-              <path d="M3 12h18M3 6h18M3 18h18"/>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="white" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
             )}
-          </svg>
-        </button>
+          </button>
+          <button
+            className="p-1.5 rounded-lg flex items-center justify-center"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle Navigation Menu"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={dark ? "#e9d5ff" : "#1a1a2e"} strokeWidth="2">
+              {mobileOpen ? (
+                <path d="M18 6L6 18M6 6l12 12"/>
+              ) : (
+                <path d="M3 12h18M3 6h18M3 18h18"/>
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -153,13 +175,34 @@ export default function Navbar({ currentPage, onNavigate, overlay = false, dark 
               {link}
             </button>
           ))}
-          <button
-            onClick={() => { onNavigate("Book"); setMobileOpen(false) }}
-            className="mt-3 w-full text-white text-sm font-semibold py-2.5 rounded-full"
-            style={{ background: "linear-gradient(135deg, #0f766e, #14b8a6)" }}
-          >
-            Connect Us
-          </button>
+          {/* Mobile theme toggle + Connect button */}
+          <div className="mt-3 flex items-center justify-between gap-3">
+            <button
+              onClick={onToggleTheme}
+              className="w-10 h-10 rounded-full flex items-center justify-center shadow-sm transition-transform duration-150 hover:scale-105"
+              style={{ background: "linear-gradient(135deg, #0d9488, #14b8a6)" }}
+              title={dark ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {dark ? (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="5"/>
+                  <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+              ) : (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="white" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+              )}
+            </button>
+
+            <button
+              onClick={() => { onNavigate("Book"); setMobileOpen(false) }}
+              className="flex-1 text-white text-sm font-semibold py-2.5 rounded-full text-center"
+              style={{ background: "linear-gradient(135deg, #0f766e, #14b8a6)" }}
+            >
+              Connect Us
+            </button>
+          </div>
         </div>
       )}
     </nav>
