@@ -72,7 +72,6 @@ const services = [
 const corporatePackages = [
   {
     name: 'Starter',
-    price: '₹4,999/mo',
     desc: 'Perfect for small teams',
     seats: 'Up to 25 employees',
     features: ['Monthly group astrology session', 'Employee wellness reports', 'AI horoscope access', 'Email support'],
@@ -80,7 +79,6 @@ const corporatePackages = [
   },
   {
     name: 'Growth',
-    price: '₹12,999/mo',
     desc: 'For growing organizations',
     seats: 'Up to 100 employees',
     features: ['Weekly live expert sessions', 'Individual therapy sessions', 'Custom workshop programs', 'Dedicated account manager', 'Analytics dashboard'],
