@@ -24,7 +24,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           playsInline
           preload="auto"
         />
-
+  
         {/* Soft gradient washes for readability matching lotus video theme */}
         <div
           className="absolute inset-0"

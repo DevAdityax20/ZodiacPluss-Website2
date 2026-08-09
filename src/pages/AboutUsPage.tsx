@@ -48,16 +48,12 @@ export default function AboutUsPage({ onNavigate }: AboutUsPageProps) {
     <div className="about-page-shell pt-20 transition-colors duration-300" style={{ background: '#f8f6ff' }}>
       {/* Hero banner */}
       <div
-        className="relative overflow-hidden py-20 px-6 text-center transition-all duration-300"
+        className="relative overflow-hidden py-20 px-6 text-center transition-all duration-300 bg-cover bg-center"
         style={{
-          background: 'linear-gradient(135deg, #2d1b4e 0%, #4b1d8e 50%, #0d5f4f 100%)',
+          backgroundImage: "url('https://res.cloudinary.com/pp0lpskp/image/upload/v1786114754/webheader1_er7sxb.jpg')",
         }}
       >
-        <div className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: 'radial-gradient(circle at 20% 50%, #a855f7 0%, transparent 50%), radial-gradient(circle at 80% 50%, #14b8a6 0%, transparent 50%)',
-          }}
-        />
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
         <div className="relative z-10 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 border border-teal-400/40 text-teal-300 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

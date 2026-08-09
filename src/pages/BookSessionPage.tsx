@@ -254,7 +254,7 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
               </InfoIcon>
               <div>
                 <div style={{ fontSize: '12px', fontWeight: 600, color: textPrimary, marginBottom: '2px' }}>Phone</div>
-                <div style={{ fontSize: '12.5px', color: textMuted }}>+91 90566 41865</div>
+                <div style={{ fontSize: '12.5px', color: textMuted }}>+91 9811577859</div>
               </div>
             </div>
 
