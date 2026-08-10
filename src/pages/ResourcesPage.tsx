@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 interface ResourcesPageProps {
   onNavigate: (page: string) => void
+  dark?: boolean
 }
 
 const articles = [

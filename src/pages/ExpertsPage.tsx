@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 interface ExpertsPageProps {
   onNavigate: (page: string) => void
+  dark?: boolean
 }
 
 const experts = [

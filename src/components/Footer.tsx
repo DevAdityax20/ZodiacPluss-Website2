@@ -12,12 +12,12 @@ const TEAL_DARK = '#0a5c52'
 const TEAL_TEXT = '#0d4f4a'
 const DIVIDER = 'rgba(255, 255, 255, 0.28)'
 
-const navLinks = [
-  { label: 'Home', page: 'Home'},
-  { label: 'Services', page: 'Services'},
-  { label: 'About', page: 'About'},
-  { label: 'Contact', page: 'Contact'},
-  { label: 'Blog', page: 'Blog' },
+const navLinks: { label: string; page: string; arrow?: boolean }[] = [
+  { label: 'Home', page: 'Home' },
+  { label: 'Services', page: 'Services' },
+  { label: 'About', page: 'About' },
+  { label: 'Contact', page: 'Contact' },
+  { label: 'Career', page: 'Career' },
 ]
 
 const contactItems = [

@@ -63,94 +63,59 @@ const values = [
   },
 ]
 
-const team = [
+const featuredTeam = [
   {
-    name: 'Arjun Patel',
-    role: 'Co-founder & CTO',
-    img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&h=800&fit=crop&auto=format&q=80',
-    badge: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-        <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
-      </svg>
-    ),
-    badgeBg: '#4dabf7',
+    name: 'Mrs. Rashmi',
+    role: 'FOUNDER / DIRECTOR',
+    img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1786016136/Rasmi-1_prowmf.jpg',
+  },
+  {
+    name: 'Mrs. Sheela',
+    role: 'Director',
+    img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1786011250/sheela_ji_j2mckm.png',
+  },
+]
+
+const teamMembers = [
+  {
+    name: 'Mrs. Shweta ',
+    role: 'Senior Tech Consultant',
+    img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1786011226/Shweta_x67krv.jpg',
+  },
+  {
+    name: 'Mr. Aditya Pandey',
+    role: 'SDE & Project Manager',
+    img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1786342210/my_profile_new_and_updated_unxfyt.png',
+  },
+  {
+    name: 'Mr Hari',
+    role: 'Social Media Manager',
+    img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1786342553/Hari_lmdiby.jpg',
+  },
+  {
+    name: 'Lakshay Seth',
+    role: 'VIDEO PRODUCTION HEAD',
+    img: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=800&fit=crop&auto=format&q=80',
+  },
+  {
+    name: 'Sahagjit Kaur',
+    role: 'CREATIVE DIRECTOR',
+    img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&h=800&fit=crop&auto=format&q=80',
   },
   {
     name: 'Sneha Reddy',
-    role: 'Head of Product',
+    role: 'HEAD OF PRODUCT',
     img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop&auto=format&q=80',
-    badge: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-      </svg>
-    ),
-    badgeBg: '#14b8a6',
   },
   {
     name: 'Vikram Singh',
-    role: 'Lead Astrologer',
-    img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=800&fit=crop&auto=format&q=80',
-    badge: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-      </svg>
-    ),
-    badgeBg: '#8b5cf6',
+    role: 'VEDIC ASTROLOGER',
+    img: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&h=800&fit=crop&auto=format&q=80',
   },
   {
     name: 'Dr. Meera Nair',
-    role: 'Clinical Psychologist',
+    role: 'CLINICAL PSYCHOLOGIST',
     img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=800&fit=crop&auto=format&q=80',
-    badge: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-      </svg>
-    ),
-    badgeBg: '#ec4899',
-  },
-  {
-    name: 'Rohan Desai',
-    role: 'Lead Developer',
-    img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop&auto=format&q=80',
-    badge: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-        <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
-      </svg>
-    ),
-    badgeBg: '#4dabf7',
-  },
-  {
-    name: 'Ananya Kapoor',
-    role: 'UX/UI Designer',
-    img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&h=800&fit=crop&auto=format&q=80',
-    badge: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-        <circle cx="12" cy="12" r="3" /><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-      </svg>
-    ),
-    badgeBg: '#f59e0b',
-  },
-  {
-    name: 'Karan Malhotra',
-    role: 'Marketing Lead',
-    img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=800&fit=crop&auto=format&q=80',
-    badge: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-        <path d="M3 11l18-5v12L3 14v-3z" /><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
-      </svg>
-    ),
-    badgeBg: '#82c91e',
-  },
-  {
-    name: 'Divya Iyer',
-    role: 'Content & Community',
-    img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=800&fit=crop&auto=format&q=80',
-    badge: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-      </svg>
-    ),
-    badgeBg: '#14b8a6',
   },
 ]
 
@@ -409,40 +374,29 @@ export default function HomeAboutTeamSection({ onNavigate, dark }: HomeAboutTeam
         </div>
       </div>
 
-      {/* ── Meet Our Team ─────────────────────────────────────────── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Left Column: Heading, Subtitle & CTA */}
-          <div className="lg:col-span-4 lg:sticky lg:top-28">
-            <span
-              className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase px-3.5 py-1 rounded-full mb-4"
-              style={{
-                color: '#14b8a6',
-                background: dark ? 'rgba(20,184,166,0.12)' : 'rgba(20,184,166,0.1)',
-                border: '1px solid rgba(20,184,166,0.25)',
-              }}
-            >
-              OUR TEAM
-            </span>
-
+      {/* ── Meet Our Team Section ─────────────────────────────────────────── */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        {/* Header Row: Left Text + Right 2 Featured Cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center mb-6 sm:mb-8 lg:mb-10">
+          {/* Left Column: Title, Subtitle, CTA */}
+          <div className="lg:col-span-6 xl:col-span-5">
             <h2
-              className="text-3xl sm:text-4xl lg:text-[2.5rem] font-extrabold leading-[1.12] mb-5 tracking-tight"
+              className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold leading-[1.12] mb-3 sm:mb-4 tracking-tight"
               style={{ color: headingColor, fontFamily: "'Inter', sans-serif" }}
             >
-              Meet the Guides Behind the{' '}
-              <span style={GRADIENT_TEXT}>Magic</span>
+              Meet the Guides Behind the <span style={GRADIENT_TEXT}>Magic</span>
             </h2>
 
             <p
-              className="text-sm sm:text-base leading-relaxed mb-8 max-w-md"
+              className="text-sm sm:text-base leading-relaxed mb-6 max-w-xl"
               style={{ color: bodyColor }}
             >
-              Not just experts — astrologers, therapists, storytellers, and digital innovators. A crew of 30+ specialists across India and abroad, all obsessed with your holistic well-being.
+              Not just editors — visual artists, storytellers, color-grade motion fanatics, and deadline destroyers. A crew of 30+ specialists across India and UAE, all obsessed with making your content go further.
             </p>
 
             <button
               onClick={() => onNavigate?.('Career')}
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 cursor-pointer shadow-sm group hover:scale-[1.03]"
+              className="inline-flex items-center gap-2.5 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all duration-300 cursor-pointer shadow-sm group hover:scale-[1.02]"
               style={{
                 color: headingColor,
                 border: dark ? '1.5px solid rgba(255,255,255,0.25)' : '1.5px solid #1a1a2e',
@@ -457,47 +411,59 @@ export default function HomeAboutTeamSection({ onNavigate, dark }: HomeAboutTeam
                   <circle cx="12" cy="12" r="3" fill="currentColor" />
                 </svg>
               </span>
-              JOIN OUR CREW
+              JOIN OUR TEAM
             </button>
           </div>
 
-          {/* Right Column: Editorial Portrait Cards Grid */}
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-            {team.map((member) => (
+          {/* Right Column: 2 Featured Cards side-by-side (2 cols even on mobile!) */}
+          <div className="lg:col-span-6 xl:col-span-7 grid grid-cols-2 gap-3 sm:gap-4 md:gap-5">
+            {featuredTeam.map((member) => (
               <div
                 key={member.name}
-                className="group relative rounded-2xl sm:rounded-[24px] overflow-hidden aspect-[3/4] shadow-md transition-all duration-500 hover:shadow-2xl hover:-translate-y-1.5 cursor-pointer border border-black/5"
+                className="group relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[3/4] shadow-md transition-all duration-500 hover:shadow-2xl hover:-translate-y-1.5 cursor-pointer border border-black/5 dark:border-white/10 bg-gray-900"
               >
-                {/* Portrait Photo */}
                 <img
                   src={member.img}
                   alt={member.name}
                   className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
                 />
-
-                {/* Dark Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
-
-                {/* Top Badge Icon */}
-                <div
-                  className="absolute top-3.5 right-3.5 w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md bg-black/30 border border-white/20 text-white shadow-sm"
-                  style={{ background: member.badgeBg ? `${member.badgeBg}aa` : undefined }}
-                >
-                  {member.badge}
-                </div>
-
-                {/* Bottom Left Member Info Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-5 z-10 flex flex-col justify-end">
-                  <h3 className="text-base sm:text-lg font-bold text-white leading-tight tracking-wide drop-shadow-sm group-hover:text-[#2dd4bf] transition-colors">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-3.5 sm:p-5 z-10">
+                  <h3 className="text-sm sm:text-lg lg:text-xl font-bold text-white leading-tight drop-shadow-sm">
                     {member.name}
                   </h3>
-                  <p className="text-[10.5px] sm:text-[11px] font-semibold text-white/80 uppercase tracking-widest mt-1">
+                  <p className="text-[10px] sm:text-xs font-semibold text-gray-300 uppercase tracking-wider mt-0.5 sm:mt-1">
                     {member.role}
                   </p>
                 </div>
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Main Grid: 2 columns on mobile, 3 on tablet, 4 on desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
+          {teamMembers.map((member) => (
+            <div
+              key={member.name}
+              className="group relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[3/4] shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1 cursor-pointer border border-black/5 dark:border-white/10 bg-gray-900"
+            >
+              <img
+                src={member.img}
+                alt={member.name}
+                className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 z-10">
+                <h3 className="text-xs sm:text-base font-bold text-white leading-tight drop-shadow-sm">
+                  {member.name}
+                </h3>
+                <p className="text-[9px] sm:text-xs font-semibold text-gray-300 uppercase tracking-wider mt-0.5">
+                  {member.role}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 

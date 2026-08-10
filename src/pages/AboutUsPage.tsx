@@ -3,6 +3,7 @@ import CredentialsSection from '@/components/CredentialsSection'
 
 interface AboutUsPageProps {
   onNavigate: (page: string) => void
+  dark?: boolean
 }
 
 const team = [
@@ -122,20 +123,32 @@ export default function AboutUsPage({ onNavigate }: AboutUsPageProps) {
 
         {/* Team */}
         <div>
-          <h2 className="about-heading text-3xl font-bold text-[#1e0d40] text-center mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h2 className="about-heading text-3xl font-bold text-[#1e0d40] text-center mb-8" style={{ fontFamily: "'Playfair Display', serif" }}>
             Meet the Team
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
             {team.map((member) => (
-              <div key={member.name} className="about-surface group text-center rounded-2xl p-4 transition-all duration-300">
-                <div className="relative w-28 h-28 mx-auto mb-4 rounded-2xl overflow-hidden shadow-md group-hover:shadow-xl transition-shadow">
-                  <img src={member.img} alt={member.name} className="w-full h-full object-cover"/>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#2d1b4e]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div
+                key={member.name}
+                className="group relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[3/4] shadow-md transition-all duration-500 hover:shadow-2xl hover:-translate-y-1.5 cursor-pointer bg-gray-900"
+              >
+                <img
+                  src={member.img}
+                  alt={member.name}
+                  className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-3.5 sm:p-4 z-10">
+                  <h3 className="text-sm sm:text-base font-bold text-white leading-tight drop-shadow-sm">
+                    {member.name}
+                  </h3>
+                  <p className="text-[10px] sm:text-xs font-semibold text-gray-300 uppercase tracking-wider mt-0.5">
+                    {member.role}
+                  </p>
+                  <p className="text-[10px] text-[#2dd4bf] font-medium mt-1">
+                    {member.specialty}
+                  </p>
                 </div>
-                <h3 className="about-heading font-bold text-[#1e0d40] text-sm">{member.name}</h3>
-                <p className="text-[#d81b86] text-xs font-medium mt-0.5">{member.role}</p>
-                <p className="about-muted text-[#6b5b8f] text-xs mt-1">{member.exp}</p>
-                <p className="about-muted text-[#9b87c9] text-xs mt-0.5 italic">{member.specialty}</p>
               </div>
             ))}
           </div>
