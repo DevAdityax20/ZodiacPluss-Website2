@@ -117,7 +117,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             <button
               onClick={() => onNavigate("Services")}
               className="flex items-center gap-2 px-5 sm:px-6 py-3 rounded-full text-white font-semibold text-xs sm:text-sm transition-all duration-300 shadow-md hover:scale-105 cursor-pointer border-0"
-              style={{ background: "#332244" }}
+             style={{ background: "linear-gradient(90deg, #5eb8e8 0%, #8fd06a 100%)"  }}
             >
               Explore Services
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">

@@ -8,8 +8,8 @@ interface AboutUsPageProps {
 
 const team = [
   {
-    name: 'Dr. Priya Sharma',
-    role: 'Chief Astrologer & Founder',
+    name: 'Mrs. Rashmi',
+    role: 'Founder & Astrologer',
     exp: '18 years experience',
     img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&auto=format&q=80',
     specialty: 'Vedic Astrology, Numerology',
@@ -42,14 +42,14 @@ const values = [
   { icon: '✦', title: 'Compassion', desc: 'Every individual receives a judgment-free, empathetic, and personalized experience.' },
   { icon: '✦', title: 'Innovation', desc: 'We leverage AI and technology to deliver astrology for the modern seeker.' },
   { icon: '✦', title: 'Integrity', desc: 'Your privacy is sacred. All sessions and data are 100% confidential.' },
-]
+] 
 
 export default function AboutUsPage({ onNavigate }: AboutUsPageProps) {
   return (
     <div className="about-page-shell pt-20 transition-colors duration-300" style={{ background: '#f8f6ff' }}>
       {/* Hero banner */}
       <div
-        className="relative overflow-hidden py-20 px-6 text-center transition-all duration-300 bg-cover bg-center"
+        className="relative overflow-hidden py-32 md:py-44 px-6 text-center transition-all duration-300 bg-cover bg-top"
         style={{
           backgroundImage: "url('https://res.cloudinary.com/pp0lpskp/image/upload/v1786114754/webheader1_er7sxb.jpg')",
         }}

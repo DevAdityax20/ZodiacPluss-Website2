@@ -145,7 +145,7 @@ export default function AboutSection({ onNavigate, dark = false }: AboutSectionP
               <button
                 onClick={() => onNavigate("Services")}
                 className="flex items-center gap-2 text-white text-sm font-semibold px-6 py-3 rounded-full transition-all duration-200 shadow-md"
-                style={{ background: dark ? 'rgba(139,92,246,0.25)' : '#1e0d40' }}
+               style={{ background: "linear-gradient(90deg, #5eb8e8 0%, #8fd06a 100%)"  }}
               >
                 Explore Services
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
