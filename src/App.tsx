@@ -6,13 +6,11 @@ import HomePage from '@/pages/HomePage'
 import AboutUsPage from '@/pages/AboutUsPage'
 import ServicesPage from '@/pages/ServicesPage'
 import ExpertsPage from '@/pages/ExpertsPage'
-import ResourcesPage from '@/pages/ResourcesPage'
 import BookSessionPage from '@/pages/BookSessionPage'
 import CareerPage from '@/pages/CareerPage'
 
 const pageMap: Record<string, string> = {
   'About': 'About Us',
-  'Blog': 'Resources',
   'Contact': 'Book',
   'For corporates': 'Services',
   'Corporates': 'Services',
@@ -34,7 +32,6 @@ export default function App() {
       case 'About Us':       return <AboutUsPage onNavigate={handleNavigate} dark={dark} />
       case 'Services':       return <ServicesPage onNavigate={handleNavigate} dark={dark} />
       case 'Experts':        return <ExpertsPage onNavigate={handleNavigate} dark={dark} />
-      case 'Resources':      return <ResourcesPage onNavigate={handleNavigate} dark={dark} />
       case 'Book':           return <BookSessionPage onNavigate={handleNavigate} dark={dark} />
       case 'Career':         return <CareerPage onNavigate={handleNavigate} dark={dark} />
       default:               return <HomePage onNavigate={handleNavigate} dark={dark} />

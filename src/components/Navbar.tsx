@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const navLinks = ["Home", "About Us", "Services", "Experts", "Resources", "Career"]
+const navLinks = ["Home", "About Us", "Services", "Experts", "Career"]
 
 interface NavbarProps {
   currentPage: string

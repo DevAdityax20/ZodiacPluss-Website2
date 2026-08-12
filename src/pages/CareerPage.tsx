@@ -505,7 +505,7 @@ export default function CareerPage({ onNavigate }: CareerPageProps) {
       >
         {/* Background video */}
         <video
-          src="https://res.cloudinary.com/pp0lpskp/video/upload/v1786012790/43832-437611758_medium_owaqen.mp4"
+          src="https://res.cloudinary.com/pp0lpskp/video/upload/v1786384737/watermark-removed-generate_a_video_of_this_image_smkv7n.mp4"
           autoPlay
           muted
           loop

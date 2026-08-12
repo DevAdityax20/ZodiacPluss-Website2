@@ -56,12 +56,6 @@ export default function AboutUsPage({ onNavigate }: AboutUsPageProps) {
       >
         <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
         <div className="relative z-10 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 border border-teal-400/40 text-teal-300 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M12 2L13.5 8.5L20 7L15.5 12L20 17L13.5 15.5L12 22L10.5 15.5L4 17L8.5 12L4 7L10.5 8.5L12 2Z"/>
-            </svg>
-            About Us
-          </div>
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
             Our Story &amp; Mission
           </h1>
