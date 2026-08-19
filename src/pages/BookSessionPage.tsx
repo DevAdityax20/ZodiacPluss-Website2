@@ -132,7 +132,7 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
       style={{
         minHeight: '100vh',
         background: bg,
-        padding: '40px 20px 60px',
+        padding: '110px 20px 60px',
         transition: 'background 0.4s ease',
         fontFamily: 'Inter, sans-serif',
       }}

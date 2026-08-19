@@ -79,23 +79,23 @@ body {
 
 .dark body,
 .dark .zodiac-page-bg {
-  background: #0e0a1a !important;
+  background: #000000 !important;
 }
 
 .dark .zodiac-main-bg {
-  background: #120e22 !important;
+  background: #000000 !important;
 }
 
 /* ── All sections with light backgrounds ───────────────────────── */
 .dark section[style*="background: #f8f6ff"],
 .dark section[style*="background: white"],
 .dark section[style*='background: "white"'] {
-  background: #120e22 !important;
+  background: #000000 !important;
 }
 
 /* Generic section overrides — catch white/light purple backgrounds */
 .dark section {
-  background-color: #120e22;
+  background-color: #000000;
 }
 
 /* Sections that are already dark (DarkHero, MissionBand) stay as-is */
@@ -150,7 +150,7 @@ body {
 }
 
 .dark .about-page-shell {
-  background: #120e22 !important;
+  background: #000000 !important;
 }
 
 .dark .about-page-shell .about-surface {
@@ -269,7 +269,7 @@ body {
 
 /* ── AboutBand white sections in ZodiacMissionSection ───────────── */
 .dark section[style*="background: white"] {
-  background: #120e22 !important;
+  background: #000000 !important;
 }
 
 /* ── AppShowcaseSection white section ───────────────────────────── */

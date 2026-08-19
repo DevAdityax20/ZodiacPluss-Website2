@@ -15,11 +15,13 @@ export default function HomePage({ onNavigate, dark }: HomePageProps) {
   return (
     <div className="w-full overflow-hidden pb-16 md:pb-0 transition-colors duration-300">
       <HeroSection onNavigate={onNavigate} />
+      <div className="pt-6" style={{ background: dark ? '#000000' : 'transparent' }}>
+        <CredentialsSection dark={dark} />
+      </div>
       <AboutSection onNavigate={onNavigate} dark={dark} />
-      <CredentialsSection dark={dark} />
       <AppShowcaseSection />
       <ZodiacMissionSection onNavigate={onNavigate} />
-      <div className="pb-6" style={{ background: dark ? '#120e22' : '#f8f6ff' }}>
+      <div className="pb-6" style={{ background: dark ? '#000000' : '#f8f6ff' }}>
         <TestimonialsSection />
       </div>
       <HomeAboutTeamSection onNavigate={onNavigate} dark={dark} />

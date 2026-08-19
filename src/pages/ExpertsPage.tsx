@@ -94,10 +94,10 @@ export default function ExpertsPage({ onNavigate }: ExpertsPageProps) {
   })
 
   return (
-    <div className="pt-20" style={{ background: '#f8f6ff' }}>
+    <div className="pt-0" style={{ background: '#f8f6ff' }}>
       {/* Hero */}
       <div
-        className="relative overflow-hidden py-16 px-6 text-center"
+        className="relative overflow-hidden pt-32 pb-20 px-6 text-center"
         style={{ background: 'linear-gradient(135deg, #2d1b4e 0%, #5b2d8e 50%, #d81b86 100%)' }}
       >
         <div className="relative z-10 max-w-3xl mx-auto">

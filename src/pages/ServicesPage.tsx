@@ -109,10 +109,10 @@ export default function ServicesPage({ onNavigate, dark }: ServicesPageProps) {
   const textColor = dark ? '#c4b5fd' : '#6b5b8f'
 
   return (
-    <div className="pt-20 transition-colors duration-300" style={{ background: dark ? '#120e22' : '#f8f6ff' }}>
+    <div className="pt-0 transition-colors duration-300" style={{ background: dark ? '#000000' : '#f8f6ff' }}>
       {/* ─── Individual Services Hero Banner ─── */}
       <div
-        className="relative overflow-hidden py-16 px-6 text-center"
+        className="relative overflow-hidden pt-32 pb-20 px-6 text-center"
         style={{
           background: 'linear-gradient(135deg, #1e0d40 0%, #5b2d8e 60%, #d81b86 100%)',
         }}

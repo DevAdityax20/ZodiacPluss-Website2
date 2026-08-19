@@ -500,7 +500,7 @@ export default function CareerPage({ onNavigate }: CareerPageProps) {
         style={{
           background: 'transparent',
           position: 'relative', overflow: 'hidden',
-          padding: 'clamp(64px,9vw,104px) 24px clamp(56px,8vw,88px)',
+          padding: 'clamp(100px,12vw,140px) 24px clamp(56px,8vw,88px)',
         }}
       >
         {/* Background video */}

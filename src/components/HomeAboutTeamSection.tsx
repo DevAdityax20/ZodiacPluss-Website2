@@ -206,7 +206,7 @@ interface HomeAboutTeamSectionProps {
 }
 
 export default function HomeAboutTeamSection({ onNavigate, dark }: HomeAboutTeamSectionProps) {
-  const bg = dark ? '#120e22' : '#ffffff'
+  const bg = dark ? '#000000' : '#ffffff'
   const headingColor = dark ? '#e9d5ff' : '#1a1a2e'
   const bodyColor = dark ? '#a09bc0' : '#64748b'
   const cardBg = dark ? '#1a1040' : '#ffffff'

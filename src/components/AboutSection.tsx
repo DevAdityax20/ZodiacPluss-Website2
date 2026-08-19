@@ -95,7 +95,7 @@ export default function AboutSection({ onNavigate, dark = false }: AboutSectionP
   }, [paused, goNext])
 
   return (
-    <section className="py-20 px-4 sm:px-6" style={{ background: dark ? "#120e22" : "#f8f6ff", transition: "background 0.3s ease" }}>
+    <section className="py-20 px-4 sm:px-6" style={{ background: dark ? "#000000" : "#f8f6ff", transition: "background 0.3s ease" }}>
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left: Text content */}

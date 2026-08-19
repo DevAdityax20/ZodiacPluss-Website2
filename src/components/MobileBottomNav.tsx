@@ -108,7 +108,7 @@ export default function MobileBottomNav({ currentPage, onNavigate, dark = false 
                   style={{
                     background: 'linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #d81b86 100%)',
                     boxShadow: '0 6px 20px rgba(20, 184, 166, 0.45)',
-                    border: '3px solid ' + (dark ? '#0e0a1a' : '#ffffff'),
+                    border: '3px solid ' + (dark ? '#000000' : '#ffffff'),
                   }}
                 >
                   {item.icon()}

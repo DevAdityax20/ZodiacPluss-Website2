@@ -42,25 +42,22 @@ export default function App() {
     <div
       className={`zodiac-page-bg min-h-screen${dark ? ' dark' : ''}`}
       style={{
-        background: dark ? '#0e0a1a' : 'white',
+        background: dark ? '#000000' : 'white',
         transition: 'background 0.4s ease',
       }}
     >
-      {/* Sticky navbar */}
-      <div className="sticky top-0 z-50 zodiac-nav-glass">
-        <Navbar
-          currentPage={currentPage}
-          onNavigate={handleNavigate}
-          dark={dark}
-          onToggleTheme={() => setDark(d => !d)}
-        />
-      </div>
+      <Navbar
+        currentPage={currentPage}
+        onNavigate={handleNavigate}
+        dark={dark}
+        onToggleTheme={() => setDark(d => !d)}
+      />
 
       {/* Page content */}
       <main
         className="zodiac-main-bg pb-16 md:pb-0"
         style={{
-          background: dark ? '#120e22' : '#f8f6ff',
+          background: dark ? '#000000' : '#f8f6ff',
           transition: 'background 0.4s ease',
         }}
       >

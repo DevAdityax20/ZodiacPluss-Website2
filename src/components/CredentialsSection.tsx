@@ -112,7 +112,7 @@ interface CredentialsSectionProps {
 export default function CredentialsSection({ dark = false }: CredentialsSectionProps) {
   const [activeCert, setActiveCert] = useState<string | null>(null)
 
-  const sectionBg = dark ? '#120e22' : '#f8f6ff'
+  const sectionBg = dark ? '#000000' : '#f8f6ff'
   const cardBg = dark ? '#1a1040' : '#ffffff'
   const textColor = dark ? '#e9d5ff' : '#1e0d40'
   const subtextColor = dark ? '#a09bc0' : '#6b7280'
