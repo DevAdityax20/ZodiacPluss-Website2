@@ -386,7 +386,7 @@ export default function HomeAboutTeamSection({ onNavigate, dark }: HomeAboutTeam
               className="text-sm sm:text-base leading-relaxed mb-6 max-w-xl"
               style={{ color: bodyColor }}
             >
-              Not just editors — visual artists, storytellers, color-grade motion fanatics, and deadline destroyers. A crew of 30+ specialists across India and UAE, all obsessed with making your content go further.
+              Not just Astrologers — We have Therapists, Yoga Consultants, Mindfulness Guides and Nutritionists as well! We are a crew of 50+ specialists across India.
             </p>
 
             <button
