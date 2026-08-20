@@ -12,7 +12,7 @@ const GRADIENT_TEXT: React.CSSProperties = {
 }
 
 const FOUNDER_IMG =
-  'https://res.cloudinary.com/pp0lpskp/image/upload/v1786110800/Gemini_Generated_Image_ewlcdkewlcdkewlc_z5v0bp.png'
+  'https://res.cloudinary.com/pp0lpskp/image/upload/v1786341586/Rashmi2.1_hdl5is.png'
 
 const values = [
   {

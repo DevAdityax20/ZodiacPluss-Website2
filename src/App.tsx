@@ -9,6 +9,7 @@ import ExpertsPage from '@/pages/ExpertsPage'
 import BookSessionPage from '@/pages/BookSessionPage'
 import CareerPage from '@/pages/CareerPage'
 import PortfolioPage from '@/pages/PortfolioPage'
+import CustomCursor from '@/components/CustomCursor'
 
 const pageMap: Record<string, string> = {
   'About': 'About Us',
@@ -46,8 +47,10 @@ export default function App() {
       style={{
         background: dark ? '#000000' : 'white',
         transition: 'background 0.4s ease',
+        cursor: 'none',
       }}
     >
+      <CustomCursor />
       <Navbar
         currentPage={currentPage}
         onNavigate={handleNavigate}
