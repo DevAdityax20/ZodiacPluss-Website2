@@ -546,18 +546,7 @@ export default function CareerPage({ onNavigate }: CareerPageProps) {
               border: `1.5px solid ${TEAL}50`,
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               fontSize: 18, color: ACCENT,
-            }}>⭐</div>
-            <div>
-              <p style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: 13, fontWeight: 800, letterSpacing: '0.22em',
-                color: ACCENT, margin: 0, textTransform: 'uppercase',
-              }}>Z-O-D-I-A-C-P-L-U-S-S</p>
-              <p style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: 11, color: 'rgba(255,255,255,0.45)', margin: 0,
-              }}>Private Limited Company</p>
-            </div>
+            }}></div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -623,10 +612,10 @@ export default function CareerPage({ onNavigate }: CareerPageProps) {
             {/* Right stats */}
             <div className="grid grid-cols-2 gap-4">
               {[
-                { val: '2,500+', label: 'Lives Impacted', icon: '❤️' },
-                { val: '3+', label: 'Open Positions', icon: '💼' },
-                { val: 'ISO', label: '27001 & 9001 Certified', icon: '🏆' },
-                { val: '100%', label: 'Remote Friendly', icon: '🏠' },
+                { val: '2,500+', label: 'Lives Impacted', },
+                { val: '3+', label: 'Open Positions',},
+                { val: 'ISO', label: '27001 & 9001 Certified',},
+                { val: '100%', label: 'Remote Friendly', },
               ].map((s, i) => (
                 <div key={i} style={{
                   background: 'rgba(255,255,255,0.06)',
@@ -634,7 +623,7 @@ export default function CareerPage({ onNavigate }: CareerPageProps) {
                   borderRadius: 16, padding: '22px 20px',
                   backdropFilter: 'blur(8px)',
                 }}>
-                  <div style={{ fontSize: 24, marginBottom: 8 }}>{s.icon}</div>
+                  <div style={{ fontSize: 24, marginBottom: 8 }}>{}</div>
                   <div style={{
                     fontFamily: "'Playfair Display', serif",
                     fontSize: 28, fontWeight: 800, color: ACCENT,

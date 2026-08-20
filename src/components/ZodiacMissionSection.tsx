@@ -413,22 +413,18 @@ function AboutBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
 function MissionBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
   const pillars = [
     {
-      icon: '🌿',
       title: 'Authentic Guidance',
       desc: 'Rooted in knowledge and experience',
     },
     {
-      icon: '💚',
       title: 'Emotional Healing',
       desc: 'Professional support for your well-being',
     },
     {
-      icon: '🔒',
       title: 'Safe & Confidential',
       desc: 'Your privacy is our highest priority',
     },
     {
-      icon: '🤝',
       title: 'Community First',
       desc: 'We grow when you do — always in touch',
     },
@@ -509,7 +505,7 @@ function MissionBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
                 onMouseEnter={e => (e.currentTarget as HTMLDivElement).style.background = 'rgba(61,214,172,0.07)'}
                 onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.background = 'rgba(255,255,255,0.04)'}
               >
-                <div style={{ fontSize: 26, marginBottom: 10 }}>{p.icon}</div>
+                <div style={{ fontSize: 26, marginBottom: 10 }}>{}</div>
                 <p style={{
                   fontFamily: "'Inter', sans-serif",
                   fontSize: 13.5, fontWeight: 700, color: 'white',

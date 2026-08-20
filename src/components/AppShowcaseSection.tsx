@@ -251,7 +251,7 @@ function BookingScreen() {
                 {i > 0 && <div style={{ width: 1, height: 26, background: '#e5e7eb', marginRight: -8 }} />}
                 <div style={{ textAlign: 'center' }}>
                   <div style={{ fontSize: 13, fontWeight: 900, color: s.accent }}>
-                    {i === 0 ? '⭐ ' : ''}{s.val}
+                    {i === 0 ? '' : ''}{s.val}
                   </div>
                   <div style={{ fontSize: 7, color: '#999' }}>{s.sub}</div>
                 </div>
@@ -618,24 +618,24 @@ export default function AppShowcaseSection() {
             {/* CTA button */}
             <button
               style={{
-                background: `linear-gradient(135deg, ${TEAL}, ${TEAL_DARK})`,
+                background: 'linear-gradient(90deg, #5eb8e8 0%, #8fd06a 100%)',
                 border: 'none', borderRadius: 999,
                 padding: '13px 30px',
                 color: 'white',
                 fontFamily: "'Inter', sans-serif",
                 fontSize: 15, fontWeight: 700,
                 cursor: 'pointer', marginBottom: 18,
-                boxShadow: '0 8px 24px rgba(20,184,166,0.35)',
+                boxShadow: '0 8px 24px rgba(94, 184, 232, 0.35)',
                 transition: 'transform 0.15s, box-shadow 0.15s',
                 display: 'inline-flex', alignItems: 'center', gap: 8,
               }}
               onMouseEnter={e => {
                 (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-2px)'
-                ;(e.currentTarget as HTMLButtonElement).style.boxShadow = '0 12px 32px rgba(20,184,166,0.45)'
+                ;(e.currentTarget as HTMLButtonElement).style.boxShadow = '0 12px 30px rgba(94, 184, 232, 0.45)'
               }}
               onMouseLeave={e => {
                 (e.currentTarget as HTMLButtonElement).style.transform = 'none'
-                ;(e.currentTarget as HTMLButtonElement).style.boxShadow = '0 8px 24px rgba(20,184,166,0.35)'
+                ;(e.currentTarget as HTMLButtonElement).style.boxShadow = '0 8px 24px rgba(94, 184, 232, 0.35)'
               }}
             >
               Explore the App

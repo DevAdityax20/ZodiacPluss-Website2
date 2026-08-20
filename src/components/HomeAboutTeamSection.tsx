@@ -2,6 +2,7 @@
    HomeAboutTeamSection
    About Us hero, core values, team grid, and stats banner
    ───────────────────────────────────────────────────────────────── */
+import MagneticButton from '@/components/MagneticButton'
 
 const GRADIENT = 'linear-gradient(90deg, #5eb8e8 0%, #8fd06a 100%)'
 const GRADIENT_TEXT: React.CSSProperties = {
@@ -66,7 +67,7 @@ const values = [
 const featuredTeam = [
   {
     name: 'Mrs. Rashmi',
-    role: 'CEO & DIRECTOR',
+    role: 'FOUNDER & CEO',
     img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1786016136/Rasmi-1_prowmf.jpg',
   },
   {
@@ -88,14 +89,14 @@ const teamMembers = [
     img: 'https://res.cloudinary.com/pp0lpskp/image/upload/t_hello/Shivani_lcte5s.jpg',
   },
   {
-    name: 'Mr. Aditya',
-    role: 'SDE & PROJECT MANAGER',
-    img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1786342210/my_profile_new_and_updated_unxfyt.png',
-  },
-  {
     name: 'Mr. Hari',
     role: 'SOCIAL MEDIA HEAD CONSULTANT',
     img: 'https://res.cloudinary.com/pp0lpskp/image/upload/c_crop,g_north_west,h_970,w_823,x_254,y_280/Hari_lmdiby.jpg',
+  },
+  {
+    name: 'Mr. Aditya',
+    role: 'SDE & PROJECT MANAGER',
+    img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1786342210/my_profile_new_and_updated_unxfyt.png',
   },
   {
     name: 'Mr. Sunil ',
@@ -394,25 +395,27 @@ export default function HomeAboutTeamSection({ onNavigate, dark }: HomeAboutTeam
               Not just Astrologers — We have Therapists, Yoga Consultants, Mindfulness Guides and Nutritionists as well! We are a crew of 50+ specialists across India.
             </p>
 
-            <button
-              onClick={() => onNavigate?.('Career')}
-              className="inline-flex items-center gap-2.5 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all duration-300 cursor-pointer shadow-sm group hover:scale-[1.02]"
-              style={{
-                color: headingColor,
-                border: dark ? '1.5px solid rgba(255,255,255,0.25)' : '1.5px solid #1a1a2e',
-                background: 'transparent',
-              }}
-            >
-              <span
-                className="w-5 h-5 rounded-full border flex items-center justify-center transition-colors group-hover:bg-[#14b8a6] group-hover:border-[#14b8a6]"
-                style={{ borderColor: headingColor }}
+            <MagneticButton strength={0.45} maxDistance={45}>
+              <button
+                onClick={() => onNavigate?.('Career')}
+                className="inline-flex items-center gap-2.5 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-xs sm:text-sm font-semibold tracking-wider uppercase transition-all duration-300 cursor-pointer shadow-sm group hover:scale-[1.03] hover:shadow-md"
+                style={{
+                  color: headingColor,
+                  border: dark ? '1.5px solid rgba(255,255,255,0.25)' : '1.5px solid #1a1a2e',
+                  background: 'transparent',
+                }}
               >
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                  <circle cx="12" cy="12" r="3" fill="currentColor" />
-                </svg>
-              </span>
-              JOIN OUR TEAM
-            </button>
+                <span
+                  className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border flex items-center justify-center transition-all duration-300 group-hover:bg-[#14b8a6] group-hover:border-[#14b8a6] group-hover:text-white"
+                  style={{ borderColor: headingColor }}
+                >
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </span>
+                JOIN OUR TEAM
+              </button>
+            </MagneticButton>
           </div>
 
           {/* Right Column: 2 Featured Cards side-by-side */}
