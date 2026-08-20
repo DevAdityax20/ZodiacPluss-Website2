@@ -84,11 +84,11 @@ const teamMembers = [
   },
   {
     name: 'Mrs. Shivani',
-    role: 'WELLNESS CONSULTANT',
+    role: 'MENTAL WELLNESS EXPERT',
     img: 'https://res.cloudinary.com/pp0lpskp/image/upload/t_hello/Shivani_lcte5s.jpg',
   },
   {
-    name: 'Mr. Aditya Pandey',
+    name: 'Mr. Aditya',
     role: 'SDE & PROJECT MANAGER',
     img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1786342210/my_profile_new_and_updated_unxfyt.png',
   },
@@ -111,6 +111,11 @@ const teamMembers = [
     name: 'Ms. Akriti',
     role: 'SOCIAL MEDIA MANAGER',
     img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1787229066/female_unknown_aavqnv.png',
+  },
+  {
+    name: 'SOON ADDING MORE FACES',
+    role: 'IN OUR ZODIAC PLUSS FAMILY',
+    img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1787234490/ADD_NEW_ay2pb6.png',
   },
 ]
 
@@ -274,7 +279,7 @@ export default function HomeAboutTeamSection({ onNavigate, dark }: HomeAboutTeam
 
           {/* Founder card */}
           <div
-            className="relative rounded-3xl overflow-hidden flex flex-col sm:block min-h-0 sm:min-h-[420px]"
+            className="relative rounded-3xl overflow-hidden flex flex-col sm:block min-h-0 sm:min-h-[560px]"
             style={{
               background: founderCardBg,
             }}
@@ -322,13 +327,13 @@ export default function HomeAboutTeamSection({ onNavigate, dark }: HomeAboutTeam
 
             {/* Founder portrait */}
             <div
-              className="relative sm:absolute sm:top-0 sm:bottom-0 sm:right-0 w-full sm:w-[48%] h-[300px] sm:h-full order-1 sm:order-none shrink-0"
+              className="relative sm:absolute sm:top-0 sm:bottom-0 sm:right-0 w-full sm:w-[48%] h-[520px] sm:h-full order-1 sm:order-none shrink-0"
               style={{ overflow: 'hidden' }}
             >
               <img
                 src={FOUNDER_IMG}
                 alt="Mrs. Rashmi, Founder & CEO of ZodiacPluss"
-                className="w-full h-full object-cover object-top sm:object-[center_15%] transition-transform duration-500 hover:scale-105"
+                className="w-full h-full object-cover object-top sm:object-[center_5%] transition-transform duration-500 hover:scale-105"
               />
               <div
                 className="absolute inset-0 pointer-events-none hidden sm:block"

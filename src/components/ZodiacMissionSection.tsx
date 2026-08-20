@@ -109,7 +109,7 @@ function DarkHero({ onNavigate }: { onNavigate?: (p: string) => void }) {
   ]
 
   return (
-    <section style={{ background: DARK_BG, position: 'relative', overflow: 'hidden', minHeight: 520 }}>
+    <section style={{ background: 'transparent', position: 'relative', overflow: 'hidden', minHeight: 520 }}>
       {/* Scattered zodiac decor */}
       {ZODIAC_DECOR.map((z, i) => (
         <span key={i} style={{
@@ -436,7 +436,7 @@ function MissionBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
 
   return (
     <section style={{
-      background: `linear-gradient(120deg, #071e19 0%, #0a2a20 50%, #071e19 100%)`,
+      background: 'transparent',
       position: 'relative', overflow: 'hidden',
       padding: 'clamp(52px,7vw,80px) 24px',
     }}>
