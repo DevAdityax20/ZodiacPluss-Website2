@@ -502,8 +502,35 @@ function PhoneMockup({
 
 export default function AppShowcaseSection() {
   return (
-    <section style={{ background: 'white', padding: 'clamp(56px, 7vw, 96px) 24px' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+    <section style={{ position: 'relative', overflow: 'hidden', padding: 'clamp(56px, 7vw, 96px) 24px' }}>
+      {/* Background video */}
+      <video
+        src="https://res.cloudinary.com/pp0lpskp/video/upload/v1787222681/Background_video1_btmhwb.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          zIndex: 0,
+        }}
+      />
+      {/* Dark overlay for readability */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'rgba(10, 8, 30, 0.72)',
+          zIndex: 1,
+        }}
+      />
+      {/* Content sits above video */}
+      <div style={{ position: 'relative', zIndex: 2, maxWidth: 1200, margin: '0 auto' }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* ── LEFT: marketing copy ─────────────────────────── */}
@@ -523,7 +550,7 @@ export default function AppShowcaseSection() {
               }}>✦</div>
               <span style={{
                 fontSize: 11, fontWeight: 700, letterSpacing: '0.12em',
-                color: TEAL_DARK, textTransform: 'uppercase',
+                color: TEAL, textTransform: 'uppercase',
                 fontFamily: "'Inter', sans-serif",
               }}>Our Platform</span>
             </div>
@@ -533,7 +560,7 @@ export default function AppShowcaseSection() {
               fontFamily: "'Playfair Display', serif",
               fontSize: 'clamp(32px, 4vw, 54px)',
               fontWeight: 700, lineHeight: 1.12,
-              color: NAVY, margin: '0 0 20px',
+              color: '#f0f9ff', margin: '0 0 20px',
             }}>
               A seamless experience,<br />
               designed for{' '}
@@ -547,7 +574,7 @@ export default function AppShowcaseSection() {
             <p style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: 'clamp(14px, 1.4vw, 17px)',
-              color: '#6b7280', lineHeight: 1.75,
+              color: 'rgba(200,230,255,0.7)', lineHeight: 1.75,
               margin: '0 0 36px', maxWidth: 480,
             }}>
               ZodiacPluss combines intuitive design with powerful features to help you seek guidance, connect with experts, and grow every day.
@@ -559,9 +586,10 @@ export default function AppShowcaseSection() {
                 <div key={i} style={{
                   display: 'flex', alignItems: 'flex-start', gap: 11,
                   padding: '14px 16px',
-                  background: '#f8f7ff',
+                  background: 'rgba(255,255,255,0.07)',
                   borderRadius: 14,
-                  border: '1px solid #ede9f8',
+                  border: '1px solid rgba(20,184,166,0.2)',
+                  backdropFilter: 'blur(8px)',
                   transition: 'box-shadow 0.2s',
                 }}>
                   <div style={{
@@ -576,11 +604,11 @@ export default function AppShowcaseSection() {
                   <div>
                     <div style={{
                       fontFamily: "'Inter', sans-serif",
-                      fontSize: 13, fontWeight: 700, color: NAVY, marginBottom: 3,
+                      fontSize: 13, fontWeight: 700, color: '#e0f2fe', marginBottom: 3,
                     }}>{f.title}</div>
                     <div style={{
                       fontFamily: "'Inter', sans-serif",
-                      fontSize: 11.5, color: '#9ca3af', lineHeight: 1.5,
+                      fontSize: 11.5, color: 'rgba(200,230,255,0.65)', lineHeight: 1.5,
                     }}>{f.desc}</div>
                   </div>
                 </div>
@@ -620,7 +648,7 @@ export default function AppShowcaseSection() {
             <div style={{
               display: 'flex', alignItems: 'center', gap: 7,
               fontFamily: "'Inter', sans-serif",
-              fontSize: 13, color: '#9ca3af',
+              fontSize: 13, color: 'rgba(200,230,255,0.65)',
             }}>
               <span style={{ color: '#f59e0b', fontSize: 15 }}>★</span>
               Trusted by thousands of users across India
@@ -628,11 +656,11 @@ export default function AppShowcaseSection() {
           </div>
 
           {/* ── RIGHT: phone mockups ──────────────────────────── */}
-          <div>
+          <div style={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', margin: 0, padding: 0 }}>
             <h3 style={{
               fontFamily: "'Playfair Display', serif",
               fontSize: 'clamp(20px, 2.4vw, 28px)',
-              fontWeight: 600, color: NAVY,
+              fontWeight: 600, color: '#f0f9ff',
               margin: '0 0 8px',
             }}>
               Explore the ZodiacPluss App
@@ -640,17 +668,20 @@ export default function AppShowcaseSection() {
             <p style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: 'clamp(13px, 1.2vw, 15px)',
-              color: '#9ca3af', margin: '0 0 40px', lineHeight: 1.6,
+              color: 'rgba(200,230,255,0.65)', margin: '0 0 20px', lineHeight: 1.6,
             }}>
               Everything you need for guidance, growth and well‑being.
             </p>
 
             {/* App showcase demo video */}
             <div
-              className="w-full relative rounded-3xl overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.01]"
+              className="w-full relative rounded-[26px] overflow-hidden transition-transform duration-500 hover:scale-[1.01]"
               style={{
-                border: '1px solid rgba(20, 184, 166, 0.2)',
-                background: '#ffffff',
+                border: '1px solid rgba(20, 184, 166, 0.12)',
+                background: '#f7f9ff',
+                boxShadow: '0 18px 42px rgba(15, 23, 42, 0.08)',
+                padding: 0,
+                margin: 0,
               }}
             >
               <video
@@ -663,9 +694,10 @@ export default function AppShowcaseSection() {
                 style={{
                   width: '100%',
                   height: 'auto',
-                  maxHeight: 640,
+                  maxHeight: 620,
                   display: 'block',
-                  objectFit: 'contain',
+                  objectFit: 'cover',
+                  borderRadius: 26,
                 }}
               />
             </div>

@@ -9,7 +9,8 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
       <div
         className="relative overflow-hidden w-full flex flex-col justify-between"
         style={{
-          minHeight: "clamp(640px, 85vh, 860px)",
+          height: "calc(100dvh - 72px)",
+          minHeight: "520px",
           borderRadius: "28px",
           boxShadow: "0 20px 50px rgba(0, 0, 0, 0.08)",
         }}
@@ -24,7 +25,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           playsInline
           preload="auto"
         />
-
+  
         {/* Soft gradient washes for readability matching lotus video theme */}
         <div
           className="absolute inset-0"
@@ -46,7 +47,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           }}
         />
 
-        {/* Hero Content — Figma style */}
+        {/* Hero Content — original Figma style */}
         <div
           className="relative z-10 flex flex-col justify-center flex-1 max-w-3xl"
           style={{
@@ -122,7 +123,6 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         </div>
 
 
-        {/* Credentials moved outside hero to be rendered below the hero section */}
       </div>
     </div>
   )

@@ -113,14 +113,14 @@ export default function CredentialsSection({ dark = false }: CredentialsSectionP
   const [activeCert, setActiveCert] = useState<string | null>(null)
 
   const sectionBg = dark ? '#000000' : '#f8f6ff'
-  const cardBg = dark ? '#1a1040' : '#ffffff'
-  const textColor = dark ? '#e9d5ff' : '#1e0d40'
-  const subtextColor = dark ? '#a09bc0' : '#6b7280'
+  const cardBg = dark ? 'rgba(20,10,50,0.82)' : 'rgba(255,255,255,0.10)'
+  const textColor = dark ? '#e9d5ff' : '#ffffff'
+  const subtextColor = dark ? '#a09bc0' : 'rgba(220,210,255,0.75)'
 
   return (
     <section
       className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300 relative overflow-hidden"
-      style={{ background: sectionBg }}
+      style={{ background: 'transparent' }}
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
@@ -161,9 +161,11 @@ export default function CredentialsSection({ dark = false }: CredentialsSectionP
               onClick={() => setActiveCert(cert.id)}
               className="group relative rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl cursor-pointer flex flex-col justify-between"
               style={{
-                background: dark ? cert.bgDark : cardBg,
-                border: dark ? `1px solid ${cert.borderDark}` : `1px solid ${cert.borderLight}`,
-                boxShadow: dark ? 'none' : '0 4px 20px rgba(0,0,0,0.04)',
+                background: dark ? cert.bgDark : 'rgba(255,255,255,0.09)',
+                border: dark ? `1px solid ${cert.borderDark}` : '1px solid rgba(255,255,255,0.18)',
+                boxShadow: '0 4px 24px rgba(0,0,0,0.18)',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
               }}
             >
               <div>

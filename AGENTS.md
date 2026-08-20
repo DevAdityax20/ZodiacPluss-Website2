@@ -17,49 +17,88 @@ A Vite development server is **already running** on `$PORT` (default 8450 / 8443
 
 ```
 ZodiacPluss-Website2/
-├── index.html                  # Vite HTML entry point shell (#root)
-├── package.json                # Dependencies, scripts, and build metadata
-├── vite.config.ts              # Vite configuration (React, Tailwind v4, alias @ -> /src)
-├── tsconfig.json               # TypeScript compiler rules and path mappings
-├── .mise.toml                  # Toolchain versions (Node.js, pnpm)
-├── .figma/                     # Figma Make site configuration & meta assets
+├── .figma/                          # Figma-generated project assets and metadata
+│   ├── attachments/                 # Exported screenshots / design attachments
 │   └── make/
-│       └── site.json           # Site title, metadata, SEO configuration
-└── src/                        # Source directory
-    ├── main.tsx                # Main React entrypoint; imports index.css & mounts App.tsx
-    ├── App.tsx                 # Root application component; stateful page routing & theme provider
-    ├── index.css               # Global CSS styling, Tailwind v4 imports, and dark theme design tokens
-    ├── vite-env.d.ts           # Vite TypeScript environment declarations
-    │
-    ├── components/             # Reusable & page section components
-    │   ├── Navbar.tsx          # Top navigation bar with logo, page links, and Day/Night theme toggle button
-    │   ├── MobileBottomNav.tsx # Glassmorphism sticky bottom navigation bar for mobile viewports
-    │   ├── HeroSection.tsx     # Hero banner featuring auto-playing MP3/MP4 background video & CTA buttons
-    │   ├── AboutSection.tsx    # "Guidance that understands you" interactive carousel & feature list
-    │   ├── AppShowcaseSection.tsx # Platform showcase featuring mobile app screens & feature grid
-    │   ├── ZodiacMissionSection.tsx # 3-band layout (Dark Hero, White About, Dark Mission pillars)
-    │   ├── TestimonialsSection.tsx # "Trusted by seekers" user reviews and star rating cards
-    │   ├── CredentialsSection.tsx # Verified certifications, medical licensures, & trust badges
-    │   ├── FAQSection.tsx      # Expandable accordion for common user questions
-    │   └── Footer.tsx          # Full site footer with gradient background, newsletter, links, & credits
-    │
-    ├── pages/                  # Page-level components
-    │   ├── HomePage.tsx        # Home landing page assembling hero, about, showcase, mission, & testimonials
-    │   ├── AboutUsPage.tsx     # About Us page highlighting brand journey, founder, and team experts
-    │   ├── ServicesPage.tsx    # Comprehensive list of astrology, therapy, and horoscope services
-    │   ├── ExpertsPage.tsx     # Verified astrologers, therapists, and spiritual counselors directory
-    │   ├── ResourcesPage.tsx   # Articles, guides, tarot card readings, and educational content
-    │   ├── BookSessionPage.tsx # Interactive session booking form and expert consultation selection
-    │   └── CareerPage.tsx      # Job listings for clinical psychologists, EAP counselors, & astrologers
-    │
-    └── imports/                # Media assets, design graphics, icons, and video files
-        ├── watermark-removed-generate_a_video_of_this_image.mp4 # Hero background video
-        ├── Zodiac_Colored_Logo_croped-removebg-preview.png # Official ZodiacPluss logo graphic
-        ├── Frame471/           # Figma imported vector paths and testimonial graphics
-        ├── Frame474/           # Figma UI vector components
-        ├── Component114/       # Figma asset bundle
-        ├── Component115/       # Figma asset bundle
-        └── image-1.png ... image-11.png # App preview screenshots, illustrations, & asset images
+│       └── site.json                # Site metadata, SEO details, and Figma config
+├── .gitattributes                  # Git attribute rules
+├── .gitignore                      # Git ignore configuration
+├── .mise.toml                      # Toolchain versions (Node.js, pnpm)
+├── .npmrc                          # npm config
+├── AGENTS.md                       # Project instructions / agent context
+├── index.html                      # Vite HTML entry point shell (#root)
+├── package.json                    # Dependencies, scripts, and build metadata
+├── package-lock.json               # NPM lockfile
+├── pnpm-lock.yaml                  # pnpm lockfile
+├── tsconfig.json                   # TypeScript compiler rules and path mappings
+├── vite.config.ts                  # Vite config (React + Tailwind v4 alias @ -> /src)
+├── imports/                        # Generated import assets from design tooling
+│   ├── index.tsx
+│   ├── svg-2q7jlchzeu.ts
+│   ├── svg-8pohxvzon9.ts
+│   ├── svg-ct2kapt684.ts
+│   ├── svg-o5qymtqdez.ts
+│   └── ...
+├── src/                            # Application source code
+│   ├── App.tsx                     # Root app state router + theme state
+│   ├── index.css                   # Tailwind entry and global theme styling
+│   ├── main.tsx                    # React bootstrap entry point
+│   ├── vite-env.d.ts               # Vite TS declarations
+│   ├── components/                 # Reusable UI blocks and section components
+│   │   ├── AboutSection.tsx
+│   │   ├── AppShowcaseSection.tsx
+│   │   ├── BrandsMarquee.tsx
+│   │   ├── CredentialsSection.tsx
+│   │   ├── FAQSection.tsx
+│   │   ├── Footer.tsx
+│   │   ├── HeroSection.tsx
+│   │   ├── HomeAboutTeamSection.tsx
+│   │   ├── MobileBottomNav.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── TestimonialsSection.tsx
+│   │   └── ZodiacMissionSection.tsx
+│   ├── imports/                    # Local image/media asset bundles
+│   │   ├── Component114/
+│   │   │   ├── index.tsx
+│   │   │   └── svg-o5qymtqdez.ts
+│   │   ├── Component115/
+│   │   │   ├── index.tsx
+│   │   │   └── svg-2q7jlchzeu.ts
+│   │   ├── Component115-1/
+│   │   │   ├── index.tsx
+│   │   │   └── svg-8pohxvzon9.ts
+│   │   ├── Frame471/
+│   │   │   ├── index.tsx
+│   │   │   └── svg-ct2kapt684.ts
+│   │   ├── Frame474/
+│   │   │   └── index.tsx
+│   │   ├── Zodiac_Colored_Logo_croped-removebg-preview.png
+│   │   ├── watermark-removed-generate_a_video_of_this_image.mp4
+│   │   ├── image-1.png
+│   │   ├── image-2.png
+│   │   ├── image-3.png
+│   │   ├── image-4.png
+│   │   ├── image-5.png
+│   │   ├── image-6.png
+│   │   ├── image-7.png
+│   │   ├── image-8.png
+│   │   ├── image-9.png
+│   │   ├── image-10.png
+│   │   ├── image-11.png
+│   │   ├── image.png
+│   │   └── Screenshot_2026-08-01_221144.png
+│   │   └── Screenshot_2026-08-01_221218.png
+│   │   └── Screenshot_2026-08-01_221239.png
+│   └── pages/                     # Route/state page screens
+│       ├── AboutUsPage.tsx
+│       ├── BookSessionPage.tsx
+│       ├── CareerPage.tsx
+│       ├── ExpertsPage.tsx
+│       ├── HomePage.tsx
+│       ├── PortfolioPage.tsx
+│       └── ServicesPage.tsx
+├── dist/                           # Build output (generated; usually ignored in source work)
+└── node_modules/                   # Installed dependencies (generated; not source code)
 ```
 
 ---

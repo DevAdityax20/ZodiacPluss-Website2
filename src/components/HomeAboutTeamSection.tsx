@@ -66,56 +66,51 @@ const values = [
 const featuredTeam = [
   {
     name: 'Mrs. Rashmi',
-    role: 'FOUNDER / DIRECTOR',
+    role: 'FOUNDER & DIRECTOR',
     img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1786016136/Rasmi-1_prowmf.jpg',
   },
   {
     name: 'Mrs. Sheela',
-    role: 'Director',
+    role: 'DIRECTOR',
     img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1786011250/sheela_ji_j2mckm.png',
   },
 ]
 
 const teamMembers = [
   {
-    name: 'Mrs. Shweta ',
-    role: 'Senior Tech Consultant',
+    name: 'Ms. Shweta ',
+    role: 'SENIOR TECHNICAL CONSULTANT',
     img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1786011226/Shweta_x67krv.jpg',
   },
   {
+    name: 'Mrs. Shivani',
+    role: 'WELLNESS CONSULTANT',
+    img: 'https://res.cloudinary.com/pp0lpskp/image/upload/t_hello/Shivani_lcte5s.jpg',
+  },
+  {
     name: 'Mr. Aditya Pandey',
-    role: 'SDE & Project Manager',
+    role: 'SDE & PROJECT MANAGER',
     img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1786342210/my_profile_new_and_updated_unxfyt.png',
   },
   {
-    name: 'Mr Hari',
-    role: 'Social Media Manager',
-    img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1786342553/Hari_lmdiby.jpg',
+    name: 'Mr. Hari',
+    role: 'SOCIAL MEDIA HEAD CONSULTANT',
+    img: 'https://res.cloudinary.com/pp0lpskp/image/upload/c_crop,g_north_west,h_970,w_823,x_254,y_280/Hari_lmdiby.jpg',
   },
   {
-    name: 'Lakshay Seth',
-    role: 'VIDEO PRODUCTION HEAD',
-    img: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=800&fit=crop&auto=format&q=80',
+    name: 'Mr. Sunil ',
+    role: 'ADVOCATE & LEGAL CONSULTANT',
+    img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1786011233/Sunil_ji_ltxjqb.png',
   },
   {
-    name: 'Sahagjit Kaur',
-    role: 'CREATIVE DIRECTOR',
-    img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&h=800&fit=crop&auto=format&q=80',
+    name: 'Mr. Shubham',
+    role: 'FINANCIAL ADVISER',
+    img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1787229071/blank_avatar_1_ncgygy.jpg',
   },
   {
-    name: 'Sneha Reddy',
-    role: 'HEAD OF PRODUCT',
-    img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop&auto=format&q=80',
-  },
-  {
-    name: 'Vikram Singh',
-    role: 'VEDIC ASTROLOGER',
-    img: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&h=800&fit=crop&auto=format&q=80',
-  },
-  {
-    name: 'Dr. Meera Nair',
-    role: 'CLINICAL PSYCHOLOGIST',
-    img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=800&fit=crop&auto=format&q=80',
+    name: 'Ms. Akriti',
+    role: 'SOCIAL MEDIA MANAGER',
+    img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1787229066/female_unknown_aavqnv.png',
   },
 ]
 
@@ -415,24 +410,47 @@ export default function HomeAboutTeamSection({ onNavigate, dark }: HomeAboutTeam
             </button>
           </div>
 
-          {/* Right Column: 2 Featured Cards side-by-side (2 cols even on mobile!) */}
+          {/* Right Column: 2 Featured Cards side-by-side */}
           <div className="lg:col-span-6 xl:col-span-7 grid grid-cols-2 gap-3 sm:gap-4 md:gap-5">
             {featuredTeam.map((member) => (
               <div
                 key={member.name}
-                className="group relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[3/4] shadow-md transition-all duration-500 hover:shadow-2xl hover:-translate-y-1.5 cursor-pointer border border-black/5 dark:border-white/10 bg-gray-900"
+                className="group rounded-2xl sm:rounded-3xl overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer"
+                style={{
+                  background: dark ? 'rgba(30,20,55,0.85)' : '#ffffff',
+                  border: dark ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(200,190,240,0.35)',
+                }}
               >
-                <img
-                  src={member.img}
-                  alt={member.name}
-                  className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-3.5 sm:p-5 z-10">
-                  <h3 className="text-sm sm:text-lg lg:text-xl font-bold text-white leading-tight drop-shadow-sm">
+                {/* Image */}
+                <div className="overflow-hidden" style={{ aspectRatio: '3/3.2' }}>
+                  <img
+                    src={member.img}
+                    alt={member.name}
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                {/* Name + Role below */}
+                <div style={{ padding: '14px 16px 16px' }}>
+                  <h3
+                    className="font-bold leading-tight mb-1"
+                    style={{
+                      fontSize: 'clamp(13px, 2.5vw, 18px)',
+                      color: dark ? '#f0eaff' : '#1a1a2e',
+                      fontFamily: "'Inter', sans-serif",
+                    }}
+                  >
                     {member.name}
                   </h3>
-                  <p className="text-[10px] sm:text-xs font-semibold text-gray-300 uppercase tracking-wider mt-0.5 sm:mt-1">
+                  <p
+                    style={{
+                      fontSize: '10px',
+                      fontWeight: 700,
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase',
+                      color: dark ? 'rgba(180,160,255,0.6)' : 'rgba(80,70,120,0.55)',
+                      fontFamily: "'Inter', sans-serif",
+                    }}
+                  >
                     {member.role}
                   </p>
                 </div>
@@ -441,24 +459,47 @@ export default function HomeAboutTeamSection({ onNavigate, dark }: HomeAboutTeam
           </div>
         </div>
 
-        {/* Main Grid: 2 columns on mobile, 3 on tablet, 4 on desktop */}
+        {/* Main Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
           {teamMembers.map((member) => (
             <div
               key={member.name}
-              className="group relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[3/4] shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1 cursor-pointer border border-black/5 dark:border-white/10 bg-gray-900"
+              className="group rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
+              style={{
+                background: dark ? 'rgba(30,20,55,0.85)' : '#ffffff',
+                border: dark ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(200,190,240,0.3)',
+              }}
             >
-              <img
-                src={member.img}
-                alt={member.name}
-                className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 z-10">
-                <h3 className="text-xs sm:text-base font-bold text-white leading-tight drop-shadow-sm">
+              {/* Image */}
+              <div className="overflow-hidden" style={{ aspectRatio: '3/3' }}>
+                <img
+                  src={member.img}
+                  alt={member.name}
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              {/* Name + Role */}
+              <div style={{ padding: '12px 14px 14px' }}>
+                <h3
+                  className="font-bold leading-tight mb-1"
+                  style={{
+                    fontSize: 'clamp(12px, 2vw, 15px)',
+                    color: dark ? '#f0eaff' : '#1a1a2e',
+                    fontFamily: "'Inter', sans-serif",
+                  }}
+                >
                   {member.name}
                 </h3>
-                <p className="text-[9px] sm:text-xs font-semibold text-gray-300 uppercase tracking-wider mt-0.5">
+                <p
+                  style={{
+                    fontSize: '9px',
+                    fontWeight: 700,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: dark ? 'rgba(180,160,255,0.55)' : 'rgba(80,70,120,0.5)',
+                    fontFamily: "'Inter', sans-serif",
+                  }}
+                >
                   {member.role}
                 </p>
               </div>
