@@ -8,6 +8,7 @@ import ServicesPage from '@/pages/ServicesPage'
 import ExpertsPage from '@/pages/ExpertsPage'
 import BookSessionPage from '@/pages/BookSessionPage'
 import CareerPage from '@/pages/CareerPage'
+import PortfolioPage from '@/pages/PortfolioPage'
 
 const pageMap: Record<string, string> = {
   'About': 'About Us',
@@ -34,6 +35,7 @@ export default function App() {
       case 'Experts':        return <ExpertsPage onNavigate={handleNavigate} dark={dark} />
       case 'Book':           return <BookSessionPage onNavigate={handleNavigate} dark={dark} />
       case 'Career':         return <CareerPage onNavigate={handleNavigate} dark={dark} />
+      case 'Portfolio':      return <PortfolioPage onNavigate={handleNavigate} dark={dark} />
       default:               return <HomePage onNavigate={handleNavigate} dark={dark} />
     }
   }

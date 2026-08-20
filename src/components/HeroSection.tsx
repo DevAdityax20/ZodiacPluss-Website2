@@ -105,7 +105,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
               </svg>
             </button>
             <button
-              onClick={() => onNavigate("About Us")}
+              onClick={() => onNavigate("Portfolio")}
               className="flex items-center gap-2 px-6 sm:px-7 py-3.5 rounded-full font-semibold text-xs sm:text-sm transition-all duration-300 hover:scale-[1.03] cursor-pointer bg-transparent"
               style={{
                 border: "2px solid #1a1a2e",
