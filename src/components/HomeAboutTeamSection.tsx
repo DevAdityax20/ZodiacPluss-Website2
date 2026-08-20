@@ -66,7 +66,7 @@ const values = [
 const featuredTeam = [
   {
     name: 'Mrs. Rashmi',
-    role: 'FOUNDER & DIRECTOR',
+    role: 'CEO & DIRECTOR',
     img: 'https://res.cloudinary.com/pp0lpskp/image/upload/v1786016136/Rasmi-1_prowmf.jpg',
   },
   {
