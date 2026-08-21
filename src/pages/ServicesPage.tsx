@@ -62,7 +62,7 @@ const corporatePackages = [
     desc: 'Perfect for small teams',
     seats: 'Up to 25 employees',
     features: ['Monthly group astrology session', 'Employee wellness reports', 'AI horoscope access', 'Email support'],
-    color: '#5b2d8e',
+    color: '#0d5f4f',
   },
   {
     name: 'Growth',
@@ -106,9 +106,7 @@ export default function ServicesPage({ onNavigate, dark }: ServicesPageProps) {
       >
         <div className="relative z-10 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 border border-pink-400/40 text-pink-300 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M12 2L13.5 8.5L20 7L15.5 12L20 17L13.5 15.5L12 22L10.5 15.5L4 17L8.5 12L4 7L10.5 8.5L12 2Z"/>
-            </svg>
+          
             Our Services &amp; Corporate Solutions
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
@@ -195,7 +193,11 @@ export default function ServicesPage({ onNavigate, dark }: ServicesPageProps) {
           </p>
           <button
             onClick={() => onNavigate('Book')}
-            className="bg-[#14b8a6] hover:bg-teal-400 text-white font-semibold px-8 py-3 rounded-full transition-all shadow-md"
+            className="inline-flex items-center gap-2 text-white font-semibold px-8 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border-0"
+            style={{
+              background: 'linear-gradient(90deg, #5eb8e8 0%, #8fd06a 100%)',
+              boxShadow: '0 8px 24px rgba(94, 184, 232, 0.35)',
+            }}
           >
             Book a Free Call →
           </button>
@@ -224,7 +226,11 @@ export default function ServicesPage({ onNavigate, dark }: ServicesPageProps) {
           </p>
           <button
             onClick={() => onNavigate('Book')}
-            className="bg-[#14b8a6] text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-400 transition-all shadow-md"
+            className="inline-flex items-center gap-2 text-white font-semibold px-8 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border-0"
+            style={{
+              background: 'linear-gradient(90deg, #5eb8e8 0%, #8fd06a 100%)',
+              boxShadow: '0 8px 24px rgba(94, 184, 232, 0.35)',
+            }}
           >
             Request a Corporate Demo →
           </button>

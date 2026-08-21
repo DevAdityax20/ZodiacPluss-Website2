@@ -88,7 +88,11 @@ export default function AboutUsPage({ onNavigate }: AboutUsPageProps) {
             </p>
             <button
               onClick={() => onNavigate('Services')}
-              className="about-button flex items-center gap-2 bg-[#1e0d40] text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-[#2d1b4e] transition-all duration-300"
+              className="about-button inline-flex items-center gap-2 text-white text-sm font-semibold px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer border-0"
+              style={{
+                background: 'linear-gradient(90deg, #5eb8e8 0%, #8fd06a 100%)',
+                boxShadow: '0 8px 24px rgba(94, 184, 232, 0.35)',
+              }}
             >
               Explore Services
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">

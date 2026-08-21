@@ -236,7 +236,7 @@ export default function FAQSection({ onNavigate }: FAQSectionProps) {
           <button
             onClick={() => onNavigate?.('Book')}
             style={{
-              background: `linear-gradient(135deg, ${TEAL}, #0d9488)`,
+              background: 'linear-gradient(90deg, #5eb8e8 0%, #8fd06a 100%)',
               border: 'none', borderRadius: 999,
               padding: '14px 30px',
               color: 'white',
@@ -244,16 +244,16 @@ export default function FAQSection({ onNavigate }: FAQSectionProps) {
               fontSize: 15, fontWeight: 700,
               cursor: 'pointer', whiteSpace: 'nowrap',
               display: 'inline-flex', alignItems: 'center', gap: 8,
-              boxShadow: '0 8px 24px rgba(20,184,166,0.35)',
+              boxShadow: '0 8px 24px rgba(94, 184, 232, 0.35)',
               transition: 'transform 0.15s, box-shadow 0.15s',
             }}
             onMouseEnter={e => {
               (e.currentTarget as HTMLButtonElement).style.transform = 'translateY(-2px)'
-              ;(e.currentTarget as HTMLButtonElement).style.boxShadow = '0 12px 32px rgba(20,184,166,0.45)'
+              ;(e.currentTarget as HTMLButtonElement).style.boxShadow = '0 12px 32px rgba(94, 184, 232, 0.45)'
             }}
             onMouseLeave={e => {
               (e.currentTarget as HTMLButtonElement).style.transform = 'none'
-              ;(e.currentTarget as HTMLButtonElement).style.boxShadow = '0 8px 24px rgba(20,184,166,0.35)'
+              ;(e.currentTarget as HTMLButtonElement).style.boxShadow = '0 8px 24px rgba(94, 184, 232, 0.35)'
             }}
           >
             Get in Touch
