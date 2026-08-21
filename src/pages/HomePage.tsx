@@ -29,7 +29,7 @@ export default function HomePage({ onNavigate, dark }: HomePageProps) {
         </div>
         <AboutSection onNavigate={onNavigate} dark={dark} />
         <AppShowcaseSection />
-        <ZodiacMissionSection onNavigate={onNavigate} />
+        <ZodiacMissionSection onNavigate={onNavigate} dark={dark} />
         <div className="pb-6">
           <TestimonialsSection />
         </div>

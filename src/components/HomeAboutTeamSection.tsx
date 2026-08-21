@@ -280,14 +280,21 @@ export default function HomeAboutTeamSection({ onNavigate, dark }: HomeAboutTeam
 
           {/* Founder card */}
           <div
-            className="relative rounded-3xl overflow-hidden flex flex-col sm:block min-h-0 sm:min-h-[560px]"
+            className="relative rounded-3xl overflow-hidden flex flex-col sm:block min-h-0 sm:min-h-[560px] shadow-xl"
             style={{
               background: founderCardBg,
+              border: dark ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(94,184,232,0.18)',
             }}
           >
-            <div className="relative z-10 p-5 sm:p-8 lg:p-10 flex flex-col order-2 sm:order-none sm:absolute sm:inset-0 sm:max-w-[58%]">
-              <div className="flex items-center gap-2 mb-4">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="#14b8a6">
+            <div className="relative z-10 p-6 sm:p-9 lg:p-11 flex flex-col order-2 sm:order-none sm:absolute sm:inset-0 sm:max-w-[60%]">
+              <div
+                className="inline-flex items-center gap-2 mb-5 self-start px-3 py-1 rounded-full"
+                style={{
+                  background: dark ? 'rgba(20,184,166,0.12)' : 'rgba(20,184,166,0.08)',
+                  border: '1px solid rgba(20,184,166,0.25)',
+                }}
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#14b8a6">
                   <path d="M12 2L13.5 8.5L20 7L15.5 12L20 17L13.5 15.5L12 22L10.5 15.5L4 17L8.5 12L4 7L10.5 8.5L12 2Z" />
                 </svg>
                 <span className="text-[10px] font-bold tracking-[0.15em] uppercase" style={{ color: '#14b8a6' }}>
@@ -295,40 +302,77 @@ export default function HomeAboutTeamSection({ onNavigate, dark }: HomeAboutTeam
                 </span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold mb-0.5" style={{ color: headingColor }}>
+              <h3
+                className="text-2xl sm:text-[28px] font-bold mb-1 tracking-tight"
+                style={{ color: headingColor, fontFamily: "'Inter', sans-serif" }}
+              >
                 Mrs. Rashmi
               </h3>
-              <p className="text-sm mb-3" style={{ color: bodyColor }}>
-                Founder & CEO,-  ZodiacPluss Services Pvt. Ltd.
-              </p>
-              <p
-                className="text-2xl sm:text-3xl mb-6 italic"
-                style={{ fontFamily: "'Playball', cursive", color: '#14b8a6' }}
-              >
-                Rashmi
+              <p className="text-sm font-medium mb-6" style={{ color: bodyColor }}>
+                Founder &amp; CEO, ZodiacPluss Services Pvt. Ltd.
               </p>
 
-              <div className="relative mt-auto">
-                <span
-                  className="absolute -top-2 -left-1 text-5xl sm:text-6xl leading-none select-none"
-                  style={{ color: '#14b8a6', fontFamily: 'Georgia, serif', opacity: 0.85 }}
+              {/* Quote card */}
+              <div
+                className="relative rounded-2xl p-5 sm:p-6"
+                style={{
+                  background: dark ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.7)',
+                  border: dark ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(20,184,166,0.16)',
+                }}
+              >
+                <svg
+                  width="26"
+                  height="26"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className="mb-2 opacity-80"
                   aria-hidden="true"
                 >
-                  &ldquo;
-                </span>
+                  <path
+                    d="M7 15C5 15 4 13.5 4 11.5C4 8.5 6 6.5 9 6L9.5 7.5C7.5 8 6.5 9 6.5 10.5C6.5 10.5 7 10.3 7.5 10.3C8.9 10.3 10 11.3 10 12.7C10 14.1 8.9 15 7 15ZM16 15C14 15 13 13.5 13 11.5C13 8.5 15 6.5 18 6L18.5 7.5C16.5 8 15.5 9 15.5 10.5C15.5 10.5 16 10.3 16.5 10.3C17.9 10.3 19 11.3 19 12.7C19 14.1 17.9 15 16 15Z"
+                    fill="#14b8a6"
+                  />
+                </svg>
                 <blockquote
-                  className="text-[13px] sm:text-sm leading-relaxed pl-6 pt-4"
+                  className="text-[13px] sm:text-sm leading-relaxed"
                   style={{ color: dark ? '#c4b5fd' : '#334155' }}
                 >
                   I created ZodiacPluss because I believe every person deserves a guide who truly
                   understands them — where the stars meet science, and healing meets hope.
                 </blockquote>
+                <div
+                  className="mt-4 pt-3 flex items-center justify-between border-t"
+                  style={{ borderColor: dark ? 'rgba(255,255,255,0.08)' : 'rgba(20,184,166,0.15)' }}
+                >
+                  <span
+                    className="text-xl sm:text-2xl"
+                    style={{ fontFamily: "'Playball', cursive", color: '#14b8a6' }}
+                  >
+                    Rashmi
+                  </span>
+                  <span
+                    className="text-[9px] font-bold tracking-[0.12em] uppercase"
+                    style={{ color: bodyColor }}
+                  >
+                    Founder&apos;s Note
+                  </span>
+                </div>
+              </div>
+
+              <div
+                className="mt-auto pt-6 flex items-center gap-2 text-xs font-semibold"
+                style={{ color: headingColor }}
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#14b8a6">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                </svg>
+                15+ Years Guiding Seekers Across India
               </div>
             </div>
 
             {/* Founder portrait */}
             <div
-              className="relative sm:absolute sm:top-0 sm:bottom-0 sm:right-0 w-full sm:w-[48%] h-[520px] sm:h-full order-1 sm:order-none shrink-0"
+              className="relative sm:absolute sm:top-0 sm:bottom-0 sm:right-0 w-full sm:w-[46%] h-[520px] sm:h-full order-1 sm:order-none shrink-0"
               style={{ overflow: 'hidden' }}
             >
               <img

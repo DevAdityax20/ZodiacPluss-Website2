@@ -1,224 +1,230 @@
-import { useState } from 'react'
-import svgPaths from '@/imports/Frame471/svg-ct2kapt684'
-import imgVector from '@/imports/Frame471/b68f3b856e8d35864d9aba9627f000b9289b7268.png'
-import imgBg from '@/imports/Frame471/2f7998d128a34b09994aec13889a56ac27ff78af.png'
+import React, { useRef, useState, useEffect } from 'react'
 
-const testimonials = [
+interface Testimonial {
+  name: string
+  role: string
+  avatar: string
+  stars: number
+  quote: string
+  tag: string
+}
+
+const testimonials: Testimonial[] = [
   {
     name: 'Aryan Sharma',
-    quote: 'I loved how  therapists solve my problems and help me in my tough phase of life.',
+    role: 'Product Designer · Bengaluru',
+    avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=120&h=120&fit=crop&crop=face',
+    stars: 5,
+    tag: 'Therapy & Healing',
+    quote: 'The therapy sessions helped me navigate my most challenging career transition. Compassionate, insightful, and genuinely transformative.',
   },
   {
     name: 'Priya Mehta',
-    quote: 'The AI astro insights were shockingly accurate. It felt like the stars truly understood me.',
+    role: 'Entrepreneur · Mumbai',
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop&crop=face',
+    stars: 5,
+    tag: 'AI Astro Insights',
+    quote: 'The AI astro insights were shockingly accurate! It felt like having a personalized celestial compass available whenever I needed direction.',
   },
   {
     name: 'Rahul Verma',
-    quote: 'My personalized horoscope gave me clarity I had been searching for years. Truly life-changing.',
+    role: 'Software Architect · Delhi NCR',
+    avatar: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=120&h=120&fit=crop&crop=face',
+    stars: 5,
+    tag: 'Vedic Kundli',
+    quote: 'My personalized planetary chart gave me clarity I had been searching for years. Truly life-changing advice from certified experts.',
+  },
+  {
+    name: 'Ananya Deshmukh',
+    role: 'Marketing Lead · Pune',
+    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=120&h=120&fit=crop&crop=face',
+    stars: 5,
+    tag: 'Mindfulness & Yoga',
+    quote: 'ZodiacPluss blends ancient astrological wisdom with modern mental wellness seamlessly. Highly recommend for overall emotional balance!',
+  },
+  {
+    name: 'Vikramjit Singh',
+    role: 'Creative Director · Chandigarh',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face',
+    stars: 5,
+    tag: 'Live Consultation',
+    quote: 'One-on-one consultation with the senior astrologer resolved so many doubts regarding my business roadmap. Authentic and empathetic guidance.',
+  },
+  {
+    name: 'Sneha Patel',
+    role: 'HR Business Partner · Ahmedabad',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&h=120&fit=crop&crop=face',
+    stars: 5,
+    tag: 'Corporate Wellness',
+    quote: 'Our team wellness workshops received stellar feedback. Stress levels dropped and positivity flourished across departments.',
   },
 ]
 
-function TestimonialCard({ name, quote }: { name: string; quote: string }) {
-  return (
-    <div className="relative w-full" style={{ height: '236px' }}>
-      {/* Card background – exact SVG from Figma */}
-      <svg
-        className="absolute block inset-0 size-full"
-        fill="none"
-        preserveAspectRatio="none"
-        viewBox="0 0 724 236"
-      >
-        <path d={svgPaths.p242b1f00} fill="#04496C" fillOpacity="0.3" />
-      </svg>
+export default function TestimonialsSection({ dark = false }: { dark?: boolean }) {
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [isPaused, setIsPaused] = useState(false)
 
-      {/* Avatar – top: 8.54%, right: 91.9%, bottom: 69.17%, left: 0.9% */}
-      <div className="absolute" style={{ top: '8.54%', right: '91.9%', bottom: '69.17%', left: '0.9%' }}>
-        <img alt="" className="absolute block inset-0 max-w-none size-full object-cover rounded-full" src={imgVector} />
-      </div>
+  // Duplicated list for extended scroll depth
+  const extendedList = [...testimonials, ...testimonials, ...testimonials]
 
-      {/* Star 1 */}
-      <div className="absolute" style={{ top: '34.15%', right: '87.2%', bottom: '55.55%', left: '9.3%' }}>
-        <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25.3468 24.3072">
-          <path d={svgPaths.p3c1b2680} fill="#FD853A" />
-        </svg>
-      </div>
-      {/* Star 2 */}
-      <div className="absolute" style={{ top: '34.15%', right: '83%', bottom: '55.55%', left: '13.5%' }}>
-        <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25.3468 24.3072">
-          <path d={svgPaths.p3c1b2680} fill="#FD853A" />
-        </svg>
-      </div>
-      {/* Star 3 */}
-      <div className="absolute" style={{ top: '34.15%', right: '78.79%', bottom: '55.55%', left: '17.7%' }}>
-        <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25.3468 24.3072">
-          <path d={svgPaths.p3c1b2680} fill="#FD853A" />
-        </svg>
-      </div>
-      {/* Star 4 */}
-      <div className="absolute" style={{ top: '34.15%', right: '74.59%', bottom: '55.55%', left: '21.91%' }}>
-        <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25.3468 24.3072">
-          <path d={svgPaths.p3c1b2680} fill="#FD853A" />
-        </svg>
-      </div>
-      {/* Star 5 */}
-      <div className="absolute" style={{ top: '34.15%', right: '70.39%', bottom: '55.55%', left: '26.11%' }}>
-        <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 25.3468 24.3072">
-          <path d={svgPaths.p3c1b2680} fill="#FD853A" />
-        </svg>
-      </div>
+  // Continuous smooth auto-scroll when not hovering
+  useEffect(() => {
+    const el = scrollRef.current
+    if (!el) return
 
-      {/* "5.0" rating */}
-      <div className="absolute" style={{ top: '35.77%', right: '64.87%', bottom: '56.77%', left: '30.7%' }}>
-        <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 32.0772 17.6042">
-          <path d={svgPaths.p333c2100} fill="black" />
-        </svg>
-      </div>
+    let animationFrameId: number
+    const step = () => {
+      if (!isPaused && el) {
+        el.scrollLeft += 0.85
+        // Seamless loop reset
+        if (el.scrollLeft >= el.scrollWidth / 2) {
+          el.scrollLeft = 0
+        }
+      }
+      animationFrameId = requestAnimationFrame(step)
+    }
 
-      {/* Quotation mark shadow layer */}
-      <div className="absolute" style={{ top: '10.16%', right: '3.71%', bottom: '62.2%', left: '91.79%' }}>
-        <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 32.604 65.2358">
-          <path d={svgPaths.p36bb5300} fill="black" fillOpacity="0.4" />
-        </svg>
-      </div>
-      {/* Quotation mark main layer */}
-      <div className="absolute" style={{ top: '10.16%', right: '9.14%', bottom: '62.2%', left: '86.36%' }}>
-        <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 32.604 65.2358">
-          <path d={svgPaths.p1ec40400} fill="black" fillOpacity="0.4" />
-        </svg>
-      </div>
+    animationFrameId = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(animationFrameId)
+  }, [isPaused])
 
-      {/* Name */}
-      <p
-        className="absolute leading-tight text-black text-center"
-        style={{
-          top: '12%', right: '60%', bottom: '65%', left: '7.02%',
-          fontFamily: "'Sora', sans-serif",
-          fontWeight: 400,
-          fontSize: 'clamp(15px, 3vw, 24px)',
-          wordBreak: 'break-word',
-          overflow: 'hidden',
-        }}
-      >
-        {name}
-      </p>
-
-      {/* Quote */}
-      <p
-        className="absolute leading-snug text-center"
-        style={{
-          top: '52%', right: '8%', bottom: '12%', left: '10%',
-          fontFamily: "'Sora', sans-serif",
-          fontWeight: 600,
-          fontSize: 'clamp(12px, 2.4vw, 17px)',
-          color: '#065350',
-          wordBreak: 'break-word',
-          whiteSpace: 'pre-wrap',
-        }}
-      >
-        {quote}
-      </p>
-    </div>
-  )
-}
-
-export default function TestimonialsSection() {
-  const [active, setActive] = useState(0)
+  // Manual scroll triggers
+  const handleScroll = (direction: 'left' | 'right') => {
+    if (!scrollRef.current) return
+    const scrollAmount = 360
+    scrollRef.current.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    })
+  }
 
   return (
-    <section className="relative w-full" style={{ minHeight: '560px' }}>
-      {/* Background image */}
-      <div className="absolute inset-0 overflow-hidden" style={{ borderRadius: '32px', margin: '0 16px' }}>
-        <img
-          alt=""
-          src={imgBg}
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-        />
-        <div className="absolute inset-0" style={{ background: 'rgba(255,255,255,0.08)' }} />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center px-8 pt-14 pb-16">
-        {/* "Testimonials" – Playball */}
-        <p
-          className="text-center mb-1"
-          style={{
-            fontFamily: "'Playball', cursive",
-            fontSize: 'clamp(36px, 5vw, 80px)',
-            lineHeight: 'normal',
-            color: '#065350',
-          }}
-        >
-          Testimonials
-        </p>
-
-        {/* Main heading */}
-        <p
-          className="text-center mb-4"
-          style={{
-            fontFamily: "'Sora', sans-serif",
-            fontWeight: 400,
-            fontSize: 'clamp(22px, 3.5vw, 56px)',
-            lineHeight: 0,
-            color: '#065350',
-          }}
-        >
-          <span style={{ lineHeight: 'normal', color: 'black' }}>Trusted by seekers,</span>
-          {' '}
-          <span
-            style={{
-              fontFamily: "'Sour Gummy', cursive",
-              lineHeight: 'normal',
-              color: '#096e49',
-              fontVariationSettings: '"wdth" 100',
-            }}
-          >
-            Written by stars
-          </span>
-        </p>
-
-        {/* Subtext */}
-        <p
-          className="text-center max-w-3xl mb-10"
-          style={{
-            fontFamily: "'Song Myung', serif",
-            fontSize: 'clamp(14px, 1.5vw, 30px)',
-            lineHeight: 'normal',
-            color: '#4b7675',
-            marginTop: '24px',
-          }}
-        >
-          {"Real readings, real turning points. Here's what members of Zodiac Pluss say after their charts came into alignment."}
-        </p>
-
-        {/* Desktop: 3 cards */}
-        <div className="w-full max-w-[1200px]">
-          <div className="hidden lg:grid gap-5" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
-            {testimonials.map((t, i) => (
-              <TestimonialCard key={i} name={t.name} quote={t.quote} />
-            ))}
+    <section className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      {/* 16:9 Aspect Ratio Container with Plain White Background */}
+      <div
+        className="w-full relative overflow-hidden rounded-3xl bg-white shadow-xl border border-gray-100 flex flex-col justify-between"
+        style={{
+          aspectRatio: '16 / 9',
+          minHeight: '500px',
+        }}
+      >
+        {/* Top Header Content */}
+        <div className="pt-8 sm:pt-12 md:pt-14 px-6 text-center max-w-3xl mx-auto z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-teal-50 text-teal-700 border border-teal-200 mb-3">
+            <span className="text-teal-500">✦</span> Verified Seeker Stories
           </div>
 
-          {/* Mobile: carousel */}
-          <div className="lg:hidden px-2">
-            <TestimonialCard name={testimonials[active].name} quote={testimonials[active].quote} />
-            <div className="flex justify-center gap-2 mt-5">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActive(i)}
-                  style={{
-                    width: i === active ? '24px' : '8px',
-                    height: '8px',
-                    borderRadius: '4px',
-                    background: i === active ? '#065350' : '#a0c4c0',
-                    border: 'none',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s',
-                    padding: 0,
-                  }}
-                />
-              ))}
-            </div>
+          <h2
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold text-gray-900 tracking-tight leading-tight mb-3"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            Loved by Seekers,{' '}
+            <span style={{
+              background: 'linear-gradient(90deg, #14b8a6 0%, #3b82f6 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}>
+              Guided by Stars
+            </span>
+          </h2>
+
+          <p className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-xl mx-auto mb-2">
+            Real readings, real turning points. Discover how personalized cosmic insights and licensed therapies bring clarity to thousands of lives.
+          </p>
+        </div>
+
+        {/* Scrollable Cards Container with Side Floating Arrows */}
+        <div
+          className="relative w-full pb-8 sm:pb-12 pt-3"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
+        >
+          {/* Gradient Fade Edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+          {/* Floating Left Arrow Button */}
+          <button
+            onClick={() => handleScroll('left')}
+            aria-label="Scroll Left"
+            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/95 backdrop-blur-md border border-gray-200 shadow-lg text-gray-700 hover:text-teal-600 hover:border-teal-400 hover:scale-110 active:scale-95 flex items-center justify-center transition-all cursor-pointer"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          {/* Floating Right Arrow Button */}
+          <button
+            onClick={() => handleScroll('right')}
+            aria-label="Scroll Right"
+            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/95 backdrop-blur-md border border-gray-200 shadow-lg text-gray-700 hover:text-teal-600 hover:border-teal-400 hover:scale-110 active:scale-95 flex items-center justify-center transition-all cursor-pointer"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Scrollable Track */}
+          <div
+            ref={scrollRef}
+            className="flex gap-4 sm:gap-6 overflow-x-auto px-6 sm:px-12 scroll-smooth select-none cursor-grab active:cursor-grabbing"
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+            }}
+          >
+            {extendedList.map((item, idx) => (
+              <div
+                key={idx}
+                className="w-[280px] sm:w-[340px] md:w-[380px] bg-slate-50 hover:bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between shrink-0"
+              >
+                {/* Header: User Avatar + Name + Stars */}
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <img
+                        src={item.avatar}
+                        alt={item.name}
+                        className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover border-2 border-teal-400/40"
+                      />
+                      <div>
+                        <h4 className="text-sm sm:text-base font-bold text-gray-900 leading-tight">
+                          {item.name}
+                        </h4>
+                        <p className="text-[11px] sm:text-xs text-gray-500">{item.role}</p>
+                      </div>
+                    </div>
+                    <span className="text-[10px] sm:text-xs font-semibold px-2 py-0.5 rounded-full bg-teal-100/70 text-teal-800">
+                      {item.tag}
+                    </span>
+                  </div>
+
+                  {/* Stars Rating */}
+                  <div className="flex items-center gap-1 mb-2.5">
+                    {Array.from({ length: item.stars }).map((_, i) => (
+                      <span key={i} className="text-amber-400 text-sm">★</span>
+                    ))}
+                    <span className="text-xs font-bold text-gray-700 ml-1">5.0</span>
+                  </div>
+
+                  {/* Quote */}
+                  <p className="text-xs sm:text-[13px] text-gray-700 leading-relaxed italic">
+                    "{item.quote}"
+                  </p>
+                </div>
+
+                {/* Verified badge */}
+                <div className="mt-4 pt-3 border-t border-slate-200/60 flex items-center gap-1.5 text-[11px] font-medium text-emerald-600">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                  </svg>
+                  Verified Member
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

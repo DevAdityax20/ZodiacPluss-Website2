@@ -10,6 +10,7 @@ import BookSessionPage from '@/pages/BookSessionPage'
 import CareerPage from '@/pages/CareerPage'
 import PortfolioPage from '@/pages/PortfolioPage'
 import CustomCursor from '@/components/CustomCursor'
+import SplashScreen from '@/components/SplashScreen'
 
 const pageMap: Record<string, string> = {
   'About': 'About Us',
@@ -21,6 +22,7 @@ const pageMap: Record<string, string> = {
 export default function App() {
   const [currentPage, setCurrentPage] = useState('Home')
   const [dark, setDark] = useState(false)
+  const [showSplash, setShowSplash] = useState(true)
 
   const handleNavigate = (page: string) => {
     const resolved = pageMap[page] ?? page
@@ -49,6 +51,7 @@ export default function App() {
         transition: 'background 0.4s ease',
       }}
     >
+      {showSplash && <SplashScreen onFinish={() => setShowSplash(false)} />}
       <CustomCursor />
       <Navbar
         currentPage={currentPage}

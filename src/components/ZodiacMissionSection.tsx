@@ -11,69 +11,20 @@ const ACCENT   = '#3ecfb3'   // bright teal headline accent
 const TEAL     = '#14b8a6'
 const TEAL_D   = '#065350'
 const NAVY     = '#1a1060'
-const GOLD     = 'rgba(212,168,83,0.55)'  // zodiac ring glow
 
 const MEDITATION =
   'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&h=820&fit=crop&auto=format&q=80'
 
-/* scattered zodiac glyphs for the dark background */
-const ZODIAC_DECOR: { sym: string; top: string; left: string; size: number; op: number }[] = [
-  { sym: '♈', top: '8%',  left: '3%',  size: 18, op: 0.35 },
-  { sym: '♉', top: '22%', left: '6%',  size: 15, op: 0.25 },
-  { sym: '♊', top: '60%', left: '2%',  size: 17, op: 0.30 },
-  { sym: '♋', top: '80%', left: '8%',  size: 14, op: 0.28 },
-  { sym: '♌', top: '5%',  left: '22%', size: 16, op: 0.22 },
-  { sym: '♍', top: '88%', left: '22%', size: 15, op: 0.25 },
-  { sym: '♎', top: '12%', left: '72%', size: 16, op: 0.22 },
-  { sym: '♏', top: '72%', left: '68%', size: 18, op: 0.30 },
-  { sym: '♐', top: '5%',  left: '88%', size: 15, op: 0.28 },
-  { sym: '♑', top: '35%', left: '93%', size: 14, op: 0.25 },
-  { sym: '♒', top: '80%', left: '88%', size: 17, op: 0.30 },
-  { sym: '♓', top: '55%', left: '96%', size: 14, op: 0.22 },
-]
 
-/* ── Zodiac wheel ring (SVG) ────────────────────────────────────── */
-function ZodiacRing({ size }: { size: number }) {
-  const r = size / 2
-  const signs = ['♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓']
-  return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
-      <defs>
-        <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor={ACCENT} stopOpacity="0.7" />
-          <stop offset="50%" stopColor="#d4a853" stopOpacity="0.5" />
-          <stop offset="100%" stopColor={ACCENT} stopOpacity="0.7" />
-        </linearGradient>
-      </defs>
-      {/* Outer ring */}
-      <circle cx={r} cy={r} r={r - 4} fill="none" stroke="url(#ringGrad)" strokeWidth="1.5" strokeDasharray="6 4" />
-      {/* Inner ring */}
-      <circle cx={r} cy={r} r={r - 18} fill="none" stroke="rgba(212,168,83,0.3)" strokeWidth="1" />
-      {/* Tick marks + signs */}
-      {signs.map((s, i) => {
-        const angle = (i / 12) * Math.PI * 2 - Math.PI / 2
-        const rx = r - 11
-        const x = r + rx * Math.cos(angle)
-        const y = r + rx * Math.sin(angle)
-        const tx = r + (r - 28) * Math.cos(angle)
-        const ty = r + (r - 28) * Math.sin(angle)
-        return (
-          <g key={i}>
-            <line x1={r + (r - 5) * Math.cos(angle)} y1={r + (r - 5) * Math.sin(angle)}
-                  x2={x} y2={y} stroke="rgba(212,168,83,0.45)" strokeWidth="1" />
-            <text x={tx} y={ty} textAnchor="middle" dominantBaseline="central"
-                  fontSize="11" fill="rgba(212,168,83,0.7)" fontFamily="serif">{s}</text>
-          </g>
-        )
-      })}
-    </svg>
-  )
-}
 
 /* ══════════════════════════════════════════════════════════════════
    BAND 1 – Dark hero
    ══════════════════════════════════════════════════════════════════ */
-function DarkHero({ onNavigate }: { onNavigate?: (p: string) => void }) {
+function DarkHero({ onNavigate, dark = false }: { onNavigate?: (p: string) => void; dark?: boolean }) {
+  const primaryText = dark ? 'white' : '#111827'
+  const mutedText = dark ? 'rgba(255,255,255,0.60)' : '#4b5563'
+  const featureMutedText = dark ? 'rgba(255,255,255,0.50)' : '#6b7280'
+
   const features = [
     {
       icon: (
@@ -110,14 +61,6 @@ function DarkHero({ onNavigate }: { onNavigate?: (p: string) => void }) {
 
   return (
     <section style={{ background: 'transparent', position: 'relative', overflow: 'hidden', minHeight: 520 }}>
-      {/* Scattered zodiac decor */}
-      {ZODIAC_DECOR.map((z, i) => (
-        <span key={i} style={{
-          position: 'absolute', top: z.top, left: z.left,
-          fontSize: z.size, opacity: z.op, color: '#d4a853',
-          pointerEvents: 'none', userSelect: 'none', fontFamily: 'serif',
-        }}>{z.sym}</span>
-      ))}
 
       {/* Radial glow from center */}
       <div style={{
@@ -133,13 +76,13 @@ function DarkHero({ onNavigate }: { onNavigate?: (p: string) => void }) {
             {/* ZodiacPluss wordmark */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 32 }}>
               <span style={{ color: ACCENT, fontSize: 14 }}>✦</span>
-              <span style={{ color: 'white', fontSize: 14, fontWeight: 700, fontFamily: "'Inter', sans-serif", letterSpacing: '0.05em' }}>ZodiacPluss</span>
+              <span style={{ color: primaryText, fontSize: 14, fontWeight: 700, fontFamily: "'Inter', sans-serif", letterSpacing: '0.05em' }}>ZodiacPluss</span>
             </div>
 
             <h2 style={{
               fontFamily: "'Playfair Display', serif",
               fontSize: 'clamp(30px, 4vw, 50px)',
-              fontWeight: 700, color: 'white', lineHeight: 1.15,
+              fontWeight: 700, color: primaryText, lineHeight: 1.15,
               margin: '0 0 6px',
             }}>
               Guidance for<br />Your Stars.
@@ -155,7 +98,7 @@ function DarkHero({ onNavigate }: { onNavigate?: (p: string) => void }) {
             <p style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: 'clamp(13px, 1.3vw, 15px)',
-              color: 'rgba(255,255,255,0.60)',
+              color: mutedText,
               lineHeight: 1.75, margin: '0 0 36px', maxWidth: 340,
             }}>
               ZodiacPluss is where ancient wisdom meets modern healing. Astrology to light your path, therapy to heal your heart.
@@ -163,7 +106,7 @@ function DarkHero({ onNavigate }: { onNavigate?: (p: string) => void }) {
             <button
               onClick={() => onNavigate?.('Book')}
               style={{
-                background: `linear-gradient(135deg, ${TEAL}, ${TEAL_D})`,
+                background: "linear-gradient(90deg, #5eb8e8 0%, #8fd06a 100%)",
                 border: 'none', borderRadius: 999,
                 padding: '12px 26px', color: 'white',
                 fontFamily: "'Inter', sans-serif",
@@ -181,27 +124,24 @@ function DarkHero({ onNavigate }: { onNavigate?: (p: string) => void }) {
 
           {/* CENTER – cosmic woman */}
           <div className="order-1 lg:order-2 flex justify-center" style={{ position: 'relative' }}>
-            {/* Outer glow ring */}
             <div style={{
-              width: 'clamp(220px,35vw,340px)',
-              height: 'clamp(220px,35vw,340px)',
+              width: 'clamp(220px,32vw,320px)',
+              height: 'clamp(220px,32vw,320px)',
               position: 'relative',
               filter: 'drop-shadow(0 0 40px rgba(61,214,172,0.25))',
             }}>
-              {/* Golden cosmic glow behind */}
+              {/* Subtle glow behind */}
               <div style={{
                 position: 'absolute', inset: 0, borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(212,168,83,0.55) 0%, rgba(212,168,83,0.15) 45%, transparent 70%)',
-                boxShadow: '0 0 60px 20px rgba(212,168,83,0.25)',
+                background: 'radial-gradient(circle, rgba(61,214,172,0.3) 0%, transparent 70%)',
+                boxShadow: '0 0 50px 15px rgba(61,214,172,0.18)',
               }} />
-              {/* Zodiac ring SVG */}
-              <ZodiacRing size={340} />
               {/* Photo */}
               <div style={{
                 position: 'absolute',
-                top: '12%', left: '12%', right: '12%', bottom: '12%',
+                inset: 0,
                 borderRadius: '50%', overflow: 'hidden',
-                border: '2px solid rgba(212,168,83,0.4)',
+                border: '2px solid rgba(61,214,172,0.4)',
               }}>
                 <img
                   src={MEDITATION}
@@ -210,7 +150,7 @@ function DarkHero({ onNavigate }: { onNavigate?: (p: string) => void }) {
                 />
                 <div style={{
                   position: 'absolute', inset: 0,
-                  background: 'linear-gradient(180deg, rgba(7,30,25,0.2) 0%, rgba(7,30,25,0.45) 100%)',
+                  background: 'linear-gradient(180deg, rgba(7,30,25,0.1) 0%, rgba(7,30,25,0.4) 100%)',
                 }} />
               </div>
             </div>
@@ -235,11 +175,11 @@ function DarkHero({ onNavigate }: { onNavigate?: (p: string) => void }) {
                 <div>
                   <p style={{
                     fontFamily: "'Inter', sans-serif",
-                    fontSize: 14, fontWeight: 700, color: 'white', margin: '0 0 4px',
+                    fontSize: 14, fontWeight: 700, color: primaryText, margin: '0 0 4px',
                   }}>{f.title}</p>
                   <p style={{
                     fontFamily: "'Inter', sans-serif",
-                    fontSize: 13, color: 'rgba(255,255,255,0.50)', margin: 0, lineHeight: 1.6,
+                    fontSize: 13, color: featureMutedText, margin: 0, lineHeight: 1.6,
                   }}>{f.desc}</p>
                 </div>
               </div>
@@ -266,20 +206,15 @@ function AboutBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
             <div style={{ position: 'relative', width: 'clamp(260px,38vw,420px)', height: 'clamp(260px,38vw,420px)' }}>
               {/* Outer decorative ring */}
               <div style={{
-                position: 'absolute', inset: -18,
+                position: 'absolute', inset: -14,
                 borderRadius: '50%',
                 border: '1.5px dashed rgba(20,184,166,0.35)',
               }} />
               <div style={{
-                position: 'absolute', inset: -36,
+                position: 'absolute', inset: -28,
                 borderRadius: '50%',
                 border: '1px solid rgba(20,184,166,0.15)',
               }} />
-
-              {/* Zodiac ring */}
-              <div style={{ position: 'absolute', inset: -46, zIndex: 2, pointerEvents: 'none' }}>
-                <ZodiacRing size={420 + 92} />
-              </div>
 
               {/* Circle photo */}
               <div style={{
@@ -361,7 +296,7 @@ function AboutBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
               <button
                 onClick={() => onNavigate?.('About Us')}
                 style={{
-                  background: `linear-gradient(135deg, ${TEAL}, ${TEAL_D})`,
+                  background: "linear-gradient(90deg, #5eb8e8 0%, #8fd06a 100%)",
                   border: 'none', borderRadius: 999,
                   padding: '12px 24px', color: 'white',
                   fontFamily: "'Inter', sans-serif",
@@ -410,7 +345,11 @@ function AboutBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
 /* ══════════════════════════════════════════════════════════════════
    BAND 3 – Dark mission
    ══════════════════════════════════════════════════════════════════ */
-function MissionBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
+function MissionBand({ onNavigate, dark = false }: { onNavigate?: (p: string) => void; dark?: boolean }) {
+  const primaryText = dark ? 'white' : '#111827'
+  const mutedText = dark ? 'rgba(255,255,255,0.55)' : '#4b5563'
+  const pillarMutedText = dark ? 'rgba(255,255,255,0.45)' : '#6b7280'
+
   const pillars = [
     {
       title: 'Authentic Guidance',
@@ -442,14 +381,7 @@ function MissionBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
         background: 'radial-gradient(ellipse 60% 70% at 30% 50%, rgba(61,214,172,0.07) 0%, transparent 65%)',
       }} />
 
-      {/* Scattered zodiac decor (subset) */}
-      {ZODIAC_DECOR.slice(0, 6).map((z, i) => (
-        <span key={i} style={{
-          position: 'absolute', top: z.top, left: z.left,
-          fontSize: z.size - 2, opacity: z.op * 0.7, color: '#d4a853',
-          pointerEvents: 'none', userSelect: 'none', fontFamily: 'serif',
-        }}>{z.sym}</span>
-      ))}
+
 
       <div style={{ maxWidth: 1200, margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -476,7 +408,7 @@ function MissionBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
             <h2 style={{
               fontFamily: "'Playfair Display', serif",
               fontSize: 'clamp(36px,5.5vw,68px)',
-              fontWeight: 800, color: 'white', lineHeight: 1.08,
+              fontWeight: 800, color: primaryText, lineHeight: 1.08,
               margin: '0 0 24px', letterSpacing: '-0.01em',
             }}>
               Empower.<br />Heal. Guide.
@@ -485,7 +417,7 @@ function MissionBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
             <p style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: 'clamp(13px,1.3vw,15.5px)',
-              color: 'rgba(255,255,255,0.55)',
+              color: mutedText,
               lineHeight: 1.8, margin: 0, maxWidth: 440,
             }}>
               We empower individuals to understand themselves better, heal emotionally, and make conscious decisions. Through trusted experts and a compassionate community, we aim to provide balance, clarity, and growth in every life we touch.
@@ -508,12 +440,12 @@ function MissionBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
                 <div style={{ fontSize: 26, marginBottom: 10 }}>{}</div>
                 <p style={{
                   fontFamily: "'Inter', sans-serif",
-                  fontSize: 13.5, fontWeight: 700, color: 'white',
+                  fontSize: 13.5, fontWeight: 700, color: primaryText,
                   margin: '0 0 5px',
                 }}>{p.title}</p>
                 <p style={{
                   fontFamily: "'Inter', sans-serif",
-                  fontSize: 12.5, color: 'rgba(255,255,255,0.45)',
+                  fontSize: 12.5, color: pillarMutedText,
                   margin: 0, lineHeight: 1.6,
                 }}>{p.desc}</p>
               </div>
@@ -529,14 +461,14 @@ function MissionBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
 /* ══════════════════════════════════════════════════════════════════
    Export
    ══════════════════════════════════════════════════════════════════ */
-interface Props { onNavigate?: (page: string) => void }
+interface Props { onNavigate?: (page: string) => void; dark?: boolean }
 
-export default function ZodiacMissionSection({ onNavigate }: Props) {
+export default function ZodiacMissionSection({ onNavigate, dark = false }: Props) {
   return (
     <>
-      <DarkHero    onNavigate={onNavigate} />
+      <DarkHero    onNavigate={onNavigate} dark={dark} />
       <AboutBand   onNavigate={onNavigate} />
-      <MissionBand onNavigate={onNavigate} />
+      <MissionBand onNavigate={onNavigate} dark={dark} />
     </>
   )
 }
