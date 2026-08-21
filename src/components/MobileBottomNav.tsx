@@ -67,7 +67,7 @@ const navItems = [
 export default function MobileBottomNav({ currentPage, onNavigate, dark = false }: MobileBottomNavProps) {
   const isActive = (id: string) => currentPage === id
 
-  const activeColor = dark ? '#a78bfa' : '#7c3aed'
+  const activeColor = '#4aa7d8'
   const inactiveColor = dark ? 'rgba(200, 190, 240, 0.45)' : 'rgba(100, 80, 140, 0.45)'
 
   return (
@@ -104,8 +104,8 @@ export default function MobileBottomNav({ currentPage, onNavigate, dark = false 
                 <div
                   className="w-10 h-10 rounded-2xl flex items-center justify-center text-white transition-all duration-200 active:scale-90 group-hover:scale-105"
                   style={{
-                    background: 'linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #d81b86 100%)',
-                    boxShadow: '0 3px 12px rgba(124, 58, 237, 0.40)',
+                    background: 'linear-gradient(90deg, #5eb8e8 0%, #8fd06a 100%)',
+                    boxShadow: '0 3px 12px rgba(94, 184, 232, 0.35)',
                   }}
                 >
                   {item.icon}
@@ -146,9 +146,7 @@ export default function MobileBottomNav({ currentPage, onNavigate, dark = false 
                 className="flex items-center justify-center w-8 h-8 rounded-xl transition-all duration-200 active:scale-90"
                 style={{
                   color: active ? activeColor : inactiveColor,
-                  background: active
-                    ? (dark ? 'rgba(167, 139, 250, 0.12)' : 'rgba(124, 58, 237, 0.07)')
-                    : 'transparent',
+                  background: 'transparent',
                 }}
               >
                 {item.icon}
@@ -157,7 +155,7 @@ export default function MobileBottomNav({ currentPage, onNavigate, dark = false 
               <span
                 className="text-[9px] tracking-wide transition-all duration-200"
                 style={{
-                  color: active ? activeColor : inactiveColor,
+                  color: active ? '#4aa7d8' : inactiveColor,
                   fontWeight: active ? 600 : 400,
                   fontFamily: 'Inter, sans-serif',
                   letterSpacing: '0.03em',

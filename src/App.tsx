@@ -47,7 +47,6 @@ export default function App() {
       style={{
         background: dark ? '#000000' : 'white',
         transition: 'background 0.4s ease',
-        cursor: 'none',
       }}
     >
       <CustomCursor />

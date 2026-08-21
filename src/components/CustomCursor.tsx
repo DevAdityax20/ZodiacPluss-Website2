@@ -11,6 +11,10 @@ export default function CustomCursor() {
   const current  = useRef({ x: -200, y: -200 })
   const rafId    = useRef<number>(0)
 
+  if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
+    return null
+  }
+
   useEffect(() => {
     // Only activate on pointer:fine (mouse) devices
     if (window.matchMedia('(pointer: coarse)').matches) return
