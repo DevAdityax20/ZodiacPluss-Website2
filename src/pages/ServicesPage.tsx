@@ -99,20 +99,25 @@ export default function ServicesPage({ onNavigate, dark }: ServicesPageProps) {
     <div className="pt-0 transition-colors duration-300" style={{ background: dark ? '#000000' : '#f8f6ff' }}>
       {/* ─── Individual Services Hero Banner ─── */}
       <div
-        className="relative overflow-hidden pt-32 pb-20 px-6 text-center"
+        className="relative overflow-hidden pt-32 pb-24 px-6 text-center bg-cover bg-center transition-all duration-300"
         style={{
-          background: 'linear-gradient(135deg, #1e0d40 0%, #5b2d8e 60%, #d81b86 100%)',
+          backgroundImage: "url('https://res.cloudinary.com/pp0lpskp/image/upload/v1787326065/service_hero_abpics.jpg')",
         }}
       >
+        {/* Soft dark vignette overlay for optimal text contrast and seamless blending */}
+        <div className="absolute inset-0 bg-black/45 backdrop-blur-[0.5px]" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(180deg, rgba(14,10,26,0.3) 0%, rgba(14,10,26,0.55) 100%)',
+          }}
+        />
+
         <div className="relative z-10 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 border border-pink-400/40 text-pink-300 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5">
-          
-            Our Services &amp; Corporate Solutions
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-md" style={{ fontFamily: "'Playfair Display', serif" }}>
             Everything You Need to Thrive
           </h1>
-          <p className="text-white/75 text-base max-w-xl mx-auto">
+          <p className="text-white/85 text-base md:text-lg max-w-xl mx-auto leading-relaxed drop-shadow-sm">
             From daily horoscopes and 1-on-1 therapy to comprehensive enterprise wellness programs, ZodiacPluss supports both individual seekers and forward-thinking teams.
           </p>
         </div>
@@ -166,7 +171,7 @@ export default function ServicesPage({ onNavigate, dark }: ServicesPageProps) {
                 <h3 className="font-bold text-base mb-2" style={{ color: titleColor }}>{svc.title}</h3>
                 <p className="text-xs leading-relaxed mb-4" style={{ color: textColor }}>{svc.desc}</p>
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-sm" style={{ color: titleColor }}>{svc.price}</span>
+                  <span className="font-bold text-sm" style={{ color: titleColor }}>{}</span>
                   <button
                     onClick={() => onNavigate('Book')}
                     className="text-xs font-semibold px-4 py-1.5 rounded-full text-white transition-all hover:opacity-90 shadow-sm"
@@ -183,7 +188,7 @@ export default function ServicesPage({ onNavigate, dark }: ServicesPageProps) {
         {/* Discovery Call CTA */}
         <div
           className="mt-16 rounded-3xl p-8 md:p-10 text-center text-white shadow-lg"
-          style={{ background: 'linear-gradient(135deg, #2d1b4e, #0d5f4f)' }}
+          style={{ background: 'linear-gradient(135deg, #6095ceff, #575308ff)' }}
         >
           <h2 className="text-2xl md:text-3xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
             Not Sure Where to Start?
