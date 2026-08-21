@@ -63,6 +63,9 @@ body {
 
 /* ══════════════════════════════════════════════════════════════════
    DARK MODE — applied via .dark class on the root wrapper
+   Premium black/charcoal-grey surfaces, off-white text, teal accents.
+   Hero/banner sections keep their own bespoke colors and are excluded
+   by the selectors below.
    Targets all sections, pages, components globally
    ══════════════════════════════════════════════════════════════════ */
 
@@ -114,13 +117,13 @@ body {
 .dark h2,
 .dark h3,
 .dark h4 {
-  color: #e9d5ff !important;
+  color: #f5f5f5 !important;
 }
 
 .dark h2 span[style*="color: #1e0d40"],
 .dark h2 span[class*="text-[#1e0d40]"],
 .dark [class*="text-[#1e0d40]"] {
-  color: #e9d5ff !important;
+  color: #f5f5f5 !important;
 }
 
 .dark span[style*="color: #0d5f4f"] {
@@ -139,19 +142,20 @@ body {
 .dark p[style*="color: #9ca3af"],
 .dark [class*="text-[#4a4a6a]"],
 .dark [class*="text-[#6b5b8f]"] {
-  color: #a09bc0 !important;
+  color: #a1a1aa !important;
 }
 
 .dark .text-black,
 .dark [style*="color: black"] {
-  color: #e0d8f0 !important;
+  color: #f0f0f0 !important;
 }
 
 /* ── Cards, containers, and white backgrounds ──────────────────── */
 .dark div[style*="background: white"],
 .dark div[style*="background: #ffffff"],
 .dark div[style*="background: \"white\""] {
-  background: #1a1040 !important;
+  background: #141416 !important;
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 .dark .about-page-shell {
@@ -159,17 +163,17 @@ body {
 }
 
 .dark .about-page-shell .about-surface {
-  background: rgba(26, 16, 64, 0.92) !important;
-  border-color: rgba(139, 92, 246, 0.2) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22) !important;
+  background: #141416 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
 }
 
 .dark .about-page-shell .about-heading {
-  color: #e9d5ff !important;
+  color: #f5f5f5 !important;
 }
 
 .dark .about-page-shell .about-muted {
-  color: #a09bc0 !important;
+  color: #a1a1aa !important;
 }
 
 .dark .about-page-shell .about-button {
@@ -180,14 +184,14 @@ body {
 .dark [style*="background: #f8f7ff"],
 .dark [style*="background: #f8f6ff"],
 .dark [style*="background: '#f8f6ff'"] {
-  background: #1a1040 !important;
+  background: #141416 !important;
 }
 
 /* Feature cards in AppShowcaseSection */
 .dark div[style*="background: #f8f7ff"][style*="border-radius: 14px"],
 .dark div[style*="background: rgb(248, 247, 255)"] {
-  background: rgba(139, 92, 246, 0.08) !important;
-  border-color: rgba(139, 92, 246, 0.2) !important;
+  background: rgba(20, 184, 166, 0.08) !important;
+  border-color: rgba(20, 184, 166, 0.22) !important;
 }
 
 /* ── Borders ───────────────────────────────────────────────────── */
@@ -195,11 +199,11 @@ body {
 .dark [style*="border: 1px solid #ede9f8"],
 .dark [style*="border-bottom: 1px solid #e5e7eb"],
 .dark [class*="border-gray-100"] {
-  border-color: rgba(139, 92, 246, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
 }
 
 .dark [style*="border: 1px solid #f5f3ff"] {
-  border-color: rgba(139, 92, 246, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* ── Tags & badges ─────────────────────────────────────────────── */
@@ -210,33 +214,33 @@ body {
 
 /* ── Feature badge icons ───────────────────────────────────────── */
 .dark div[class*="bg-purple-50"] {
-  background: rgba(139, 92, 246, 0.12) !important;
-  border-color: rgba(139, 92, 246, 0.25) !important;
+  background: rgba(20, 184, 166, 0.12) !important;
+  border-color: rgba(20, 184, 166, 0.28) !important;
 }
 
 .dark div[class*="text-sm font-semibold text-[#1e0d40]"],
 .dark [class*="text-sm"][class*="font-semibold"][class*="text-[#1e0d40]"] {
-  color: #d4c4f0 !important;
+  color: #e4e4e7 !important;
 }
 
 .dark div[class*="text-xs"][class*="text-[#6b5b8f]"] {
-  color: #8b80aa !important;
+  color: #a1a1aa !important;
 }
 
 /* ── Buttons: dark solid primary ───────────────────────────────── */
 .dark button[class*="bg-[#1e0d40]"] {
-  background: rgba(139, 92, 246, 0.25) !important;
-  border: 1px solid rgba(139, 92, 246, 0.4) !important;
+  background: #1f1f23 !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
 }
 
 .dark button[class*="border-[#1e0d40]"] {
-  border-color: rgba(200, 180, 255, 0.35) !important;
-  color: #c4b5fd !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: #f5f5f5 !important;
 }
 
 /* ── Carousel dots ─────────────────────────────────────────────── */
 .dark button[style*="background: #d1c4e9"] {
-  background: rgba(139, 92, 246, 0.3) !important;
+  background: rgba(255, 255, 255, 0.3) !important;
 }
 
 /* ── Testimonials section text override ─────────────────────────── */
@@ -249,12 +253,12 @@ body {
 }
 
 .dark p[style*="color: #4b7675"] {
-  color: #8baead !important;
+  color: #a1a1aa !important;
 }
 
 /* ── Counter text ──────────────────────────────────────────────── */
 .dark span[class*="text-[#6b5b8f]"] {
-  color: #8b80aa !important;
+  color: #a1a1aa !important;
 }
 
 /* ── Footer email input placeholder ─────────────────────────────── */
@@ -280,16 +284,16 @@ body {
 /* ── AppShowcaseSection white section ───────────────────────────── */
 .dark section[style*="background: white"] h2[style*="color: #1a1060"],
 .dark section[style*="background: white"] [style*="color: #1a1060"] {
-  color: #c4b5fd !important;
+  color: #f5f5f5 !important;
 }
 
 .dark [style*="color: #1a1060"] {
-  color: #c4b5fd !important;
+  color: #f5f5f5 !important;
 }
 
 /* ── AboutBand "Happy Souls" badge ─────────────────────────────── */
 .dark div[style*="background: white"][style*="border-radius: 12px"][style*="box-shadow"] {
-  background: #1a1040 !important;
+  background: #141416 !important;
   border-color: rgba(20, 184, 166, 0.25) !important;
 }
 
@@ -301,12 +305,12 @@ body {
 /* Cards with white backgrounds in pages */
 .dark div[style*="background: \"white\""],
 .dark div[style*="backgroundColor: \"white\""] {
-  background: #1a1040 !important;
+  background: #141416 !important;
 }
 
 /* ── Scrollbar dark mode ───────────────────────────────────────── */
 .dark ::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.4);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 /* ── Smooth transitions on theme change ────────────────────────── */

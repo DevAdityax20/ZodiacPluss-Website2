@@ -113,9 +113,9 @@ export default function CredentialsSection({ dark = false }: CredentialsSectionP
   const [activeCert, setActiveCert] = useState<string | null>(null)
 
   const sectionBg = dark ? '#000000' : '#f8f6ff'
-  const cardBg = dark ? 'rgba(20,10,50,0.82)' : 'rgba(255,255,255,0.10)'
-  const textColor = dark ? '#e9d5ff' : '#ffffff'
-  const subtextColor = dark ? '#a09bc0' : 'rgba(220,210,255,0.75)'
+  const cardBg = dark ? 'rgba(20,20,22,0.82)' : 'rgba(255,255,255,0.10)'
+  const textColor = dark ? '#f5f5f5' : '#ffffff'
+  const subtextColor = dark ? '#b0b0b5' : 'rgba(220,210,255,0.75)'
 
   return (
     <section
@@ -231,7 +231,7 @@ export default function CredentialsSection({ dark = false }: CredentialsSectionP
         >
           <div
             className="relative w-full max-w-md rounded-3xl p-6 shadow-2xl transition-all"
-            style={{ background: dark ? '#1e1445' : '#ffffff', color: textColor }}
+            style={{ background: dark ? '#141416' : '#ffffff', color: dark ? '#f5f5f5' : '#1e1035' }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}

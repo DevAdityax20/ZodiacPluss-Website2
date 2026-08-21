@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 interface BookSessionPageProps {
   onNavigate: (page: string) => void
@@ -6,17 +6,16 @@ interface BookSessionPageProps {
 }
 
 const services = [
-  'Personalized Horoscope',
+  'Astrology Sessions',
+  'Therapy Sessions',
   'Live Sessions with Experts',
   'AI-Powered Astro Insights',
-  'Therapy That Helps',
   'Tarot Card of the Day',
-  'Daily Horoscope',
   'Community Support',
   'Corporate Wellness Program',
 ]
 
-/* ── Small icon inside a soft teal circle ── */
+/* ── Small icon inside a soft circle ── */
 function InfoIcon({ children }: { children: React.ReactNode }) {
   return (
     <span
@@ -24,7 +23,7 @@ function InfoIcon({ children }: { children: React.ReactNode }) {
         width: '38px',
         height: '38px',
         borderRadius: '50%',
-        background: 'rgba(20,184,166,0.10)',
+        background: 'rgba(71, 225, 47, 0.1)',
         border: '1px solid rgba(20,184,166,0.22)',
         display: 'flex',
         alignItems: 'center',
@@ -39,14 +38,14 @@ function InfoIcon({ children }: { children: React.ReactNode }) {
 }
 
 /* ── Form field label ── */
-function Label({ text, required }: { text: string; required?: boolean }) {
+function Label({ text, required, dark }: { text: string; required?: boolean; dark?: boolean }) {
   return (
     <label
       style={{
         display: 'block',
         fontSize: '12.5px',
         fontWeight: 600,
-        color: '#1e1035',
+        color: dark ? '#e4e4e7' : '#1e1035',
         marginBottom: '6px',
         fontFamily: 'Inter, sans-serif',
         letterSpacing: '0.1px',
@@ -54,34 +53,46 @@ function Label({ text, required }: { text: string; required?: boolean }) {
     >
       {text}
       {required && (
-        <span style={{ color: '#14b8a6', marginLeft: '2px' }}>*</span>
+        <span style={{ color: '#22cf50ff', marginLeft: '2px' }}>*</span>
       )}
     </label>
   )
 }
 
 /* ── Shared input wrapper with left icon ── */
-function InputWrap({ icon, children }: { icon: React.ReactNode; children: React.ReactNode }) {
+function InputWrap({
+  icon,
+  children,
+  dark,
+  inputBorder,
+  inputBg,
+}: {
+  icon: React.ReactNode
+  children: React.ReactNode
+  dark?: boolean
+  inputBorder: string
+  inputBg: string
+}) {
   return (
     <div
       style={{
         display: 'flex',
         alignItems: 'center',
         gap: '10px',
-        border: '1px solid #e2daf5',
+        border: `1px solid ${inputBorder}`,
         borderRadius: '10px',
         padding: '0 14px',
-        background: '#fafbff',
+        background: inputBg,
         transition: 'border-color 0.2s, box-shadow 0.2s',
       }}
-      onFocusCapture={e =>
-        ((e.currentTarget as HTMLDivElement).style.borderColor = '#14b8a6',
-        (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 0 3px rgba(20,184,166,0.10)')
-      }
-      onBlurCapture={e =>
-        ((e.currentTarget as HTMLDivElement).style.borderColor = '#e2daf5',
-        (e.currentTarget as HTMLDivElement).style.boxShadow = 'none')
-      }
+      onFocusCapture={e => {
+        ;(e.currentTarget as HTMLDivElement).style.borderColor = '#14b8a6'
+        ;(e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 0 3px rgba(20,184,166,0.10)'
+      }}
+      onBlurCapture={e => {
+        ;(e.currentTarget as HTMLDivElement).style.borderColor = inputBorder
+        ;(e.currentTarget as HTMLDivElement).style.boxShadow = 'none'
+      }}
     >
       <span style={{ color: '#14b8a6', flexShrink: 0, display: 'flex' }}>{icon}</span>
       {children}
@@ -95,9 +106,9 @@ const inputStyle: React.CSSProperties = {
   outline: 'none',
   background: 'transparent',
   fontSize: '13px',
-  color: '#1e1035',
   fontFamily: 'Inter, sans-serif',
   padding: '11px 0',
+  minWidth: 0,
 }
 
 const placeholderColor = '#aaa3c2'
@@ -119,203 +130,181 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
     setTimeout(() => setSubmitted(false), 4000)
   }
 
-  const bg = dark ? '#120e22' : '#f0f4f8'
-  const cardBg = dark ? '#1a1235' : '#ffffff'
-  const textPrimary = dark ? '#e9d5ff' : '#0f0a24'
-  const textMuted = dark ? 'rgba(220,210,255,0.55)' : '#5a5272'
-  const inputBg = dark ? '#231848' : '#fafbff'
-  const inputBorder = dark ? 'rgba(139,92,246,0.25)' : '#e2daf5'
-  const labelColor = dark ? '#d8ceff' : '#1e1035'
+  const bg = dark ? '#000000' : '#f0f4f8'
+  const cardBg = dark ? '#141416' : '#ffffff'
+  const textPrimary = dark ? '#f5f5f5' : '#0f0a24'
+  const textMuted = dark ? 'rgba(255,255,255,0.55)' : '#5a5272'
+  const inputBg = dark ? '#1c1c20' : '#fafbff'
+  const inputBorder = dark ? 'rgba(255,255,255,0.14)' : '#e2daf5'
+  const labelColor = dark ? '#e4e4e7' : '#1e1035'
 
   return (
     <div
+      className="min-h-screen transition-colors duration-400 px-3 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-16 sm:pb-20 font-sans"
       style={{
-        minHeight: '100vh',
         background: bg,
-        padding: '40px 20px 60px',
-        transition: 'background 0.4s ease',
-        fontFamily: 'Inter, sans-serif',
       }}
     >
       {/* Page wrapper card */}
       <div
+        className="max-w-[1060px] mx-auto rounded-2xl sm:rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-[340px_1fr] transition-colors duration-400 shadow-xl"
         style={{
-          maxWidth: '1060px',
-          margin: '0 auto',
           background: cardBg,
-          borderRadius: '20px',
-          overflow: 'hidden',
           boxShadow: dark
             ? '0 24px 80px rgba(0,0,0,0.5)'
             : '0 8px 48px rgba(90,50,160,0.10)',
-          display: 'grid',
-          gridTemplateColumns: '340px 1fr',
-          transition: 'background 0.4s ease',
         }}
       >
         {/* ════ LEFT PANEL ════ */}
         <div
+          className="p-6 sm:p-8 lg:p-10 flex flex-col justify-between"
           style={{
-            background: dark ? '#150f2a' : '#f5fbfa',
-            padding: '44px 36px 36px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0',
+            background: dark ? '#0d0d0f' : '#f5fbfa',
           }}
         >
-          {/* CONTACT US badge */}
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              border: '1px solid rgba(20,184,166,0.40)',
-              borderRadius: '100px',
-              padding: '4px 12px',
-              marginBottom: '22px',
-              width: 'fit-content',
-            }}
-          >
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
-              stroke="#14b8a6" strokeWidth="2" strokeLinecap="round">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-              <polyline points="9 22 9 12 15 12 15 22"/>
-            </svg>
-            <span style={{ fontSize: '10.5px', fontWeight: 600, color: '#14b8a6',
-              letterSpacing: '0.8px', textTransform: 'uppercase' }}>
-              Contact Us
-            </span>
-          </div>
-
-          {/* Heading */}
-          <h1
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: '38px',
-              fontWeight: 700,
-              lineHeight: 1.1,
-              margin: '0 0 4px',
-              color: textPrimary,
-            }}
-          >
-            Get in{' '}
-            <span
+          <div>
+            {/* CONTACT US badge */}
+            <div
               style={{
-                color: '#14b8a6',
-                position: 'relative',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
+                border: '1px solid rgba(20,184,166,0.40)',
+                borderRadius: '100px',
+                padding: '4px 12px',
+                marginBottom: '18px',
+                width: 'fit-content',
               }}
             >
-              Touch
-              {/* sparkle */}
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="#14b8a6" style={{ marginLeft: '2px', flexShrink: 0 }}>
-                <path d="M12 2l1.6 6.5H20l-5.3 3.9 2 6.6L12 15l-4.7 4 2-6.6L4 8.5h6.4z"/>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                stroke="#14b8a6" strokeWidth="2" strokeLinecap="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
               </svg>
-            </span>
-          </h1>
-
-          {/* Teal underline */}
-          <div style={{ width: '40px', height: '3px', background: '#14b8a6',
-            borderRadius: '2px', margin: '10px 0 16px' }} />
-
-          {/* Description */}
-          <p style={{ fontSize: '13px', color: textMuted, lineHeight: 1.7,
-            margin: '0 0 28px', maxWidth: '260px' }}>
-            We're here to answer your questions, help you get started, and guide
-            you on your journey to clarity and growth.
-          </p>
-
-          {/* Contact rows */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', marginBottom: '28px' }}>
-            {/* Email */}
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-              <InfoIcon>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-              </InfoIcon>
-              <div>
-                <div style={{ fontSize: '12px', fontWeight: 600, color: textPrimary, marginBottom: '2px' }}>Email</div>
-                <div style={{ fontSize: '12.5px', color: textMuted }}>Rashmi@zodiacpluss.com</div>
-              </div>
+              <span style={{ fontSize: '10.5px', fontWeight: 600, color: '#14b8a6',
+                letterSpacing: '0.8px', textTransform: 'uppercase' }}>
+                Contact Us
+              </span>
             </div>
 
-            {/* Phone */}
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-              <InfoIcon>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.3-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-                </svg>
-              </InfoIcon>
-              <div>
-                <div style={{ fontSize: '12px', fontWeight: 600, color: textPrimary, marginBottom: '2px' }}>Phone</div>
-                <div style={{ fontSize: '12.5px', color: textMuted }}>+91 90566 41865</div>
-              </div>
-            </div>
+            {/* Heading */}
+            <h1
+              className="text-3xl sm:text-4xl lg:text-[38px] font-bold leading-tight mb-1"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                color: textPrimary,
+              }}
+            >
+              Get in{' '}
+              <span
+                style={{
+                  color: '#14b81fff',
+                  position: 'relative',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                }}
+              >
+                Touch
+              </span>
+            </h1>
 
-            {/* Office */}
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-              <InfoIcon>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-              </InfoIcon>
-              <div>
-                <div style={{ fontSize: '12px', fontWeight: 600, color: textPrimary, marginBottom: '2px' }}>Office</div>
-                <div style={{ fontSize: '12px', color: textMuted, lineHeight: 1.6 }}>
-                  Building No. 199, Pocket 20, Rohini Sector 24, New Delhi- 110085, India
+            {/* Teal underline */}
+            <div style={{ width: '170px', height: '3px', background: '#63be74ff',
+              borderRadius: '2px', margin: '8px 0 16px' }} />
+
+            {/* Description */}
+            <p
+              className="text-xs sm:text-[13px] leading-relaxed mb-6 sm:mb-7 max-w-full lg:max-w-[260px]"
+              style={{ color: textMuted }}
+            >
+              We're here to answer your questions, help you get started, and guide
+              you on your journey to clarity and growth.
+            </p>
+
+            {/* Contact rows */}
+            <div className="flex flex-col gap-4 sm:gap-4.5 mb-6 sm:mb-8">
+              {/* Email */}
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
+                <InfoIcon>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                </InfoIcon>
+                <div>
+                  <div style={{ fontSize: '12px', fontWeight: 600, color: textPrimary, marginBottom: '2px' }}>Email</div>
+                  <div className="text-xs sm:text-[12.5px] break-all" style={{ color: textMuted }}>info@zodiacpluss.com</div>
                 </div>
               </div>
-            </div>
 
-            {/* Company Hours */}
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-              <InfoIcon>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <polyline points="12 6 12 12 16 14"/>
-                </svg>
-              </InfoIcon>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontSize: '12px', fontWeight: 600, color: textPrimary, marginBottom: '6px' }}>Company Hours</div>
-                {[
-                  ['Monday – Friday', '9:00 AM – 6:00 PM'],
-                  ['Saturday', '10:00 AM – 6:00 PM'],
-                  ['Sunday', 'Closed'],
-                ].map(([day, hrs]) => (
-                  <div key={day} style={{ display: 'flex', justifyContent: 'space-between',
-                    fontSize: '11.5px', color: textMuted, marginBottom: '3px' }}>
-                    <span>{day}</span>
-                    <span style={{ color: hrs === 'Closed' ? '#f87171' : textMuted }}>{hrs}</span>
+              {/* Phone */}
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
+                <InfoIcon>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l1.3-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                </InfoIcon>
+                <div>
+                  <div style={{ fontSize: '12px', fontWeight: 600, color: textPrimary, marginBottom: '2px' }}>Phone</div>
+                  <div className="text-xs sm:text-[12.5px]" style={{ color: textMuted }}>+91 90566 41865</div>
+                </div>
+              </div>
+
+              {/* Office */}
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
+                <InfoIcon>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </InfoIcon>
+                <div>
+                  <div style={{ fontSize: '12px', fontWeight: 600, color: textPrimary, marginBottom: '2px' }}>Office</div>
+                  <div className="text-xs sm:text-[12px] leading-relaxed" style={{ color: textMuted }}>
+                    Building No. 199, Pocket 20, Rohini Sector 24, New Delhi- 110085, India
                   </div>
-                ))}
+                </div>
+              </div>
+
+              {/* Company Hours */}
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
+                <InfoIcon>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </InfoIcon>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: '12px', fontWeight: 600, color: textPrimary, marginBottom: '6px' }}>Company Hours</div>
+                  {[
+                    ['Monday – Friday', '9:00 AM – 6:00 PM'],
+                    ['Saturday', '10:00 AM – 6:00 PM'],
+                    ['Sunday', 'Closed'],
+                  ].map(([day, hrs]) => (
+                    <div key={day} style={{ display: 'flex', justifyContent: 'space-between',
+                      fontSize: '11.5px', color: textMuted, marginBottom: '3px' }}>
+                      <span>{day}</span>
+                      <span style={{ color: hrs === 'Closed' ? '#f87171' : textMuted }}>{hrs}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
           {/* "Let's Create Clarity" card */}
           <div
+            className="mt-6 lg:mt-auto rounded-xl p-4 sm:p-5 relative overflow-hidden flex items-center gap-3.5"
             style={{
-              marginTop: 'auto',
-              borderRadius: '14px',
-              padding: '18px 20px',
               background: dark
                 ? 'linear-gradient(135deg, rgba(20,184,166,0.18), rgba(20,100,100,0.12))'
                 : 'linear-gradient(135deg, #e6faf6, #d0f5ee)',
               border: dark ? '1px solid rgba(20,184,166,0.22)' : '1px solid rgba(20,184,166,0.18)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '14px',
-              position: 'relative',
-              overflow: 'hidden',
             }}
           >
             {/* Decorative world-map-like dots in background */}
@@ -337,8 +326,8 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
             {/* Icon */}
             <span
               style={{
-                width: '44px',
-                height: '44px',
+                width: '42px',
+                height: '42px',
                 borderRadius: '50%',
                 background: 'rgba(20,184,166,0.18)',
                 display: 'flex',
@@ -355,32 +344,35 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
             </span>
 
             <div style={{ position: 'relative', zIndex: 1 }}>
-              <div style={{ fontSize: '13.5px', fontWeight: 700, color: dark ? '#a7f3e8' : '#0d6b5e',
-                marginBottom: '3px' }}>Let's Create Clarity</div>
+              <div style={{ fontSize: '13px', fontWeight: 700, color: dark ? '#a7f3e8' : '#0d6b5e',
+                marginBottom: '2px' }}>Let's Create Clarity</div>
               <div style={{ fontSize: '11px', color: dark ? 'rgba(167,243,232,0.70)' : '#2a8a7a',
-                lineHeight: 1.55 }}>
-                Your path to guidance begins<br />with a simple conversation.
+                lineHeight: 1.5 }}>
+                Your path to guidance begins with a simple conversation.
               </div>
             </div>
           </div>
         </div>
 
         {/* ════ RIGHT PANEL — FORM ════ */}
-        <div style={{ padding: '44px 40px 40px', background: cardBg }}>
+        <div className="p-6 sm:p-8 lg:p-10" style={{ background: cardBg }}>
           {/* Decorative top dots */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '6px', marginBottom: '28px' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '6px', marginBottom: '24px' }}>
             {[1, 2, 3].map(i => (
               <span key={i} style={{ width: '6px', height: '6px', borderRadius: '50%',
-                background: i === 2 ? '#14b8a6' : (dark ? 'rgba(139,92,246,0.30)' : '#d4cef5') }} />
+                background: i === 2 ? '#14b8a6' : (dark ? 'rgba(255,255,255,0.22)' : '#d4cef5') }} />
             ))}
           </div>
 
           <form onSubmit={handleSubmit}>
             {/* Row 1: Full Name + Email */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px', marginBottom: '18px' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-4.5 mb-4 sm:mb-4.5">
               <div>
-                <Label text="Full Name" required />
+                <Label text="Full Name" required dark={dark} />
                 <InputWrap
+                  dark={dark}
+                  inputBg={inputBg}
+                  inputBorder={inputBorder}
                   icon={
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -396,15 +388,17 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
                     onChange={e => setForm(f => ({ ...f, fullName: e.target.value }))}
                     style={{
                       ...inputStyle,
-                      background: inputBg,
-                      color: dark ? '#e9d5ff' : '#1e1035',
+                      color: dark ? '#f5f5f5' : '#1e1035',
                     }}
                   />
                 </InputWrap>
               </div>
               <div>
-                <Label text="Email Address" required />
+                <Label text="Email Address" required dark={dark} />
                 <InputWrap
+                  dark={dark}
+                  inputBg={inputBg}
+                  inputBorder={inputBorder}
                   icon={
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -421,8 +415,7 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
                     onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
                     style={{
                       ...inputStyle,
-                      background: inputBg,
-                      color: dark ? '#e9d5ff' : '#1e1035',
+                      color: dark ? '#f5f5f5' : '#1e1035',
                     }}
                   />
                 </InputWrap>
@@ -430,10 +423,13 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
             </div>
 
             {/* Row 2: Company Name + Service */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '18px', marginBottom: '18px' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-4.5 mb-4 sm:mb-4.5">
               <div>
-                <Label text="Company Name" />
+                <Label text="Company Name" dark={dark} />
                 <InputWrap
+                  dark={dark}
+                  inputBg={inputBg}
+                  inputBorder={inputBorder}
                   icon={
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
                       stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -448,14 +444,13 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
                     onChange={e => setForm(f => ({ ...f, company: e.target.value }))}
                     style={{
                       ...inputStyle,
-                      background: inputBg,
-                      color: dark ? '#e9d5ff' : '#1e1035',
+                      color: dark ? '#f5f5f5' : '#1e1035',
                     }}
                   />
                 </InputWrap>
               </div>
               <div>
-                <Label text="Service Interested In" required />
+                <Label text="Service Interested In" required dark={dark} />
                 <div
                   style={{
                     display: 'flex',
@@ -466,14 +461,14 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
                     padding: '0 14px',
                     background: inputBg,
                   }}
-                  onFocusCapture={e =>
-                    ((e.currentTarget as HTMLDivElement).style.borderColor = '#14b8a6',
-                    (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 0 3px rgba(20,184,166,0.10)')
-                  }
-                  onBlurCapture={e =>
-                    ((e.currentTarget as HTMLDivElement).style.borderColor = inputBorder,
-                    (e.currentTarget as HTMLDivElement).style.boxShadow = 'none')
-                  }
+                  onFocusCapture={e => {
+                    ;(e.currentTarget as HTMLDivElement).style.borderColor = '#14b8a6'
+                    ;(e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 0 3px rgba(20,184,166,0.10)'
+                  }}
+                  onBlurCapture={e => {
+                    ;(e.currentTarget as HTMLDivElement).style.borderColor = inputBorder
+                    ;(e.currentTarget as HTMLDivElement).style.boxShadow = 'none'
+                  }}
                 >
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
                     stroke="#14b8a6" strokeWidth="2" strokeLinecap="round" style={{ flexShrink: 0 }}>
@@ -490,10 +485,11 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
                       background: 'transparent',
                       fontSize: '13px',
                       fontFamily: 'Inter, sans-serif',
-                      color: form.service ? (dark ? '#e9d5ff' : '#1e1035') : placeholderColor,
+                      color: form.service ? (dark ? '#f5f5f5' : '#1e1035') : placeholderColor,
                       padding: '11px 0',
                       cursor: 'pointer',
                       appearance: 'none',
+                      minWidth: 0,
                     }}
                   >
                     <option value="" disabled>Select a service</option>
@@ -510,56 +506,56 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
             </div>
 
             {/* Row 3: Upload */}
-            <div style={{ marginBottom: '18px' }}>
+            <div className="mb-4 sm:mb-4.5">
               <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 600,
                 color: labelColor, marginBottom: '6px' }}>
                 Upload Project File{' '}
-                <span style={{ fontWeight: 400, color: dark ? 'rgba(220,210,255,0.45)' : '#aaa3c2' }}>(Optional)</span>
+                <span style={{ fontWeight: 400, color: dark ? 'rgba(255,255,255,0.4)' : '#aaa3c2' }}>(Optional)</span>
               </label>
               <div
+                className="flex items-center gap-2.5 sm:gap-3 flex-wrap sm:flex-nowrap"
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
                   border: `1px solid ${inputBorder}`,
                   borderRadius: '10px',
                   padding: '9px 14px',
                   background: inputBg,
                 }}
               >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-                  stroke="#14b8a6" strokeWidth="2" strokeLinecap="round" style={{ flexShrink: 0 }}>
-                  <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
-                </svg>
-                <label
-                  style={{
-                    fontSize: '12.5px',
-                    fontWeight: 600,
-                    color: '#14b8a6',
-                    cursor: 'pointer',
-                    flexShrink: 0,
-                    padding: '2px 10px',
-                    border: '1px solid rgba(20,184,166,0.35)',
-                    borderRadius: '6px',
-                    background: 'rgba(20,184,166,0.07)',
-                  }}
-                >
-                  Choose file
-                  <input
-                    type="file"
-                    style={{ display: 'none' }}
-                    onChange={e => setForm(f => ({ ...f, file: e.target.files?.[0] ?? null }))}
-                  />
-                </label>
-                <span style={{ fontSize: '12px', color: placeholderColor }}>
+                <div className="flex items-center gap-2 min-w-0">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="#14b8a6" strokeWidth="2" strokeLinecap="round" style={{ flexShrink: 0 }}>
+                    <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+                  </svg>
+                  <label
+                    style={{
+                      fontSize: '12px',
+                      fontWeight: 600,
+                      color: '#14b8a6',
+                      cursor: 'pointer',
+                      flexShrink: 0,
+                      padding: '2px 10px',
+                      border: '1px solid rgba(20,184,166,0.35)',
+                      borderRadius: '6px',
+                      background: 'rgba(20,184,166,0.07)',
+                    }}
+                  >
+                    Choose file
+                    <input
+                      type="file"
+                      style={{ display: 'none' }}
+                      onChange={e => setForm(f => ({ ...f, file: e.target.files?.[0] ?? null }))}
+                    />
+                  </label>
+                </div>
+                <span className="text-xs truncate max-w-full" style={{ color: placeholderColor }}>
                   {form.file ? form.file.name : 'No file chosen'}
                 </span>
               </div>
             </div>
 
             {/* Row 4: Project Details textarea */}
-            <div style={{ marginBottom: '22px' }}>
-              <Label text="Project Details" required />
+            <div className="mb-5 sm:mb-6">
+              <Label text="Project Details" required dark={dark} />
               <div
                 style={{
                   display: 'flex',
@@ -571,14 +567,14 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
                   background: inputBg,
                   transition: 'border-color 0.2s, box-shadow 0.2s',
                 }}
-                onFocusCapture={e =>
-                  ((e.currentTarget as HTMLDivElement).style.borderColor = '#14b8a6',
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 0 3px rgba(20,184,166,0.10)')
-                }
-                onBlurCapture={e =>
-                  ((e.currentTarget as HTMLDivElement).style.borderColor = inputBorder,
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = 'none')
-                }
+                onFocusCapture={e => {
+                  ;(e.currentTarget as HTMLDivElement).style.borderColor = '#14b8a6'
+                  ;(e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 0 3px rgba(20,184,166,0.10)'
+                }}
+                onBlurCapture={e => {
+                  ;(e.currentTarget as HTMLDivElement).style.borderColor = inputBorder
+                  ;(e.currentTarget as HTMLDivElement).style.boxShadow = 'none'
+                }}
               >
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
                   stroke="#14b8a6" strokeWidth="2" strokeLinecap="round"
@@ -598,51 +594,43 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
                     background: 'transparent',
                     fontSize: '13px',
                     fontFamily: 'Inter, sans-serif',
-                    color: dark ? '#e9d5ff' : '#1e1035',
+                    color: dark ? '#f5f5f5' : '#1e1035',
                     resize: 'vertical',
                     lineHeight: 1.6,
+                    minWidth: 0,
                   }}
                 />
               </div>
             </div>
 
             {/* Security note */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '20px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '18px' }}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                stroke="#14b8a6" strokeWidth="2" strokeLinecap="round">
+                stroke="#14b8a6" strokeWidth="2" strokeLinecap="round" style={{ flexShrink: 0 }}>
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               </svg>
-              <span style={{ fontSize: '11.5px', color: dark ? 'rgba(220,210,255,0.50)' : '#7a6fa8' }}>
+              <span className="text-xs" style={{ color: dark ? 'rgba(255,255,255,0.45)' : '#7a6fa8' }}>
                 Your information is secure and will never be shared.
               </span>
             </div>
 
             {/* Submit row */}
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
               <button
                 type="submit"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 cursor-pointer shadow-md hover:shadow-lg transition-all duration-300 border-0"
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
                   background: submitted
                     ? '#0d9488'
-                    : 'linear-gradient(135deg, #0d9488, #14b8a6)',
+                    : 'linear-gradient(90deg, #5eb8e8 0%, #8fd06a 100%)',
                   color: 'white',
-                  border: 'none',
                   borderRadius: '100px',
                   padding: '12px 28px',
                   fontSize: '14px',
                   fontWeight: 600,
                   fontFamily: 'Inter, sans-serif',
-                  cursor: 'pointer',
-                  transition: 'all 0.25s',
-                  boxShadow: '0 4px 16px rgba(20,184,166,0.35)',
+                  boxShadow: '0 4px 16px rgba(94, 184, 232, 0.35)',
                 }}
-                onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-1px)',
-                  e.currentTarget.style.boxShadow = '0 6px 22px rgba(20,184,166,0.45)')}
-                onMouseLeave={e => (e.currentTarget.style.transform = 'none',
-                  e.currentTarget.style.boxShadow = '0 4px 16px rgba(20,184,166,0.35)')}
               >
                 {submitted ? (
                   <>
@@ -663,7 +651,7 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
                   </>
                 )}
               </button>
-              <span style={{ fontSize: '11px', color: dark ? 'rgba(220,210,255,0.40)' : '#aaa3c2' }}>
+              <span className="text-[11px] text-center sm:text-right" style={{ color: dark ? 'rgba(255,255,255,0.35)' : '#aaa3c2' }}>
                 * Required fields
               </span>
             </div>
@@ -672,29 +660,16 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
       </div>
 
       {/* ════ MAP SECTION ════ */}
-      <div
-        style={{
-          maxWidth: '1060px',
-          margin: '24px auto 0',
-        }}
-      >
+      <div className="max-w-[1060px] mx-auto mt-6 sm:mt-8">
         {/* Section label */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '10px',
-          marginBottom: '14px',
-          paddingLeft: '4px',
-        }}>
+        <div className="flex items-start sm:items-center gap-2.5 mb-3 px-1">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-            stroke="#14b8a6" strokeWidth="2" strokeLinecap="round">
+            stroke="#14b8a6" strokeWidth="2" strokeLinecap="round" className="shrink-0 mt-0.5 sm:mt-0">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
             <circle cx="12" cy="10" r="3"/>
           </svg>
-          <span style={{
-            fontSize: '12.5px',
-            fontWeight: 600,
-            color: dark ? 'rgba(220,210,255,0.65)' : '#5a5272',
+          <span className="text-xs sm:text-[12.5px] font-semibold leading-relaxed" style={{
+            color: dark ? 'rgba(255,255,255,0.6)' : '#5a5272',
             letterSpacing: '0.3px',
             fontFamily: 'Inter, sans-serif',
           }}>
@@ -704,16 +679,13 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
 
         {/* Map card — rounded pill shape matching reference */}
         <div
+          className="relative rounded-2xl sm:rounded-3xl overflow-hidden h-[280px] sm:h-[340px]"
           style={{
-            position: 'relative',
-            borderRadius: '28px',
-            overflow: 'hidden',
-            height: '320px',
             boxShadow: dark
               ? '0 16px 56px rgba(0,0,0,0.55)'
               : '0 8px 40px rgba(90,50,160,0.12)',
             border: dark
-              ? '1px solid rgba(139,92,246,0.18)'
+              ? '1px solid rgba(255,255,255,0.12)'
               : '1px solid rgba(200,190,230,0.35)',
           }}
         >
@@ -734,37 +706,14 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
             referrerPolicy="no-referrer-when-downgrade"
           />
 
-          {/* "Open in Maps" overlay button — top-left, matching reference */}
+          {/* "Open in Maps" overlay button — top-left */}
           <a
             href="https://maps.google.com/maps?q=Building+No.+199,+Pocket+20,+Rohini+Sector+24,+New+Delhi-110085,+India&z=15"
             target="_blank"
             rel="noopener noreferrer"
+            className="absolute top-3 left-3 sm:top-3.5 sm:left-3.5 inline-flex items-center gap-1.5 bg-white rounded-lg px-2.5 py-1.5 sm:px-3 sm:py-1.5 text-xs font-semibold text-[#1a73e8] shadow-md z-10 hover:shadow-lg transition-all"
             style={{
-              position: 'absolute',
-              top: '14px',
-              left: '14px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              background: 'white',
-              borderRadius: '8px',
-              padding: '7px 13px',
-              fontSize: '12px',
-              fontWeight: 600,
-              color: '#1a73e8',
-              textDecoration: 'none',
-              boxShadow: '0 2px 10px rgba(0,0,0,0.18)',
               fontFamily: 'Inter, sans-serif',
-              transition: 'box-shadow 0.2s, transform 0.2s',
-              zIndex: 10,
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.25)'
-              e.currentTarget.style.transform = 'translateY(-1px)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.boxShadow = '0 2px 10px rgba(0,0,0,0.18)'
-              e.currentTarget.style.transform = 'none'
             }}
           >
             {/* Map pin icon */}
@@ -785,21 +734,7 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
 
           {/* Address pill overlay — bottom center */}
           <div
-            style={{
-              position: 'absolute',
-              bottom: '16px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              background: 'white',
-              borderRadius: '100px',
-              padding: '7px 18px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              boxShadow: '0 4px 16px rgba(0,0,0,0.18)',
-              whiteSpace: 'nowrap',
-              zIndex: 10,
-            }}
+            className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-white rounded-full px-3.5 py-1.5 sm:px-4 sm:py-2 flex items-center gap-2 shadow-lg z-10 max-w-[90%] sm:max-w-none"
           >
             <span style={{
               width: '8px',
@@ -809,13 +744,8 @@ export default function BookSessionPage({ onNavigate, dark }: BookSessionPagePro
               flexShrink: 0,
               boxShadow: '0 0 0 3px rgba(234,67,53,0.20)',
             }} />
-            <span style={{
-              fontSize: '11.5px',
-              fontWeight: 600,
-              color: '#2d2d2d',
-              fontFamily: 'Inter, sans-serif',
-            }}>
-              Building No. 199, Pocket 20, Rohini Sector 24, New Delhi- 110085, India
+            <span className="text-[11px] sm:text-[11.5px] font-semibold text-[#2d2d2d] truncate sm:whitespace-nowrap font-sans">
+              Building No. 199, Pocket 20, Rohini Sector 24, New Delhi
             </span>
           </div>
         </div>

@@ -208,10 +208,10 @@ interface HomeAboutTeamSectionProps {
 
 export default function HomeAboutTeamSection({ onNavigate, dark }: HomeAboutTeamSectionProps) {
   const bg = dark ? '#000000' : '#ffffff'
-  const headingColor = dark ? '#e9d5ff' : '#1a1a2e'
-  const bodyColor = dark ? '#a09bc0' : '#64748b'
-  const cardBg = dark ? '#1a1040' : '#ffffff'
-  const founderCardBg = dark ? '#0f2040' : '#eef7fc'
+  const headingColor = dark ? '#f5f5f5' : '#1a1a2e'
+  const bodyColor = dark ? '#a1a1aa' : '#64748b'
+  const cardBg = dark ? '#141416' : '#ffffff'
+  const founderCardBg = dark ? '#141416' : '#ffffff'
 
   return (
     <section
@@ -335,7 +335,7 @@ export default function HomeAboutTeamSection({ onNavigate, dark }: HomeAboutTeam
                 </svg>
                 <blockquote
                   className="text-[13px] sm:text-sm leading-relaxed"
-                  style={{ color: dark ? '#c4b5fd' : '#334155' }}
+                  style={{ color: dark ? '#d4d4d8' : '#334155' }}
                 >
                   I created ZodiacPluss because I believe every person deserves a guide who truly
                   understands them — where the stars meet science, and healing meets hope.

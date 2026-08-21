@@ -109,7 +109,7 @@ export default function AboutSection({ onNavigate, dark = false }: AboutSectionP
               className="text-[36px] sm:text-[42px] md:text-[50px] font-semibold leading-tight mb-2"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
-              <span style={{ color: dark ? '#e9d5ff' : '#1e0d40' }}>Guidance that</span>
+              <span style={{ color: dark ? '#f5f5f5' : '#1e0d40' }}>Guidance that</span>
               <br />
               <span style={{ color: dark ? '#2dd4bf' : '#0d5f4f' }}>understands you</span>
             </h2>
@@ -117,7 +117,7 @@ export default function AboutSection({ onNavigate, dark = false }: AboutSectionP
             {/* Teal underline accent */}
             <div className="w-12 h-1 bg-teal-500 rounded mb-6" />
 
-            <p className="text-base leading-relaxed mb-8 max-w-md" style={{ color: dark ? '#a09bc0' : '#4a4a6a' }}>
+            <p className="text-base leading-relaxed mb-8 max-w-md" style={{ color: dark ? '#a1a1aa' : '#4a4a6a' }}>
               ZodiacPluss blends ancient astrology with modern psychological insights to help you understand yourself better and make confident decisions.
             </p>
 
@@ -125,12 +125,12 @@ export default function AboutSection({ onNavigate, dark = false }: AboutSectionP
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {features.map((f) => (
                 <div key={f.label} className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: dark ? 'rgba(139,92,246,0.12)' : '#faf5ff', border: dark ? '1px solid rgba(139,92,246,0.25)' : '1px solid #ede9fe', color: '#5b2d8e' }}>
+                  <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: dark ? 'rgba(20,184,166,0.12)' : '#f0fdfa', border: dark ? '1px solid rgba(20,184,166,0.28)' : '1px solid #99f6e4', color: '#0d9488' }}>
                     {f.icon}
                   </div>
                   <div>
-                    <div className="text-sm font-semibold" style={{ color: dark ? '#d4c4f0' : '#1e0d40' }}>{f.label}</div>
-                    <div className="text-xs leading-tight mt-0.5" style={{ color: dark ? '#8b80aa' : '#6b5b8f' }}>{f.sub}</div>
+                    <div className="text-sm font-semibold" style={{ color: dark ? '#e4e4e7' : '#1e0d40' }}>{f.label}</div>
+                    <div className="text-xs leading-tight mt-0.5" style={{ color: dark ? '#a1a1aa' : '#6b5b8f' }}>{f.sub}</div>
                   </div>
                 </div>
               ))}
@@ -151,7 +151,7 @@ export default function AboutSection({ onNavigate, dark = false }: AboutSectionP
               <button
                 onClick={() => onNavigate("About Us")}
                 className="flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-full transition-all duration-200"
-                style={{ border: dark ? '1px solid rgba(200,180,255,0.35)' : '1px solid #1e0d40', color: dark ? '#c4b5fd' : '#1e0d40' }}
+                style={{ border: dark ? '1px solid rgba(255,255,255,0.3)' : '1px solid #1e0d40', color: dark ? '#f5f5f5' : '#1e0d40' }}
               >
                 Learn More
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -252,11 +252,11 @@ export default function AboutSection({ onNavigate, dark = false }: AboutSectionP
                     width: i === activeIndex ? 24 : 8,
                     height: 8,
                     borderRadius: 4,
-                    background: i === activeIndex ? "#14b8a6" : (dark ? "rgba(139,92,246,0.3)" : "#d1c4e9"),
+                    background: i === activeIndex ? "#14b8a6" : (dark ? "rgba(255,255,255,0.25)" : "#d1c4e9"),
                   }}
                 />
               ))}
-              <span className="ml-3 text-xs font-mono" style={{ color: dark ? '#8b80aa' : '#6b5b8f' }}>
+              <span className="ml-3 text-xs font-mono" style={{ color: dark ? '#a1a1aa' : '#6b5b8f' }}>
                 {String(activeIndex + 1).padStart(2, "0")}/{String(total).padStart(2, "0")}
               </span>
             </div>
