@@ -5,7 +5,6 @@ interface ServicesPageProps {
 
 const services = [
   {
-    id: '01',
     title: 'Personalized Horoscope',
     desc: 'Receive a deeply detailed horoscope crafted uniquely for your birth chart. Understand your personality, strengths, challenges, and cosmic timing.',
     bg: 'https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=500&h=300&fit=crop&auto=format&q=80',
@@ -13,7 +12,6 @@ const services = [
     color: '#d81b86',
   },
   {
-    id: '02',
     title: 'Live Sessions with Experts',
     desc: 'Book a one-on-one video or chat session with our certified astrologers and therapists. Real-time guidance for life\'s most pressing questions.',
     bg: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=500&h=300&fit=crop&auto=format&q=80',
@@ -21,7 +19,6 @@ const services = [
     color: '#5b2d8e',
   },
   {
-    id: '03',
     title: 'AI-Powered Astro Insights',
     desc: 'Our advanced AI engine analyzes thousands of astrological data points to surface personalized insights with unprecedented accuracy.',
     bg: 'https://images.unsplash.com/photo-1532968961962-8a0cb3a2d4f5?w=500&h=300&fit=crop&auto=format&q=80',
@@ -29,7 +26,6 @@ const services = [
     color: '#14b8a6',
   },
   {
-    id: '04',
     title: 'Therapy That Helps',
     desc: 'Work with licensed therapists who integrate holistic and astrological perspectives to support your mental health and emotional well-being.',
     bg: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=500&h=300&fit=crop&auto=format&q=80',
@@ -37,10 +33,8 @@ const services = [
     color: '#0d5f4f',
   },
   {
-    id: '05',
     title: 'Tarot Card of the Day',
     desc: 'Draw your daily tarot card and receive an in-depth reading that provides guidance, reflection, and a daily cosmic check-in.',
-    price: 'Free',
     bg: 'https://images.unsplash.com/photo-1627656349459-58c83faa6bdf?w=500&h=300&fit=crop&auto=format&q=80',
     tag: 'Daily',
     color: '#7c3aed',
@@ -54,7 +48,6 @@ const services = [
     color: '#1e40af',
   },
   {
-    id: '07',
     title: 'Community Support',
     desc: 'Join a vibrant community of spiritual seekers, participate in group sessions, live Q&As, and connect with others on similar journeys.',
     bg: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500&h=300&fit=crop&auto=format&q=80',
@@ -90,10 +83,10 @@ const corporatePackages = [
 ]
 
 const corporateBenefits = [
-  { icon: '📈', title: 'Improved Productivity', desc: 'Teams with higher wellness scores report 21% greater productivity.' },
-  { icon: '💬', title: 'Better Communication', desc: 'Astrology-informed team profiles reduce interpersonal conflict by 34%.' },
-  { icon: '🧘', title: 'Reduced Burnout', desc: 'Holistic therapy access cuts employee burnout rates significantly.' },
-  { icon: '🌟', title: 'Talent Retention', desc: 'Wellness-first companies retain top talent 60% longer on average.' },
+  { icon: '', title: 'Improved Productivity', desc: 'Teams with higher wellness scores report 21% greater productivity.' },
+  { icon: '', title: 'Better Communication', desc: 'Astrology-informed team profiles reduce interpersonal conflict by 34%.' },
+  { icon: '', title: 'Reduced Burnout', desc: 'Holistic therapy access cuts employee burnout rates significantly.' },
+  { icon: '', title: 'Talent Retention', desc: 'Wellness-first companies retain top talent 60% longer on average.' },
 ]
 
 export default function ServicesPage({ onNavigate, dark }: ServicesPageProps) {
