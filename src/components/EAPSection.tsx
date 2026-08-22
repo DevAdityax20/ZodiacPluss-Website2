@@ -311,7 +311,7 @@ export default function EAPSection({ onNavigate, dark = false }: EAPSectionProps
         {/* ── CTA ──────────────────────────────────────────────── */}
         <div
           className="mt-14 rounded-3xl p-8 md:p-10 text-center text-white shadow-lg"
-          style={{ background: 'linear-gradient(135deg, #0d2535 0%, #0b4a3f 50%, #1e0d40 100%)' }}
+          style={{ background: 'linear-gradient(135deg, #42a1e0ff 0%, #b6a338ff 50%, #49b2fcff 100%)' }}
         >
           <h3 className="text-2xl md:text-3xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
             Ready to Bring EAP to Your Workplace?

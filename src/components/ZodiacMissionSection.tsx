@@ -8,12 +8,12 @@
 
 const DARK_BG = '#071e19'
 const ACCENT   = '#3ecfb3'   // bright teal headline accent
-const TEAL     = '#14b8a6'
-const TEAL_D   = '#065350'
+const TEAL     = '#26b2a2ff'
+const TEAL_D   = '#40d0cbff'
 const NAVY     = '#1a1060'
 
 const MEDITATION =
-  'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&h=820&fit=crop&auto=format&q=80'
+  'https://res.cloudinary.com/pp0lpskp/image/upload/v1786114130/9eb6def5a93718e462ce7c37dcb77329_k3rqji.jpg'
 
 
 
@@ -65,7 +65,7 @@ function DarkHero({ onNavigate, dark = false }: { onNavigate?: (p: string) => vo
       {/* Radial glow from center */}
       <div style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
-        background: 'radial-gradient(ellipse 55% 80% at 50% 60%, rgba(61,214,172,0.08) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse 55% 80% at 50% 60%, rgba(61, 166, 214, 0.08) 0%, transparent 70%)',
       }} />
 
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: 'clamp(48px,7vw,80px) 24px', position: 'relative', zIndex: 1 }}>
@@ -75,7 +75,7 @@ function DarkHero({ onNavigate, dark = false }: { onNavigate?: (p: string) => vo
           <div className="lg:col-span-1 order-2 lg:order-1">
             {/* ZodiacPluss wordmark */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 32 }}>
-              <span style={{ color: ACCENT, fontSize: 14 }}>✦</span>
+              <span style={{ color: ACCENT, fontSize: 14 }}></span>
               <span style={{ color: primaryText, fontSize: 14, fontWeight: 700, fontFamily: "'Inter', sans-serif", letterSpacing: '0.05em' }}>ZodiacPluss</span>
             </div>
 
@@ -250,14 +250,14 @@ function AboutBand({ onNavigate, dark = false }: { onNavigate?: (p: string) => v
                 border: '1px solid rgba(20,184,166,0.2)',
               }}>
                 <div style={{
-                  width: 36, height: 36, borderRadius: 10, flexShrink: 0,
+                  width: 36, height: 36, borderRadius: 50, flexShrink: 0,
                   background: `linear-gradient(135deg, ${TEAL}, ${TEAL_D})`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontSize: 16,
-                }}>🌟</div>
+                }}></div>
                 <div>
-                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, fontWeight: 900, color: headingColor, lineHeight: 1 }}>2,500+</div>
-                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: dark ? '#a1a1aa' : '#888', marginTop: 1 }}>Happy Souls</div>
+                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, fontWeight: 900, color: headingColor, lineHeight: 1 }}>50+</div>
+                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: dark ? '#a1a1aa' : '#888', marginTop: 1 }}>Experienced Mentors</div>
                 </div>
               </div>
             </div>
@@ -269,7 +269,7 @@ function AboutBand({ onNavigate, dark = false }: { onNavigate?: (p: string) => v
               fontFamily: "'Inter', sans-serif",
               fontSize: 11, fontWeight: 700, letterSpacing: '0.14em',
               color: TEAL, textTransform: 'uppercase', marginBottom: 16,
-            }}>About Us</p>
+            }}></p>
 
             <h2 style={{
               fontFamily: "'Playfair Display', serif",

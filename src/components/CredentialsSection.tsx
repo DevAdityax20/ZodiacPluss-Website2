@@ -8,17 +8,11 @@ const certificates = [
     badge: 'DPIIT / STARTUP INDIA',
     certNo: 'DPIIT-84920-2024',
     issuedBy: 'Ministry of Commerce and Industry, Govt. of India',
-    color: '#14b8a6',
+    color: '#1aa0b8ff',
     bgLight: '#f0fdfa',
-    bgDark: 'rgba(20, 184, 166, 0.1)',
-    borderLight: 'rgba(20, 184, 166, 0.3)',
-    borderDark: 'rgba(20, 184, 166, 0.35)',
-    sealColor: '#0f766e',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M12 2L15 8L22 9L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9L9 8L12 2Z" />
-      </svg>
-    ),
+    bgDark: '#1aa0b8ff',
+    borderLight: 'rgba(47, 197, 208, 0.3)',
+    borderDark: 'rgba(20, 175, 195, 0.35)',
   },
   {
     id: 'gst',
@@ -26,19 +20,11 @@ const certificates = [
     subtitle: 'Government of India – Central Board of Indirect Taxes',
     badge: 'GST REGISTERED',
     certNo: '07AAACZ9841B1Z3',
-    issuedBy: 'Ministry of Finance, Government of India',
-    color: '#3b82f6',
-    bgLight: '#eff6ff',
-    bgDark: 'rgba(59, 130, 246, 0.1)',
-    borderLight: 'rgba(59, 130, 246, 0.3)',
-    borderDark: 'rgba(59, 130, 246, 0.35)',
-    sealColor: '#1d4ed8',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-        <polyline points="9 22 9 12 15 12 15 22" />
-      </svg>
-    ),
+    color: '#1aa0b8ff',
+    bgLight: '#f0fdfa',
+    bgDark: '#1aa0b8ff',
+    borderLight: 'rgba(47, 197, 208, 0.3)',
+    borderDark: 'rgba(20, 175, 195, 0.35)',
   },
   {
     id: 'msme',
@@ -47,20 +33,11 @@ const certificates = [
     badge: 'UDYAM CERTIFIED',
     certNo: 'UDYAM-DL-08-0049281',
     issuedBy: 'Govt. of India MSME Enterprise Portal',
-    color: '#f59e0b',
-    bgLight: '#fffbeb',
-    bgDark: 'rgba(245, 158, 11, 0.1)',
-    borderLight: 'rgba(245, 158, 11, 0.3)',
-    borderDark: 'rgba(245, 158, 11, 0.35)',
-    sealColor: '#b45309',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <rect x="2" y="7" width="20" height="14" rx="2" />
-        <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
-        <line x1="12" y1="12" x2="12" y2="16" />
-        <line x1="10" y1="14" x2="14" y2="14" />
-      </svg>
-    ),
+     color: '#1aa0b8ff',
+    bgLight: '#f0fdfa',
+    bgDark: '#1aa0b8ff',
+    borderLight: 'rgba(47, 197, 208, 0.3)',
+    borderDark: 'rgba(20, 175, 195, 0.35)',
   },
   {
     id: 'iso27001',
@@ -69,19 +46,11 @@ const certificates = [
     badge: 'ISO 27001',
     certNo: 'ISMS-IND-2024-8841',
     issuedBy: 'Global Accreditation Forum (GAF)',
-    color: '#8b5cf6',
-    bgLight: '#f5f3ff',
-    bgDark: 'rgba(139, 92, 246, 0.1)',
-    borderLight: 'rgba(139, 92, 246, 0.3)',
-    borderDark: 'rgba(139, 92, 246, 0.35)',
-    sealColor: '#6d28d9',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <rect x="5" y="11" width="14" height="10" rx="2" />
-        <path d="M8 11V7a4 4 0 0 1 8 0v4" />
-        <circle cx="12" cy="16" r="1" fill="currentColor" />
-      </svg>
-    ),
+     color: '#1aa0b8ff',
+    bgLight: '#f0fdfa',
+    bgDark: '#1aa0b8ff',
+    borderLight: 'rgba(47, 197, 208, 0.3)',
+    borderDark: 'rgba(20, 175, 195, 0.35)',
   },
   {
     id: 'iso9001',
@@ -90,18 +59,11 @@ const certificates = [
     badge: 'ISO 9001',
     certNo: 'QMS-IND-2024-9042',
     issuedBy: 'International Accreditation Service (IAS)',
-    color: '#10b981',
-    bgLight: '#ecfdf5',
-    bgDark: 'rgba(16, 185, 129, 0.1)',
-    borderLight: 'rgba(16, 185, 129, 0.3)',
-    borderDark: 'rgba(16, 185, 129, 0.35)',
-    sealColor: '#047857',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <path d="m9 12 2 2 4-4" />
-      </svg>
-    ),
+     color: '#1aa0b8ff',
+    bgLight: '#161717ff',
+    bgDark: '#1aa0b8ff',
+    borderLight: 'rgba(47, 197, 208, 0.3)',
+    borderDark: 'rgba(20, 175, 195, 0.35)',
   },
 ]
 
@@ -132,12 +94,7 @@ export default function CredentialsSection({ dark = false }: CredentialsSectionP
               background: dark ? 'rgba(20,184,166,0.12)' : 'rgba(20,184,166,0.08)',
               border: '1px solid rgba(20,184,166,0.25)',
             }}
-          >
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
-            OFFICIAL CERTIFICATIONS &amp; CREDENTIALS
-          </span>
+          ></span>
 
           <h2
             className="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-4"
@@ -163,7 +120,7 @@ export default function CredentialsSection({ dark = false }: CredentialsSectionP
               style={{
                 background: dark ? cert.bgDark : 'rgba(255,255,255,0.09)',
                 border: dark ? `1px solid ${cert.borderDark}` : '1px solid rgba(255,255,255,0.18)',
-                boxShadow: '0 4px 24px rgba(0,0,0,0.18)',
+                boxShadow: '0 4px 50px rgba(0,0,0,0.18)',
                 backdropFilter: 'blur(16px)',
                 WebkitBackdropFilter: 'blur(16px)',
               }}
@@ -175,7 +132,7 @@ export default function CredentialsSection({ dark = false }: CredentialsSectionP
                     className="w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
                     style={{ background: `${cert.color}18`, color: cert.color }}
                   >
-                    {cert.icon}
+                   
                   </div>
                   <span
                     className="text-[9px] font-extrabold tracking-wider px-2.5 py-1 rounded-md"
@@ -247,7 +204,7 @@ export default function CredentialsSection({ dark = false }: CredentialsSectionP
               return (
                 <div>
                   <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4" style={{ background: `${c.color}20`, color: c.color }}>
-                    {c.icon}
+                    
                   </div>
                   <span className="text-[10px] font-bold tracking-widest px-2.5 py-1 rounded-md uppercase" style={{ color: c.color, background: `${c.color}15` }}>
                     {c.badge}

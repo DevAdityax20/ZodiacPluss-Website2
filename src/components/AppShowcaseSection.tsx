@@ -535,25 +535,6 @@ export default function AppShowcaseSection() {
 
           {/* ── LEFT: marketing copy ─────────────────────────── */}
           <div>
-            {/* "OUR PLATFORM" badge */}
-            <div style={{
-              display: 'inline-flex', alignItems: 'center', gap: 8,
-              border: `1.5px solid ${TEAL}55`, borderRadius: 999,
-              padding: '6px 14px 6px 8px', marginBottom: 28,
-              background: 'rgba(20,184,166,0.05)',
-            }}>
-              <div style={{
-                width: 22, height: 22, borderRadius: '50%',
-                background: `linear-gradient(135deg, ${TEAL}, ${TEAL_DARK})`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: 11, color: 'white',
-              }}>✦</div>
-              <span style={{
-                fontSize: 11, fontWeight: 700, letterSpacing: '0.12em',
-                color: TEAL, textTransform: 'uppercase',
-                fontFamily: "'Inter', sans-serif",
-              }}>Our Platform</span>
-            </div>
 
             {/* Main heading */}
             <h2 style={{

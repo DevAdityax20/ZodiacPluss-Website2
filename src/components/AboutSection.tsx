@@ -96,13 +96,6 @@ export default function AboutSection({ onNavigate, dark = false }: AboutSectionP
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left: Text content */}
           <div className="lg:w-[42%] flex-shrink-0">
-            {/* Tag */}
-            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-6" style={{ border: dark ? '1px solid rgba(20,184,166,0.35)' : '1px solid #5eead4', color: dark ? '#2dd4bf' : '#0d9488', background: dark ? 'rgba(20,184,166,0.08)' : 'transparent' }}>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 2L13.5 8.5L20 7L15.5 12L20 17L13.5 15.5L12 22L10.5 15.5L4 17L8.5 12L4 7L10.5 8.5L12 2Z"/>
-              </svg>
-              About ZodiacPluss
-            </div>
 
             {/* Heading */}
             <h2
@@ -111,7 +104,7 @@ export default function AboutSection({ onNavigate, dark = false }: AboutSectionP
             >
               <span style={{ color: dark ? '#f5f5f5' : '#1e0d40' }}>Guidance that</span>
               <br />
-              <span style={{ color: dark ? '#2dd4bf' : '#0d5f4f' }}>understands you</span>
+              <span style={{ color: dark ? 'linear-gradient(90deg, #5eb8e8 0%, #8fd06a 100%)' : '' }}>understands you</span>
             </h2>
 
             {/* Teal underline accent */}
