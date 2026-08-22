@@ -102,20 +102,29 @@ export default function TestimonialsSection({ dark = false }: { dark?: boolean }
     <section className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       {/* 16:9 Aspect Ratio Container with Plain White Background */}
       <div
-        className="w-full relative overflow-hidden rounded-3xl bg-white shadow-xl border border-gray-100 flex flex-col justify-between"
+        className={`w-full relative overflow-hidden rounded-3xl shadow-xl border flex flex-col justify-between ${
+          dark ? 'bg-[#141416] border-white/10' : 'bg-white border-gray-100'
+        }`}
         style={{
           aspectRatio: '16 / 9',
           minHeight: '500px',
+          transition: 'background 0.4s ease',
         }}
       >
         {/* Top Header Content */}
         <div className="pt-8 sm:pt-12 md:pt-14 px-6 text-center max-w-3xl mx-auto z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-teal-50 text-teal-700 border border-teal-200 mb-3">
+          <div
+            className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold tracking-wider uppercase border mb-3 ${
+              dark ? 'bg-teal-500/10 text-teal-300 border-teal-500/30' : 'bg-teal-50 text-teal-700 border-teal-200'
+            }`}
+          >
             <span className="text-teal-500">✦</span> Verified Seeker Stories
           </div>
 
           <h2
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold text-gray-900 tracking-tight leading-tight mb-3"
+            className={`text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-extrabold tracking-tight leading-tight mb-3 ${
+              dark ? 'text-[#f5f5f5]' : 'text-gray-900'
+            }`}
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Loved by Seekers,{' '}
@@ -128,7 +137,7 @@ export default function TestimonialsSection({ dark = false }: { dark?: boolean }
             </span>
           </h2>
 
-          <p className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-xl mx-auto mb-2">
+          <p className={`text-xs sm:text-sm md:text-base leading-relaxed max-w-xl mx-auto mb-2 ${dark ? 'text-[#a1a1aa]' : 'text-gray-600'}`}>
             Real readings, real turning points. Discover how personalized cosmic insights and licensed therapies bring clarity to thousands of lives.
           </p>
         </div>
@@ -142,14 +151,16 @@ export default function TestimonialsSection({ dark = false }: { dark?: boolean }
           onTouchEnd={() => setIsPaused(false)}
         >
           {/* Gradient Fade Edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+          <div className={`absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r to-transparent z-10 pointer-events-none ${dark ? 'from-[#141416]' : 'from-white'}`} />
+          <div className={`absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l to-transparent z-10 pointer-events-none ${dark ? 'from-[#141416]' : 'from-white'}`} />
 
           {/* Floating Left Arrow Button */}
           <button
             onClick={() => handleScroll('left')}
             aria-label="Scroll Left"
-            className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/95 backdrop-blur-md border border-gray-200 shadow-lg text-gray-700 hover:text-teal-600 hover:border-teal-400 hover:scale-110 active:scale-95 flex items-center justify-center transition-all cursor-pointer"
+            className={`absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full backdrop-blur-md border shadow-lg hover:text-teal-600 hover:border-teal-400 hover:scale-110 active:scale-95 flex items-center justify-center transition-all cursor-pointer ${
+              dark ? 'bg-[#141416]/95 border-white/15 text-gray-300' : 'bg-white/95 border-gray-200 text-gray-700'
+            }`}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M19 12H5M12 19l-7-7 7-7" />
@@ -160,7 +171,9 @@ export default function TestimonialsSection({ dark = false }: { dark?: boolean }
           <button
             onClick={() => handleScroll('right')}
             aria-label="Scroll Right"
-            className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/95 backdrop-blur-md border border-gray-200 shadow-lg text-gray-700 hover:text-teal-600 hover:border-teal-400 hover:scale-110 active:scale-95 flex items-center justify-center transition-all cursor-pointer"
+            className={`absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full backdrop-blur-md border shadow-lg hover:text-teal-600 hover:border-teal-400 hover:scale-110 active:scale-95 flex items-center justify-center transition-all cursor-pointer ${
+              dark ? 'bg-[#141416]/95 border-white/15 text-gray-300' : 'bg-white/95 border-gray-200 text-gray-700'
+            }`}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14M12 5l7 7-7 7" />
@@ -179,7 +192,9 @@ export default function TestimonialsSection({ dark = false }: { dark?: boolean }
             {extendedList.map((item, idx) => (
               <div
                 key={idx}
-                className="w-[280px] sm:w-[340px] md:w-[380px] bg-slate-50 hover:bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between shrink-0"
+                className={`w-[280px] sm:w-[340px] md:w-[380px] rounded-2xl p-5 sm:p-6 border shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between shrink-0 ${
+                  dark ? 'bg-white/4 hover:bg-white/7 border-white/10' : 'bg-slate-50 hover:bg-white border-slate-200/80'
+                }`}
               >
                 {/* Header: User Avatar + Name + Stars */}
                 <div>
@@ -191,13 +206,13 @@ export default function TestimonialsSection({ dark = false }: { dark?: boolean }
                         className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover border-2 border-teal-400/40"
                       />
                       <div>
-                        <h4 className="text-sm sm:text-base font-bold text-gray-900 leading-tight">
+                        <h4 className={`text-sm sm:text-base font-bold leading-tight ${dark ? 'text-[#f5f5f5]' : 'text-gray-900'}`}>
                           {item.name}
                         </h4>
-                        <p className="text-[11px] sm:text-xs text-gray-500">{item.role}</p>
+                        <p className={`text-[11px] sm:text-xs ${dark ? 'text-[#a1a1aa]' : 'text-gray-500'}`}>{item.role}</p>
                       </div>
                     </div>
-                    <span className="text-[10px] sm:text-xs font-semibold px-2 py-0.5 rounded-full bg-teal-100/70 text-teal-800">
+                    <span className={`text-[10px] sm:text-xs font-semibold px-2 py-0.5 rounded-full ${dark ? 'bg-teal-500/15 text-teal-300' : 'bg-teal-100/70 text-teal-800'}`}>
                       {item.tag}
                     </span>
                   </div>
@@ -207,17 +222,17 @@ export default function TestimonialsSection({ dark = false }: { dark?: boolean }
                     {Array.from({ length: item.stars }).map((_, i) => (
                       <span key={i} className="text-amber-400 text-sm">★</span>
                     ))}
-                    <span className="text-xs font-bold text-gray-700 ml-1">5.0</span>
+                    <span className={`text-xs font-bold ml-1 ${dark ? 'text-[#e4e4e7]' : 'text-gray-700'}`}>5.0</span>
                   </div>
 
                   {/* Quote */}
-                  <p className="text-xs sm:text-[13px] text-gray-700 leading-relaxed italic">
+                  <p className={`text-xs sm:text-[13px] leading-relaxed italic ${dark ? 'text-[#c9c9ce]' : 'text-gray-700'}`}>
                     "{item.quote}"
                   </p>
                 </div>
 
                 {/* Verified badge */}
-                <div className="mt-4 pt-3 border-t border-slate-200/60 flex items-center gap-1.5 text-[11px] font-medium text-emerald-600">
+                <div className={`mt-4 pt-3 border-t flex items-center gap-1.5 text-[11px] font-medium text-emerald-600 ${dark ? 'border-white/10' : 'border-slate-200/60'}`}>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                   </svg>

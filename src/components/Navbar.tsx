@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-const navLinks = ["Home", "About Us", "Services", "Experts", "Career"]
+const navLinks = ["Home", "About Us", "Services", "Career"]
 
 interface NavbarProps {
   currentPage: string
@@ -27,20 +27,20 @@ export default function Navbar({ currentPage, onNavigate, dark = false, onToggle
 
   // Base dynamic styling variables
   const textColor = scrolled
-    ? (dark ? "#e9d5ff" : "#1a1a2e")
-    : (isBannerDark ? "#ffffff" : (dark ? "#e9d5ff" : "#1a1a2e"))
+    ? (dark ? "#f5f5f5" : "#1a1a2e")
+    : (isBannerDark ? "#ffffff" : (dark ? "#f5f5f5" : "#1a1a2e"))
 
   const subtitleColor = scrolled
-    ? (dark ? "#9b87c9" : "#6b7280")
-    : (isBannerDark ? "rgba(255, 255, 255, 0.7)" : (dark ? "#9b87c9" : "#6b7280"))
+    ? (dark ? "#a1a1aa" : "#6b7280")
+    : (isBannerDark ? "rgba(255, 255, 255, 0.7)" : (dark ? "#a1a1aa" : "#6b7280"))
 
   const linkColor = (link: string) => {
     if (currentPage === link) {
       return textColor
     }
     return scrolled
-      ? (dark ? "rgba(220, 210, 255, 0.8)" : "#4b5563")
-      : (isBannerDark ? "rgba(255, 255, 255, 0.8)" : (dark ? "rgba(220, 210, 255, 0.8)" : "#4b5563"))
+      ? (dark ? "rgba(255, 255, 255, 0.75)" : "#4b5563")
+      : (isBannerDark ? "rgba(255, 255, 255, 0.8)" : (dark ? "rgba(255, 255, 255, 0.75)" : "#4b5563"))
   }
 
   // Beautiful resizable nav container layout classes
@@ -55,10 +55,10 @@ export default function Navbar({ currentPage, onNavigate, dark = false, onToggle
   // High-performance custom glassmorphism styling
   const navStyle: React.CSSProperties = scrolled
     ? {
-        background: dark ? "rgba(14, 10, 26, 0.65)" : "rgba(255, 255, 255, 0.72)",
+        background: dark ? "rgba(15, 15, 17, 0.7)" : "rgba(255, 255, 255, 0.72)",
         backdropFilter: "blur(20px) saturate(190%)",
         WebkitBackdropFilter: "blur(20px) saturate(190%)",
-        border: dark ? "1px solid rgba(139, 92, 246, 0.2)" : "1px solid rgba(226, 217, 243, 0.6)",
+        border: dark ? "1px solid rgba(255, 255, 255, 0.12)" : "1px solid rgba(226, 217, 243, 0.6)",
         boxShadow: dark
           ? "0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 1px 0 0 rgba(255, 255, 255, 0.1) inset"
           : "0 10px 30px -10px rgba(90, 45, 142, 0.1), 0 1px 0 0 rgba(255, 255, 255, 0.8) inset",
@@ -198,8 +198,8 @@ export default function Navbar({ currentPage, onNavigate, dark = false, onToggle
           <div
             className="lg:hidden mt-3 rounded-2xl p-4 transition-all duration-300"
             style={{
-              background: dark ? "#140e28" : "#ffffff",
-              border: dark ? "1px solid rgba(139,92,246,0.2)" : "1px solid #e5e7eb",
+              background: dark ? "#141416" : "#ffffff",
+              border: dark ? "1px solid rgba(255,255,255,0.1)" : "1px solid #e5e7eb",
               boxShadow: dark ? "0 8px 24px rgba(0,0,0,0.5)" : "0 8px 24px rgba(0,0,0,0.06)",
             }}
           >
@@ -209,7 +209,7 @@ export default function Navbar({ currentPage, onNavigate, dark = false, onToggle
                 onClick={() => { onNavigate(link); setMobileOpen(false) }}
                 className="block w-full text-left py-2 text-xs font-semibold border-b border-gray-100 dark:border-purple-950/40 last:border-0"
                 style={{
-                  color: currentPage === link ? "#0d9488" : (dark ? "#e0d0ff" : "#1a1a2e"),
+                  color: currentPage === link ? "#0d9488" : (dark ? "#e4e4e7" : "#1a1a2e"),
                 }}
               >
                 {link}

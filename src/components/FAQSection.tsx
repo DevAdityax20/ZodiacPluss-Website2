@@ -40,16 +40,23 @@ const faqs = [
 
 interface FAQSectionProps {
   onNavigate?: (page: string) => void
+  dark?: boolean
 }
 
-export default function FAQSection({ onNavigate }: FAQSectionProps) {
+export default function FAQSection({ onNavigate, dark = false }: FAQSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const headingColor = dark ? '#f5f5f5' : '#0f0f1a'
+  const mutedColor = dark ? '#a1a1aa' : '#74748a'
+  const dividerColor = dark ? 'rgba(255,255,255,0.1)' : '#e4dff2'
+  const toggleBorder = dark ? 'rgba(255,255,255,0.22)' : '#c8c2dc'
+  const toggleStroke = dark ? '#d4d4d8' : '#555'
 
   return (
     <section
       style={{
-        background: 'linear-gradient(180deg, #fdf8f5 0%, #f8f6ff 100%)',
+        background: dark ? '#000000' : 'linear-gradient(180deg, #fdf8f5 0%, #f8f6ff 100%)',
         padding: 'clamp(64px, 8vw, 96px) 24px clamp(64px, 8vw, 96px)',
+        transition: 'background 0.4s ease',
       }}
     >
       <div style={{ maxWidth: 900, margin: '0 auto' }}>
@@ -68,7 +75,7 @@ export default function FAQSection({ onNavigate }: FAQSectionProps) {
           fontFamily: "'Inter', sans-serif",
           fontSize: 'clamp(44px, 7vw, 84px)',
           fontWeight: 800,
-          color: '#0f0f1a',
+          color: headingColor,
           lineHeight: 1.05,
           margin: '0 0 6px',
           letterSpacing: '-0.02em',
@@ -95,7 +102,7 @@ export default function FAQSection({ onNavigate }: FAQSectionProps) {
         <p style={{
           fontFamily: "'Inter', sans-serif",
           fontSize: 'clamp(14px, 1.4vw, 17px)',
-          color: '#74748a',
+          color: mutedColor,
           lineHeight: 1.75,
           marginBottom: 52,
           maxWidth: 600,
@@ -118,7 +125,7 @@ export default function FAQSection({ onNavigate }: FAQSectionProps) {
         </p>
 
         {/* Top divider */}
-        <div style={{ height: 1, background: '#e4dff2' }} />
+        <div style={{ height: 1, background: dividerColor }} />
 
         {/* FAQ accordion rows */}
         {faqs.map((faq, i) => {
@@ -150,7 +157,7 @@ export default function FAQSection({ onNavigate }: FAQSectionProps) {
                   fontFamily: "'Inter', sans-serif",
                   fontSize: 'clamp(16px, 1.8vw, 20px)',
                   fontWeight: 700,
-                  color: isOpen ? TEAL : '#0f0f1a',
+                  color: isOpen ? TEAL : headingColor,
                   lineHeight: 1.35,
                   transition: 'color 0.22s ease',
                 }}>
@@ -160,7 +167,7 @@ export default function FAQSection({ onNavigate }: FAQSectionProps) {
                 {/* ± toggle circle */}
                 <div style={{
                   width: 40, height: 40, borderRadius: '50%', flexShrink: 0,
-                  border: `1.5px solid ${isOpen ? TEAL : '#c8c2dc'}`,
+                  border: `1.5px solid ${isOpen ? TEAL : toggleBorder}`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   transition: 'border-color 0.22s ease',
                   marginTop: 1,
@@ -168,7 +175,7 @@ export default function FAQSection({ onNavigate }: FAQSectionProps) {
                   <svg
                     width="15" height="15"
                     viewBox="0 0 24 24" fill="none"
-                    stroke={isOpen ? TEAL : '#555'}
+                    stroke={isOpen ? TEAL : toggleStroke}
                     strokeWidth="2.5"
                     strokeLinecap="round"
                     style={{ transition: 'transform 0.22s ease, stroke 0.22s ease', transform: isOpen ? 'rotate(45deg)' : 'none' }}
@@ -188,7 +195,7 @@ export default function FAQSection({ onNavigate }: FAQSectionProps) {
                 <p style={{
                   fontFamily: "'Inter', sans-serif",
                   fontSize: 'clamp(13px, 1.3vw, 15.5px)',
-                  color: '#6b5b8f',
+                  color: mutedColor,
                   lineHeight: 1.8,
                   margin: '0 0 28px',
                   paddingLeft: 50,
@@ -199,7 +206,7 @@ export default function FAQSection({ onNavigate }: FAQSectionProps) {
               </div>
 
               {/* Row divider */}
-              <div style={{ height: 1, background: '#e4dff2' }} />
+              <div style={{ height: 1, background: dividerColor }} />
             </div>
           )
         })}

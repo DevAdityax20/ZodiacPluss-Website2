@@ -505,7 +505,7 @@ export default function AppShowcaseSection() {
     <section style={{ position: 'relative', overflow: 'hidden', padding: 'clamp(56px, 7vw, 96px) 24px' }}>
       {/* Background video */}
       <video
-        src="https://res.cloudinary.com/pp0lpskp/video/upload/v1787222681/Background_video1_btmhwb.mp4"
+        src="https://res.cloudinary.com/pp0lpskp/video/upload/v1787382162/watermark-removed-app_demo_vid2_k5d1ai.mp4"
         autoPlay
         muted
         loop
@@ -685,7 +685,7 @@ export default function AppShowcaseSection() {
               }}
             >
               <video
-                src="https://res.cloudinary.com/pp0lpskp/video/upload/v1786110825/i_need_this_video_in_white_bac_h7d3bv.mp4"
+                src="https://res.cloudinary.com/pp0lpskp/video/upload/v1787382162/watermark-removed-app_demo_vid2_k5d1ai.mp4"
                 autoPlay
                 muted
                 loop

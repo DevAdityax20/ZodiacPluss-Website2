@@ -2,6 +2,7 @@ import HeroSection from '@/components/HeroSection'
 import AboutSection from '@/components/AboutSection'
 import CredentialsSection from '@/components/CredentialsSection'
 import AppShowcaseSection from '@/components/AppShowcaseSection'
+import EAPSection from '@/components/EAPSection'
 import ZodiacMissionSection from '@/components/ZodiacMissionSection'
 import TestimonialsSection from '@/components/TestimonialsSection'
 import HomeAboutTeamSection from '@/components/HomeAboutTeamSection'
@@ -20,7 +21,7 @@ export default function HomePage({ onNavigate, dark }: HomePageProps) {
     <div className="w-full overflow-hidden pb-16 md:pb-0 transition-colors duration-300">
       {/* Hero — excluded from parallax wrapper */}
       <HeroSection onNavigate={onNavigate} />
-      <BrandsMarquee />
+      <BrandsMarquee dark={dark} />
 
       {/* Parallax video sections */}
       <ScrollVideoParallax videoUrl={PARALLAX_VIDEO} overlayOpacity={0.6}>
@@ -29,9 +30,10 @@ export default function HomePage({ onNavigate, dark }: HomePageProps) {
         </div>
         <AboutSection onNavigate={onNavigate} dark={dark} />
         <AppShowcaseSection />
+        <EAPSection onNavigate={onNavigate} dark={dark} />
         <ZodiacMissionSection onNavigate={onNavigate} dark={dark} />
         <div className="pb-6">
-          <TestimonialsSection />
+          <TestimonialsSection dark={dark} />
         </div>
         <HomeAboutTeamSection onNavigate={onNavigate} dark={dark} />
       </ScrollVideoParallax>

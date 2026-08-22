@@ -51,9 +51,9 @@ const values = [
   { icon: '✦', title: 'Integrity', desc: 'Your privacy is sacred. All sessions and data are 100% confidential.' },
 ] 
 
-export default function AboutUsPage({ onNavigate }: AboutUsPageProps) {
+export default function AboutUsPage({ onNavigate, dark = false }: AboutUsPageProps) {
   return (
-    <div className="about-page-shell pt-0 transition-colors duration-300" style={{ background: '#f8f6ff' }}>
+    <div className="about-page-shell pt-0 transition-colors duration-300" style={{ background: dark ? '#000000' : '#f8f6ff' }}>
       {/* Hero banner */}
       <div
         className="relative overflow-hidden py-32 md:py-44 px-6 text-center transition-all duration-300 bg-cover bg-top"
@@ -160,15 +160,15 @@ export default function AboutUsPage({ onNavigate }: AboutUsPageProps) {
         </div>
       </div>
 
-      {/* Credentials & Licences – below Meet the Team */}
-      <section style={{ background: 'white', padding: 'clamp(48px,6vw,72px) 24px' }}>
+      {/* Credentials & Licences – below Meet the Team (dark banner backdrop, CredentialsSection uses light-on-dark text) */}
+      <section style={{ background: 'linear-gradient(135deg, #0d2535 0%, #0b4a3f 50%, #1e0d40 100%)', padding: 'clamp(48px,6vw,72px) 24px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <CredentialsSection />
+          <CredentialsSection dark={dark} />
         </div>
       </section>
 
       {/* FAQ section */}
-      <FAQSection onNavigate={onNavigate} />
+      <FAQSection onNavigate={onNavigate} dark={dark} />
     </div>
   )
 }

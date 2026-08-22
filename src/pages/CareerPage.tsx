@@ -128,19 +128,24 @@ interface FormState {
   role: string; linkedin: string; message: string; submitted: boolean
 }
 
-function ApplicationForm({ preRole }: { preRole?: string }) {
+function ApplicationForm({ preRole, dark = false }: { preRole?: string; dark?: boolean }) {
   const [form, setForm] = useState<FormState>({
     name: '', email: '', phone: '', role: preRole ?? '',
     linkedin: '', message: '', submitted: false,
   })
   const [focused, setFocused] = useState('')
 
+  const textPrimary = dark ? '#f5f5f5' : NAVY
+  const textMuted = dark ? '#a1a1aa' : '#6b7280'
+  const inputBg = dark ? '#141416' : 'white'
+  const inputBorder = dark ? 'rgba(255,255,255,0.1)' : '#e0d9f5'
+
   const inputStyle = (field: string) => ({
     width: '100%', padding: '13px 16px',
-    border: `1.5px solid ${focused === field ? TEAL : '#e0d9f5'}`,
+    border: `1.5px solid ${focused === field ? TEAL : inputBorder}`,
     borderRadius: 12, outline: 'none',
-    fontFamily: "'Inter', sans-serif", fontSize: 14, color: NAVY,
-    background: focused === field ? 'rgba(20,184,166,0.03)' : 'white',
+    fontFamily: "'Inter', sans-serif", fontSize: 14, color: textPrimary,
+    background: focused === field ? 'rgba(20,184,166,0.03)' : inputBg,
     transition: 'border-color 0.2s, background 0.2s',
     boxSizing: 'border-box' as const,
   })
@@ -157,10 +162,10 @@ function ApplicationForm({ preRole }: { preRole?: string }) {
         borderRadius: 20,
       }}>
         <div style={{ fontSize: 48, marginBottom: 16 }}>🎉</div>
-        <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 26, color: NAVY, margin: '0 0 10px' }}>
+        <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 26, color: textPrimary, margin: '0 0 10px' }}>
           Application Received!
         </h3>
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: '#6b7280', maxWidth: 400, margin: '0 auto 24px' }}>
+        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: textMuted, maxWidth: 400, margin: '0 auto 24px' }}>
           Thank you, <strong>{form.name}</strong>. Our team will review your profile and reach out within 5 working days.
         </p>
         <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: TEAL }}>
@@ -177,7 +182,7 @@ function ApplicationForm({ preRole }: { preRole?: string }) {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: '#6b7280', display: 'block', marginBottom: 6 }}>
+          <label style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: textMuted, display: 'block', marginBottom: 6 }}>
             Full Name *
           </label>
           <input
@@ -188,7 +193,7 @@ function ApplicationForm({ preRole }: { preRole?: string }) {
           />
         </div>
         <div>
-          <label style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: '#6b7280', display: 'block', marginBottom: 6 }}>
+          <label style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: textMuted, display: 'block', marginBottom: 6 }}>
             Email Address *
           </label>
           <input
@@ -202,7 +207,7 @@ function ApplicationForm({ preRole }: { preRole?: string }) {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: '#6b7280', display: 'block', marginBottom: 6 }}>
+          <label style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: textMuted, display: 'block', marginBottom: 6 }}>
             Phone Number *
           </label>
           <input
@@ -213,7 +218,7 @@ function ApplicationForm({ preRole }: { preRole?: string }) {
           />
         </div>
         <div>
-          <label style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: '#6b7280', display: 'block', marginBottom: 6 }}>
+          <label style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: textMuted, display: 'block', marginBottom: 6 }}>
             Role Applying For *
           </label>
           <select
@@ -230,7 +235,7 @@ function ApplicationForm({ preRole }: { preRole?: string }) {
       </div>
 
       <div>
-        <label style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: '#6b7280', display: 'block', marginBottom: 6 }}>
+        <label style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: textMuted, display: 'block', marginBottom: 6 }}>
           LinkedIn Profile URL
         </label>
         <input
@@ -242,7 +247,7 @@ function ApplicationForm({ preRole }: { preRole?: string }) {
       </div>
 
       <div>
-        <label style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: '#6b7280', display: 'block', marginBottom: 6 }}>
+        <label style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: textMuted, display: 'block', marginBottom: 6 }}>
           Tell Us About Yourself *
         </label>
         <textarea
@@ -263,7 +268,7 @@ function ApplicationForm({ preRole }: { preRole?: string }) {
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={TEAL} strokeWidth="2">
           <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
         </svg>
-        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12.5, color: '#6b7280', margin: 0 }}>
+        <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 12.5, color: textMuted, margin: 0 }}>
           Please also email your CV / Resume to{' '}
           <a href="mailto:careers@zodiacpluss.com" style={{ color: TEAL, fontWeight: 700 }}>
             careers@zodiacpluss.com
@@ -302,13 +307,19 @@ function ApplicationForm({ preRole }: { preRole?: string }) {
 }
 
 /* ── Job card component ─────────────────────────────────────────── */
-function JobCard({ job, onApply }: { job: typeof jobs[0]; onApply: (id: string) => void }) {
+function JobCard({ job, onApply, dark = false }: { job: typeof jobs[0]; onApply: (id: string) => void; dark?: boolean }) {
   const [expanded, setExpanded] = useState(false)
+
+  const cardBg = dark ? '#141416' : 'white'
+  const cardBorder = dark ? 'rgba(255,255,255,0.1)' : '#e8e3f8'
+  const textPrimary = dark ? '#f5f5f5' : NAVY
+  const textMuted = dark ? '#a1a1aa' : '#6b7280'
+  const chipBg = dark ? 'rgba(255,255,255,0.06)' : '#f5f3ff'
 
   return (
     <div style={{
-      background: 'white', borderRadius: 20,
-      border: `1.5px solid ${expanded ? job.categoryColor + '40' : '#e8e3f8'}`,
+      background: cardBg, borderRadius: 20,
+      border: `1.5px solid ${expanded ? job.categoryColor + '40' : cardBorder}`,
       overflow: 'hidden',
       boxShadow: expanded ? `0 12px 40px ${job.categoryColor}18` : '0 2px 10px rgba(26,16,96,0.06)',
       transition: 'box-shadow 0.25s, border-color 0.25s',
@@ -328,15 +339,15 @@ function JobCard({ job, onApply }: { job: typeof jobs[0]; onApply: (id: string) 
           <span style={{
             fontFamily: "'Inter', sans-serif",
             fontSize: 10.5, fontWeight: 600,
-            color: '#6b7280', background: '#f5f3ff',
-            border: '1px solid #e8e3f8',
+            color: textMuted, background: chipBg,
+            border: `1px solid ${cardBorder}`,
             borderRadius: 999, padding: '3px 10px',
           }}>{job.type}</span>
           <span style={{
             fontFamily: "'Inter', sans-serif",
             fontSize: 10.5, fontWeight: 600,
-            color: '#6b7280', background: '#f5f3ff',
-            border: '1px solid #e8e3f8',
+            color: textMuted, background: chipBg,
+            border: `1px solid ${cardBorder}`,
             borderRadius: 999, padding: '3px 10px',
           }}>📍 {job.mode} · {job.location}</span>
         </div>
@@ -344,12 +355,12 @@ function JobCard({ job, onApply }: { job: typeof jobs[0]; onApply: (id: string) 
         <h3 style={{
           fontFamily: "'Playfair Display', serif",
           fontSize: 'clamp(18px, 2.2vw, 24px)',
-          fontWeight: 700, color: NAVY, margin: '0 0 6px', lineHeight: 1.25,
+          fontWeight: 700, color: textPrimary, margin: '0 0 6px', lineHeight: 1.25,
         }}>{job.title}</h3>
 
         <p style={{
           fontFamily: "'Inter', sans-serif",
-          fontSize: 13.5, color: '#8876b0',
+          fontSize: 13.5, color: textMuted,
           margin: '0 0 20px', fontStyle: 'italic',
         }}>{job.tagline}</p>
 
@@ -358,12 +369,12 @@ function JobCard({ job, onApply }: { job: typeof jobs[0]; onApply: (id: string) 
           <button
             onClick={() => setExpanded(!expanded)}
             style={{
-              background: expanded ? `${job.categoryColor}18` : '#f5f3ff',
-              border: `1.5px solid ${expanded ? job.categoryColor + '40' : '#e8e3f8'}`,
+              background: expanded ? `${job.categoryColor}18` : chipBg,
+              border: `1.5px solid ${expanded ? job.categoryColor + '40' : cardBorder}`,
               borderRadius: 999, padding: '8px 18px',
               fontFamily: "'Inter', sans-serif",
               fontSize: 13, fontWeight: 700,
-              color: expanded ? job.categoryColor : '#5b2d8e',
+              color: expanded ? job.categoryColor : (dark ? '#f5f5f5' : '#5b2d8e'),
               cursor: 'pointer',
               display: 'flex', alignItems: 'center', gap: 6,
               transition: 'all 0.2s',
@@ -413,7 +424,7 @@ function JobCard({ job, onApply }: { job: typeof jobs[0]; onApply: (id: string) 
             <div>
               <h4 style={{
                 fontFamily: "'Inter', sans-serif",
-                fontSize: 13, fontWeight: 800, color: NAVY,
+                fontSize: 13, fontWeight: 800, color: textPrimary,
                 textTransform: 'uppercase', letterSpacing: '0.1em',
                 margin: '0 0 14px',
               }}>Requirements</h4>
@@ -429,7 +440,7 @@ function JobCard({ job, onApply }: { job: typeof jobs[0]; onApply: (id: string) 
                         <path d="m20 6-11 11-5-5"/>
                       </svg>
                     </span>
-                    <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13.5, color: '#4b5563', lineHeight: 1.6 }}>{r}</span>
+                    <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13.5, color: textMuted, lineHeight: 1.6 }}>{r}</span>
                   </li>
                 ))}
               </ul>
@@ -439,7 +450,7 @@ function JobCard({ job, onApply }: { job: typeof jobs[0]; onApply: (id: string) 
             <div>
               <h4 style={{
                 fontFamily: "'Inter', sans-serif",
-                fontSize: 13, fontWeight: 800, color: NAVY,
+                fontSize: 13, fontWeight: 800, color: textPrimary,
                 textTransform: 'uppercase', letterSpacing: '0.1em',
                 margin: '0 0 14px',
               }}>What You Get</h4>
@@ -447,7 +458,7 @@ function JobCard({ job, onApply }: { job: typeof jobs[0]; onApply: (id: string) 
                 {job.perks.map((p, i) => (
                   <li key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
                     <span style={{ color: '#f59e0b', fontSize: 14, flexShrink: 0, marginTop: 1 }}>★</span>
-                    <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13.5, color: '#4b5563', lineHeight: 1.6 }}>{p}</span>
+                    <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 13.5, color: textMuted, lineHeight: 1.6 }}>{p}</span>
                   </li>
                 ))}
               </ul>
@@ -482,7 +493,7 @@ interface CareerPageProps {
   dark?: boolean
 }
 
-export default function CareerPage({ onNavigate }: CareerPageProps) {
+export default function CareerPage({ onNavigate, dark = false }: CareerPageProps) {
   const [applyRole, setApplyRole] = useState('')
 
   const scrollToForm = (roleId: string) => {
@@ -492,8 +503,14 @@ export default function CareerPage({ onNavigate }: CareerPageProps) {
     }, 80)
   }
 
+  const pageBg = dark ? '#000000' : '#f8f6ff'
+  const cardBg = dark ? '#141416' : 'white'
+  const cardBorder = dark ? 'rgba(255,255,255,0.1)' : '#e8e3f8'
+  const textPrimary = dark ? '#f5f5f5' : NAVY
+  const textMuted = dark ? '#a1a1aa' : '#6b7280'
+
   return (
-    <div style={{ background: '#f8f6ff' }}>
+    <div style={{ background: pageBg }}>
 
       {/* ─── HERO ─────────────────────────────────────────────── */}
       <section
@@ -640,19 +657,19 @@ export default function CareerPage({ onNavigate }: CareerPageProps) {
       </section>
 
       {/* ─── WHY JOIN US ──────────────────────────────────────── */}
-      <section style={{ background: 'white', padding: 'clamp(48px,6vw,72px) 24px' }}>
+      <section style={{ background: dark ? '#000000' : 'white', padding: 'clamp(48px,6vw,72px) 24px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 44 }}>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', color: TEAL, textTransform: 'uppercase', marginBottom: 10 }}>Culture & Benefits</p>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(26px,3.5vw,38px)', fontWeight: 700, color: NAVY, margin: 0 }}>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(26px,3.5vw,38px)', fontWeight: 700, color: textPrimary, margin: 0 }}>
               Why Join ZodiacPluss?
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyUs.map((w, i) => (
               <div key={i} style={{
-                background: 'linear-gradient(180deg, #f8f6ff 0%, white 100%)',
-                border: '1px solid #e8e3f8',
+                background: dark ? cardBg : 'linear-gradient(180deg, #f8f6ff 0%, white 100%)',
+                border: `1px solid ${cardBorder}`,
                 borderRadius: 18, padding: '24px 20px',
                 textAlign: 'center',
                 transition: 'transform 0.2s, box-shadow 0.2s',
@@ -667,8 +684,8 @@ export default function CareerPage({ onNavigate }: CareerPageProps) {
                 }}
               >
                 <div style={{ fontSize: 32, marginBottom: 12 }}>{w.icon}</div>
-                <h3 style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, fontWeight: 800, color: NAVY, margin: '0 0 8px' }}>{w.title}</h3>
-                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: '#6b7280', margin: 0, lineHeight: 1.6 }}>{w.desc}</p>
+                <h3 style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, fontWeight: 800, color: textPrimary, margin: '0 0 8px' }}>{w.title}</h3>
+                <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, color: textMuted, margin: 0, lineHeight: 1.6 }}>{w.desc}</p>
               </div>
             ))}
           </div>
@@ -680,17 +697,17 @@ export default function CareerPage({ onNavigate }: CareerPageProps) {
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ marginBottom: 36 }}>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', color: TEAL, textTransform: 'uppercase', marginBottom: 10 }}>Current Openings</p>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(26px,3.5vw,38px)', fontWeight: 700, color: NAVY, margin: '0 0 10px' }}>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(26px,3.5vw,38px)', fontWeight: 700, color: textPrimary, margin: '0 0 10px' }}>
               Open Positions
             </h2>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: '#6b7280', margin: 0, maxWidth: 520 }}>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: textMuted, margin: 0, maxWidth: 520 }}>
               We're looking for passionate professionals to grow with us. All roles are open to applicants across India.
             </p>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
             {jobs.map(job => (
-              <JobCard key={job.id} job={job} onApply={scrollToForm} />
+              <JobCard key={job.id} job={job} onApply={scrollToForm} dark={dark} />
             ))}
           </div>
         </div>
@@ -745,9 +762,9 @@ export default function CareerPage({ onNavigate }: CareerPageProps) {
       </section>
 
       {/* ─── CREDENTIALS ──────────────────────────────────────── */}
-      <section style={{ padding: 'clamp(48px,6vw,72px) 24px', background: 'white' }}>
+      <section style={{ padding: 'clamp(48px,6vw,72px) 24px', background: dark ? '#000000' : 'white' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <CredentialsSection />
+          <CredentialsSection dark={dark} />
         </div>
       </section>
 
@@ -769,14 +786,14 @@ export default function CareerPage({ onNavigate }: CareerPageProps) {
       </section>
 
       {/* ─── APPLICATION FORM ─────────────────────────────────── */}
-      <section id="apply-form" style={{ padding: 'clamp(56px,7vw,88px) 24px', background: '#f8f6ff' }}>
+      <section id="apply-form" style={{ padding: 'clamp(56px,7vw,88px) 24px', background: pageBg }}>
         <div style={{ maxWidth: 740, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 44 }}>
             <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', color: TEAL, textTransform: 'uppercase', marginBottom: 12 }}>Join The Team</p>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(26px,3.5vw,40px)', fontWeight: 700, color: NAVY, margin: '0 0 12px' }}>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(26px,3.5vw,40px)', fontWeight: 700, color: textPrimary, margin: '0 0 12px' }}>
               Submit Your Application
             </h2>
-            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: '#6b7280', margin: 0 }}>
+            <p style={{ fontFamily: "'Inter', sans-serif", fontSize: 15, color: textMuted, margin: 0 }}>
               Fill out the form below. Our team will contact you within 5 working days.
             </p>
           </div>
@@ -797,9 +814,9 @@ export default function CareerPage({ onNavigate }: CareerPageProps) {
                 rel="noreferrer"
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: 8,
-                  background: 'white', border: `1.5px solid ${TEAL}30`,
+                  background: cardBg, border: `1.5px solid ${TEAL}30`,
                   borderRadius: 999, padding: '9px 18px',
-                  fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 600, color: TEAL_D,
+                  fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 600, color: dark ? '#2dd4bf' : TEAL_D,
                   textDecoration: 'none',
                   transition: 'box-shadow 0.2s',
                 }}
@@ -810,14 +827,14 @@ export default function CareerPage({ onNavigate }: CareerPageProps) {
             ))}
           </div>
 
-          {/* White form card */}
+          {/* Form card */}
           <div style={{
-            background: 'white', borderRadius: 24,
+            background: cardBg, borderRadius: 24,
             padding: 'clamp(24px,4vw,40px)',
             boxShadow: '0 4px 40px rgba(26,16,96,0.08)',
-            border: '1px solid #e8e3f8',
+            border: `1px solid ${cardBorder}`,
           }}>
-            <ApplicationForm preRole={applyRole} />
+            <ApplicationForm preRole={applyRole} dark={dark} />
           </div>
         </div>
       </section>

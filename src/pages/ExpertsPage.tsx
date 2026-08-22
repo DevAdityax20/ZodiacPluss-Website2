@@ -1,3 +1,9 @@
+/*
+─────────────────────────────────────────────────────────────────
+ExpertsPage (Temporarily disabled / commented out)
+This page is not currently required and will be resumed later.
+─────────────────────────────────────────────────────────────────
+
 import { useState } from 'react'
 
 interface ExpertsPageProps {
@@ -48,7 +54,7 @@ const experts = [
     specialty: ['Jyotish', 'Marriage Compatibility', 'Business Astrology'],
     available: true,
     img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&auto=format&q=80',
-    bio: 'One of India\'s most renowned Jyotish practitioners with a track record of accurate predictions.',
+    bio: "One of India's most renowned Jyotish practitioners with a track record of accurate predictions.",
   },
   {
     name: 'Maya Singh',
@@ -74,7 +80,7 @@ const experts = [
   },
 ]
 
-export default function ExpertsPage({ onNavigate }: ExpertsPageProps) {
+export function OriginalExpertsPage({ onNavigate, dark = false }: ExpertsPageProps) {
   const [filter, setFilter] = useState('All')
   const filters = ['All', 'Available Now', 'Astrology', 'Therapy', 'Tarot']
 
@@ -88,8 +94,7 @@ export default function ExpertsPage({ onNavigate }: ExpertsPageProps) {
   })
 
   return (
-    <div className="pt-0" style={{ background: '#f8f6ff' }}>
-      {/* Hero */}
+    <div className="pt-0" style={{ background: dark ? '#000000' : '#f8f6ff' }}>
       <div
         className="relative overflow-hidden pt-32 pb-20 px-6 text-center"
         style={{ background: 'linear-gradient(135deg, #2d1b4e 0%, #5b2d8e 50%, #d81b86 100%)' }}
@@ -110,7 +115,6 @@ export default function ExpertsPage({ onNavigate }: ExpertsPageProps) {
         </div>
       </div>
 
-      {/* Filters */}
       <div className="max-w-6xl mx-auto px-6 pt-10 pb-4">
         <div className="flex flex-wrap gap-2">
           {filters.map((f) => (
@@ -120,7 +124,9 @@ export default function ExpertsPage({ onNavigate }: ExpertsPageProps) {
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
                 filter === f
                   ? 'bg-[#2d1b4e] text-white shadow-md'
-                  : 'bg-white text-[#4a4a6a] border border-purple-100 hover:border-[#2d1b4e]'
+                  : dark
+                    ? 'bg-[#141416] text-[#a1a1aa] border border-white/10 hover:border-[#5b2d8e]'
+                    : 'bg-white text-[#4a4a6a] border border-purple-100 hover:border-[#2d1b4e]'
               }`}
             >
               {f}
@@ -129,15 +135,15 @@ export default function ExpertsPage({ onNavigate }: ExpertsPageProps) {
         </div>
       </div>
 
-      {/* Experts grid */}
       <div className="max-w-6xl mx-auto px-6 pb-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
           {filtered.map((expert) => (
             <div
               key={expert.name}
-              className="bg-white rounded-2xl shadow-sm border border-purple-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className={`rounded-2xl shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${
+                dark ? 'bg-[#141416] border border-white/10' : 'bg-white border border-purple-100'
+              }`}
             >
-              {/* Top */}
               <div className="relative p-5 pb-4">
                 <div className="flex items-start gap-4">
                   <div className="relative flex-shrink-0">
@@ -147,23 +153,23 @@ export default function ExpertsPage({ onNavigate }: ExpertsPageProps) {
                       className="w-16 h-16 rounded-2xl object-cover"
                     />
                     <div
-                      className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full border-2 border-white"
+                      className={`absolute -bottom-1 -right-1 w-4 h-4 rounded-full border-2 ${dark ? 'border-[#141416]' : 'border-white'}`}
                       style={{ background: expert.available ? '#22c55e' : '#94a3b8' }}
                     />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-[#1e0d40] text-sm">{expert.name}</h3>
+                    <h3 className={`font-bold text-sm ${dark ? 'text-[#f5f5f5]' : 'text-[#1e0d40]'}`}>{expert.name}</h3>
                     <p className="text-[#d81b86] text-xs font-medium">{expert.role}</p>
                     <div className="flex items-center gap-2 mt-1">
                       <div className="flex text-yellow-400">
                         {'★'.repeat(Math.floor(expert.rating))}
                         <span className="text-gray-300">{'★'.repeat(5 - Math.floor(expert.rating))}</span>
                       </div>
-                      <span className="text-xs text-[#6b5b8f]">{expert.rating} ({expert.reviews})</span>
+                      <span className={`text-xs ${dark ? 'text-[#a1a1aa]' : 'text-[#6b5b8f]'}`}>{expert.rating} ({expert.reviews})</span>
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-xs text-[#6b5b8f]">{expert.exp}</div>
+                    <div className={`text-xs ${dark ? 'text-[#a1a1aa]' : 'text-[#6b5b8f]'}`}>{expert.exp}</div>
                     <div
                       className="text-xs px-2 py-0.5 rounded-full mt-1 text-white"
                       style={{ background: expert.available ? '#22c55e' : '#94a3b8' }}
@@ -172,21 +178,24 @@ export default function ExpertsPage({ onNavigate }: ExpertsPageProps) {
                     </div>
                   </div>
                 </div>
-                <p className="text-xs text-[#6b5b8f] mt-3 leading-relaxed">{expert.bio}</p>
+                <p className={`text-xs mt-3 leading-relaxed ${dark ? 'text-[#a1a1aa]' : 'text-[#6b5b8f]'}`}>{expert.bio}</p>
               </div>
 
-              {/* Specialties */}
               <div className="px-5 pb-4 flex flex-wrap gap-1.5">
                 {expert.specialty.map((s) => (
-                  <span key={s} className="text-[10px] font-medium bg-purple-50 text-[#5b2d8e] px-2.5 py-1 rounded-full">
+                  <span
+                    key={s}
+                    className={`text-[10px] font-medium px-2.5 py-1 rounded-full ${
+                      dark ? 'bg-white/6 text-[#c9c9ce]' : 'bg-purple-50 text-[#5b2d8e]'
+                    }`}
+                  >
                     {s}
                   </span>
                 ))}
               </div>
 
-              {/* Footer */}
-              <div className="border-t border-purple-50 px-5 py-3 flex items-center justify-between">
-                <span className="font-bold text-[#1e0d40] text-sm">{expert.price}</span>
+              <div className={`px-5 py-3 flex items-center justify-between border-t ${dark ? 'border-white/10' : 'border-purple-50'}`}>
+                <span className={`font-bold text-sm ${dark ? 'text-[#f5f5f5]' : 'text-[#1e0d40]'}`}>{expert.price}</span>
                 <button
                   onClick={() => onNavigate('Book')}
                   disabled={!expert.available}
@@ -205,4 +214,14 @@ export default function ExpertsPage({ onNavigate }: ExpertsPageProps) {
       </div>
     </div>
   )
+}
+*/
+
+interface ExpertsPageProps {
+  onNavigate?: (page: string) => void
+  dark?: boolean
+}
+
+export default function ExpertsPage(_props: ExpertsPageProps) {
+  return null
 }

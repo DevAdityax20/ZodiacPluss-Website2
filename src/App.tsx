@@ -73,7 +73,7 @@ export default function App() {
 
       {/* Footer */}
       <div className="pb-16 md:pb-0">
-        <Footer onNavigate={handleNavigate} />
+        <Footer onNavigate={handleNavigate} dark={dark} />
       </div>
 
       {/* Mobile bottom glassmorphism navigation */}

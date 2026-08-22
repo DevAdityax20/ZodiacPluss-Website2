@@ -586,7 +586,7 @@ export default function HomeAboutTeamSection({ onNavigate, dark }: HomeAboutTeam
               </div>
               <p
                 className="text-sm sm:text-[15px] leading-relaxed font-medium"
-                style={{ color: dark ? '#e9d5ff' : '#1e3a5f' }}
+                style={{ color: dark ? '#f5f5f5' : '#1e3a5f' }}
               >
                 Together, we&apos;re building a world where everyone can find clarity, healing, and purpose.
               </p>

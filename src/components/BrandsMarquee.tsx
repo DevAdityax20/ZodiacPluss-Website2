@@ -68,24 +68,27 @@ const brands = [
 // Duplicate list for seamless infinite scroll
 const allBrands = [...brands, ...brands]
 
-export default function BrandsMarquee() {
+export default function BrandsMarquee({ dark = false }: { dark?: boolean }) {
   return (
     <div
       style={{
         width: '100%',
-        background: 'linear-gradient(180deg, #ffffff 0%, #f9f6ff 100%)',
-        borderTop: '1px solid rgba(200, 185, 255, 0.25)',
-        borderBottom: '1px solid rgba(200, 185, 255, 0.25)',
+        background: dark ? '#000000' : 'linear-gradient(180deg, #ffffff 0%, #f9f6ff 100%)',
+        borderTop: dark ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid rgba(200, 185, 255, 0.25)',
+        borderBottom: dark ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid rgba(200, 185, 255, 0.25)',
         padding: '20px 0',
         overflow: 'hidden',
         position: 'relative',
+        transition: 'background 0.4s ease',
       }}
     >
       {/* Fade masks on edges */}
       <div
         style={{
           position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none',
-          background: 'linear-gradient(90deg, #ffffff 0%, transparent 8%, transparent 92%, #ffffff 100%)',
+          background: dark
+            ? 'linear-gradient(90deg, #000000 0%, transparent 8%, transparent 92%, #000000 100%)'
+            : 'linear-gradient(90deg, #ffffff 0%, transparent 8%, transparent 92%, #ffffff 100%)',
         }}
       />
 
@@ -109,16 +112,16 @@ export default function BrandsMarquee() {
               alignItems: 'center',
               gap: '8px',
               padding: '0 32px',
-              color: 'rgba(130, 110, 180, 0.5)',
+              color: dark ? 'rgba(255, 255, 255, 0.4)' : 'rgba(130, 110, 180, 0.5)',
               whiteSpace: 'nowrap',
               userSelect: 'none',
               transition: 'color 0.2s ease',
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLDivElement).style.color = 'rgba(100, 60, 180, 0.85)'
+              (e.currentTarget as HTMLDivElement).style.color = dark ? 'rgba(255, 255, 255, 0.85)' : 'rgba(100, 60, 180, 0.85)'
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLDivElement).style.color = 'rgba(130, 110, 180, 0.5)'
+              (e.currentTarget as HTMLDivElement).style.color = dark ? 'rgba(255, 255, 255, 0.4)' : 'rgba(130, 110, 180, 0.5)'
             }}
           >
             <span style={{ flexShrink: 0 }}>{brand.icon}</span>

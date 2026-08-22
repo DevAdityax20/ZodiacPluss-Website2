@@ -3,6 +3,7 @@ import logoImg from '@/imports/Zodiac_Colored_Logo_croped-removebg-preview.png'
 
 interface FooterProps {
   onNavigate: (page: string) => void
+  dark?: boolean
 }
 
 const GRADIENT =
@@ -62,8 +63,13 @@ function BackToTopButton() {
   )
 }
 
-export default function Footer({ onNavigate }: FooterProps) {
+export default function Footer({ onNavigate, dark = false }: FooterProps) {
   const [email, setEmail] = useState('')
+  const subBarBg = dark ? '#141416' : '#ffffff'
+  const subBarHeading = dark ? '#5eead4' : TEAL_TEXT
+  const subBarMuted = dark ? '#a1a1aa' : '#8a9a96'
+  const subBarFaint = dark ? '#87878c' : '#6b7f7a'
+  const subBarIconBorder = dark ? 'rgba(255,255,255,0.15)' : '#c8d8d4'
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -256,8 +262,9 @@ export default function Footer({ onNavigate }: FooterProps) {
         {/* ── White sub-footer bar ────────────────────────────────── */}
         <div
           style={{
-            background: '#ffffff',
+            background: subBarBg,
             borderRadius: '0 0 28px 28px',
+            transition: 'background 0.4s ease',
           }}
         >
           <div
@@ -320,8 +327,8 @@ export default function Footer({ onNavigate }: FooterProps) {
                   style={{
                     width: '36px',
                     height: '36px',
-                    border: '1.5px solid #c8d8d4',
-                    color: TEAL_TEXT,
+                    border: `1.5px solid ${subBarIconBorder}`,
+                    color: subBarHeading,
                     background: 'transparent',
                   }}
                   onMouseEnter={(e) => {
@@ -330,8 +337,8 @@ export default function Footer({ onNavigate }: FooterProps) {
                     e.currentTarget.style.background = `${s.color}12`
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = '#c8d8d4'
-                    e.currentTarget.style.color = TEAL_TEXT
+                    e.currentTarget.style.borderColor = subBarIconBorder
+                    e.currentTarget.style.color = subBarHeading
                     e.currentTarget.style.background = 'transparent'
                   }}
                 >
@@ -342,10 +349,10 @@ export default function Footer({ onNavigate }: FooterProps) {
 
             {/* Copyright center */}
             <div className="text-center order-1 lg:order-2 flex-1 px-3">
-              <div className="text-[13px] sm:text-[14px] font-bold mb-[2px]" style={{ color: TEAL_TEXT }}>
+              <div className="text-[13px] sm:text-[14px] font-bold mb-[2px]" style={{ color: subBarHeading }}>
                 ZodiacPluss Services Pvt. Ltd.
               </div>
-              <div className="text-[10px] sm:text-[11px]" style={{ color: '#8a9a96' }}>
+              <div className="text-[10px] sm:text-[11px]" style={{ color: subBarMuted }}>
                 Copyright © 2026, All rights reserved
               </div>
             </div>
@@ -358,8 +365,8 @@ export default function Footer({ onNavigate }: FooterProps) {
                   width: '34px',
                   height: '34px',
                   borderRadius: '50%',
-                  border: '1.5px solid #c8d8d4',
-                  color: TEAL_TEXT,
+                  border: `1.5px solid ${subBarIconBorder}`,
+                  color: subBarHeading,
                 }}
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -368,10 +375,10 @@ export default function Footer({ onNavigate }: FooterProps) {
                 </svg>
               </div>
               <div className="text-left leading-[1.25]">
-                <div className="text-[11px] font-bold" style={{ color: TEAL_TEXT }}>
+                <div className="text-[11px] font-bold" style={{ color: subBarHeading }}>
                   Designed &amp; Developed
                 </div>
-                <div className="text-[10px] sm:text-[11px]" style={{ color: '#6b7f7a' }}>
+                <div className="text-[10px] sm:text-[11px]" style={{ color: subBarFaint }}>
                   Advent Software Solutions
                 </div>
               </div>

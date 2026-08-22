@@ -68,20 +68,20 @@ export default function MobileBottomNav({ currentPage, onNavigate, dark = false 
   const isActive = (id: string) => currentPage === id
 
   const activeColor = '#4aa7d8'
-  const inactiveColor = dark ? 'rgba(200, 190, 240, 0.45)' : 'rgba(100, 80, 140, 0.45)'
+  const inactiveColor = dark ? 'rgba(220, 220, 225, 0.5)' : 'rgba(100, 80, 140, 0.45)'
 
   return (
     <div
       className="md:hidden fixed bottom-4 left-4 right-4 z-50 max-w-sm mx-auto"
       style={{
         background: dark
-          ? 'rgba(12, 8, 28, 0.82)'
+          ? 'rgba(14, 14, 16, 0.82)'
           : 'rgba(255, 255, 255, 0.88)',
         backdropFilter: 'blur(32px) saturate(200%)',
         WebkitBackdropFilter: 'blur(32px) saturate(200%)',
         borderRadius: '20px',
         border: dark
-          ? '1px solid rgba(139, 92, 246, 0.18)'
+          ? '1px solid rgba(255, 255, 255, 0.12)'
           : '1px solid rgba(220, 210, 255, 0.6)',
         boxShadow: dark
           ? '0 8px 32px rgba(0, 0, 0, 0.55), 0 1px 0 rgba(255,255,255,0.06) inset'

@@ -195,9 +195,14 @@ function DarkHero({ onNavigate, dark = false }: { onNavigate?: (p: string) => vo
 /* ══════════════════════════════════════════════════════════════════
    BAND 2 – White about
    ══════════════════════════════════════════════════════════════════ */
-function AboutBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
+function AboutBand({ onNavigate, dark = false }: { onNavigate?: (p: string) => void; dark?: boolean }) {
+  const headingColor = dark ? '#f5f5f5' : NAVY
+  const bodyColor = dark ? '#a1a1aa' : '#6b7280'
+  const cardBg = dark ? '#141416' : 'white'
+  const outlineTextColor = dark ? '#2dd4bf' : TEAL_D
+
   return (
-    <section style={{ background: 'white', padding: 'clamp(56px,7vw,88px) 24px' }}>
+    <section style={{ background: dark ? '#000000' : 'white', padding: 'clamp(56px,7vw,88px) 24px', transition: 'background 0.4s ease' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
 
@@ -221,7 +226,7 @@ function AboutBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
                 width: '100%', height: '100%',
                 borderRadius: '50%', overflow: 'hidden',
                 boxShadow: '0 20px 60px rgba(7,30,25,0.18)',
-                border: '4px solid white',
+                border: `4px solid ${cardBg}`,
                 position: 'relative', zIndex: 1,
               }}>
                 <img
@@ -238,7 +243,7 @@ function AboutBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
               {/* Happy souls badge */}
               <div style={{
                 position: 'absolute', bottom: '8%', left: '-6%', zIndex: 3,
-                background: 'white',
+                background: cardBg,
                 borderRadius: 12, padding: '10px 16px',
                 boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
                 display: 'flex', alignItems: 'center', gap: 10,
@@ -251,8 +256,8 @@ function AboutBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
                   fontSize: 16,
                 }}>🌟</div>
                 <div>
-                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, fontWeight: 900, color: NAVY, lineHeight: 1 }}>2,500+</div>
-                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: '#888', marginTop: 1 }}>Happy Souls</div>
+                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 16, fontWeight: 900, color: headingColor, lineHeight: 1 }}>2,500+</div>
+                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: dark ? '#a1a1aa' : '#888', marginTop: 1 }}>Happy Souls</div>
                 </div>
               </div>
             </div>
@@ -269,7 +274,7 @@ function AboutBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
             <h2 style={{
               fontFamily: "'Playfair Display', serif",
               fontSize: 'clamp(28px,4vw,48px)',
-              fontWeight: 700, color: NAVY, lineHeight: 1.15, margin: '0 0 8px',
+              fontWeight: 700, color: headingColor, lineHeight: 1.15, margin: '0 0 8px',
             }}>
               We Create Experiences<br />That{' '}
               <span style={{ color: TEAL, fontStyle: 'italic' }}>Transform Lives</span>
@@ -280,14 +285,14 @@ function AboutBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
             <p style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: 'clamp(13px,1.3vw,15.5px)',
-              color: '#6b7280', lineHeight: 1.8, margin: '0 0 16px',
+              color: bodyColor, lineHeight: 1.8, margin: '0 0 16px',
             }}>
               ZodiacPluss was built with one simple belief — everyone deserves clarity and emotional well-being. We combine the timeless wisdom of astrology with professional mental health support to help you navigate life with confidence and peace.
             </p>
             <p style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: 'clamp(13px,1.3vw,15.5px)',
-              color: '#6b7280', lineHeight: 1.8, margin: '0 0 36px',
+              color: bodyColor, lineHeight: 1.8, margin: '0 0 36px',
             }}>
               From birth chart readings to one-on-one therapy sessions, {"we've"} created a safe, supportive space where guidance feels personal, private, and truly meaningful.
             </p>
@@ -319,7 +324,7 @@ function AboutBand({ onNavigate }: { onNavigate?: (p: string) => void }) {
                   background: 'transparent',
                   border: `1.5px solid ${TEAL}`,
                   borderRadius: 999,
-                  padding: '12px 24px', color: TEAL_D,
+                  padding: '12px 24px', color: outlineTextColor,
                   fontFamily: "'Inter', sans-serif",
                   fontSize: 14, fontWeight: 700, cursor: 'pointer',
                   display: 'inline-flex', alignItems: 'center', gap: 7,
@@ -467,7 +472,7 @@ export default function ZodiacMissionSection({ onNavigate, dark = false }: Props
   return (
     <>
       <DarkHero    onNavigate={onNavigate} dark={dark} />
-      <AboutBand   onNavigate={onNavigate} />
+      <AboutBand   onNavigate={onNavigate} dark={dark} />
       <MissionBand onNavigate={onNavigate} dark={dark} />
     </>
   )

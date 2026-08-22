@@ -68,10 +68,10 @@ const stats = [
 ]
 
 export default function PortfolioPage({ onNavigate, dark = false }: PortfolioPageProps) {
-  const bg = dark ? '#0b0714' : '#f5f3ff'
-  const cardBg = dark ? 'rgba(22, 14, 42, 0.9)' : 'rgba(255,255,255,0.95)'
-  const textPrimary = dark ? '#ede9fe' : '#1e0d40'
-  const textSecondary = dark ? 'rgba(200, 185, 255, 0.65)' : 'rgba(80, 60, 120, 0.7)'
+  const bg = dark ? '#000000' : '#f5f3ff'
+  const cardBg = dark ? 'rgba(20, 20, 22, 0.92)' : 'rgba(255,255,255,0.95)'
+  const textPrimary = dark ? '#f5f5f5' : '#1e0d40'
+  const textSecondary = dark ? 'rgba(255, 255, 255, 0.55)' : 'rgba(80, 60, 120, 0.7)'
   const tagBg = dark ? 'rgba(124, 58, 237, 0.18)' : 'rgba(124, 58, 237, 0.08)'
   const tagColor = dark ? '#c4b5fd' : '#6d28d9'
 
@@ -143,7 +143,7 @@ export default function PortfolioPage({ onNavigate, dark = false }: PortfolioPag
               borderRadius: '16px',
               padding: '18px 10px',
               textAlign: 'center',
-              border: dark ? '1px solid rgba(139,92,246,0.15)' : '1px solid rgba(200,185,255,0.4)',
+              border: dark ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(200,185,255,0.4)',
               boxShadow: dark ? '0 4px 20px rgba(0,0,0,0.3)' : '0 2px 12px rgba(100,60,200,0.07)',
             }}
           >
@@ -182,7 +182,7 @@ export default function PortfolioPage({ onNavigate, dark = false }: PortfolioPag
                 background: cardBg,
                 borderRadius: '20px',
                 overflow: 'hidden',
-                border: dark ? '1px solid rgba(139,92,246,0.15)' : '1px solid rgba(200,185,255,0.4)',
+                border: dark ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(200,185,255,0.4)',
                 boxShadow: dark ? '0 8px 32px rgba(0,0,0,0.35)' : '0 4px 20px rgba(100,60,200,0.08)',
                 transition: 'transform 0.25s ease, box-shadow 0.25s ease',
                 cursor: 'pointer',

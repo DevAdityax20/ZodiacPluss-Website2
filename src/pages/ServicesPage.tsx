@@ -90,10 +90,10 @@ const corporateBenefits = [
 ]
 
 export default function ServicesPage({ onNavigate, dark }: ServicesPageProps) {
-  const cardBg = dark ? '#1e1638' : '#ffffff'
-  const cardBorder = dark ? 'rgba(139, 92, 246, 0.2)' : '#f0e6ff'
-  const titleColor = dark ? '#f3e8ff' : '#1e0d40'
-  const textColor = dark ? '#c4b5fd' : '#6b5b8f'
+  const cardBg = dark ? '#141416' : '#ffffff'
+  const cardBorder = dark ? 'rgba(255, 255, 255, 0.1)' : '#f0e6ff'
+  const titleColor = dark ? '#f5f5f5' : '#1e0d40'
+  const textColor = dark ? '#a1a1aa' : '#6b5b8f'
 
   return (
     <div className="pt-0 transition-colors duration-300" style={{ background: dark ? '#000000' : '#f8f6ff' }}>
@@ -296,7 +296,7 @@ export default function ServicesPage({ onNavigate, dark }: ServicesPageProps) {
                 <div className={`text-xs mb-6 ${pkg.featured ? 'text-white/60' : ''}`} style={!pkg.featured ? { color: textColor } : {}}>{pkg.seats}</div>
                 <ul className="space-y-2.5 mb-8">
                   {pkg.features.map((f) => (
-                    <li key={f} className={`flex items-start gap-2 text-xs ${pkg.featured ? 'text-white/85' : ''}`} style={!pkg.featured ? { color: dark ? '#e9d5ff' : '#4a4a6a' } : {}}>
+                    <li key={f} className={`flex items-start gap-2 text-xs ${pkg.featured ? 'text-white/85' : ''}`} style={!pkg.featured ? { color: dark ? '#f5f5f5' : '#4a4a6a' } : {}}>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={pkg.featured ? '#14b8a6' : pkg.color} strokeWidth="2.5" className="flex-shrink-0 mt-0.5">
                         <path d="M20 6L9 17l-5-5"/>
                       </svg>
