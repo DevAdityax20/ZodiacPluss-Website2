@@ -33,17 +33,16 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             background: `linear-gradient(
               110deg,
               rgba(61, 59, 62, 0.85) 12%,
-              rgba(17, 17, 16, 0.72) 60%  100%,
+              rgba(30, 30, 28, 0.72) 55%,
               rgba(54, 51, 55, 0.45) 10%,
-              
-              transparent 100%
+              transparent 50%
             )`,
           }}
         />
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to top, rgba(41, 43, 45, 0.5) 0%, transparent 40%)",
+          
           }}
         />
 
@@ -92,7 +91,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
               </defs>
               <foreignObject x="0" y="0" width="620" height="230" clipPath="url(#zodiacVideoClip)">
                 <video
-                  src="https://res.cloudinary.com/pp0lpskp/video/upload/v1786020353/herocalmnew_m4wklf.mp4"
+                  src="https://res.cloudinary.com/pp0lpskp/video/upload/v1787393142/141454-777657300_medium_tgotgs.mp4"
                   autoPlay
                   muted
                   loop
