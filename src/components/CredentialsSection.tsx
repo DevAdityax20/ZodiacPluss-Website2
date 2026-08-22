@@ -67,6 +67,8 @@ const certificates = [
   },
 ]
 
+const BG_VIDEO = 'https://res.cloudinary.com/pp0lpskp/video/upload/v1787222681/Background_video1_btmhwb.mp4'
+
 interface CredentialsSectionProps {
   dark?: boolean
 }
@@ -81,10 +83,32 @@ export default function CredentialsSection({ dark = false }: CredentialsSectionP
 
   return (
     <section
-      className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300 relative overflow-hidden"
-      style={{ background: 'transparent' }}
+      className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300 relative overflow-hidden w-full"
     >
-      <div className="max-w-7xl mx-auto">
+      {/* Background video stretched 100% across entire section height for mobile, tablet, and desktop */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <video
+          src={BG_VIDEO}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="w-full h-full object-cover"
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+        {/* Dark readability overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: dark
+              ? 'rgba(0, 0, 0, 0.78)'
+              : 'rgba(6, 4, 18, 0.68)',
+          }}
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-14">
           <span
