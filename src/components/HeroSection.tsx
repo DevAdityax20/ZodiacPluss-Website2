@@ -18,7 +18,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         {/* Background video (PRESERVED) */}
         <video
           className="absolute inset-0 h-full w-full object-cover"
-          src="https://res.cloudinary.com/pp0lpskp/video/upload/v1786020353/herocalmnew_m4wklf.mp4"
+          src="https://res.cloudinary.com/pp0lpskp/video/upload/v1787393149/169025-840244222_medium_us3ejw.mp4"
           autoPlay
           muted
           loop
@@ -32,10 +32,10 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           style={{
             background: `linear-gradient(
               110deg,
-              rgba(245, 235, 252, 0.85) 0%,
-              rgba(240, 225, 250, 0.72) 30%,
-              rgba(235, 215, 245, 0.45) 55%,
-              rgba(240, 220, 248, 0.15) 75%,
+              rgba(61, 59, 62, 0.85) 12%,
+              rgba(17, 17, 16, 0.72) 60%  100%,
+              rgba(54, 51, 55, 0.45) 10%,
+              
               transparent 100%
             )`,
           }}
@@ -43,7 +43,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to top, rgba(235, 220, 245, 0.5) 0%, transparent 40%)",
+            background: "linear-gradient(to top, rgba(41, 43, 45, 0.5) 0%, transparent 40%)",
           }}
         />
 
@@ -57,26 +57,62 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
             paddingBottom: "clamp(20px, 3vw, 40px)",
           }}
         >
-          {/* Giant "ZODIAC PLUSS" with cosmic text-clip */}
-          <h1
-            className="font-black leading-[0.92] tracking-tight mb-6 select-none"
-            style={{
-              fontSize: "clamp(56px, 8vw, 130px)",
-              fontFamily: "'Inter', sans-serif",
-              backgroundImage: "url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1200&q=80&auto=format')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            ZODIAC<br />PLUSS
-          </h1>
+          {/* Giant "ZODIAC PLUSS" masked with live video */}
+          <div className="relative mb-4 sm:mb-6 select-none max-w-[620px] w-full">
+            <h1 className="sr-only">ZODIAC PLUSS</h1>
+            <svg
+              viewBox="0 0 620 230"
+              className="w-full h-auto block"
+              style={{ overflow: 'visible' }}
+              aria-hidden="true"
+            >
+              <defs>
+                <clipPath id="zodiacVideoClip">
+                  <text
+                    x="0"
+                    y="100"
+                    fontFamily="'Inter', sans-serif"
+                    fontWeight="900"
+                    fontSize="116"
+                    letterSpacing="-0.03em"
+                  >
+                    ZODIAC
+                  </text>
+                  <text
+                    x="0"
+                    y="210"
+                    fontFamily="'Inter', sans-serif"
+                    fontWeight="900"
+                    fontSize="116"
+                    letterSpacing="-0.03em"
+                  >
+                    PLUSS
+                  </text>
+                </clipPath>
+              </defs>
+              <foreignObject x="0" y="0" width="620" height="230" clipPath="url(#zodiacVideoClip)">
+                <video
+                  src="https://res.cloudinary.com/pp0lpskp/video/upload/v1786020353/herocalmnew_m4wklf.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center',
+                    display: 'block',
+                  }}
+                />
+              </foreignObject>
+            </svg>
+          </div>
 
           {/* Tagline */}
           <div className="flex items-center gap-2 mb-3">
-            <span className="text-base" style={{ color: "#5eb8e8" }}>✦</span>
+            <span className="text-base" style={{ color: "#5eb8e8" }}></span>
             <span
               className="text-sm sm:text-base font-bold tracking-wide"
               style={{ color: "#2a7d6e", fontFamily: "'Inter', sans-serif" }}
@@ -88,7 +124,7 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
           {/* Subtitle */}
           <p
             className="text-xl sm:text-2xl font-semibold leading-snug mb-8 max-w-md"
-            style={{ color: "#1a1a2e", fontFamily: "'Inter', sans-serif" }}
+            style={{ color: "#c7c7d6ff", fontFamily: "'Inter', sans-serif" }}
           >
             Take Guidance under<br />Professional assistance
           </p>
@@ -109,8 +145,8 @@ export default function HeroSection({ onNavigate }: HeroSectionProps) {
               onClick={() => onNavigate("Portfolio")}
               className="flex items-center gap-2 px-6 sm:px-7 py-3.5 rounded-full font-semibold text-xs sm:text-sm transition-all duration-300 hover:scale-[1.03] cursor-pointer bg-transparent"
               style={{
-                border: "2px solid #1a1a2e",
-                color: "#1a1a2e",
+                border: "2px solid #428cab",
+                color: "#428cabff",
                 fontFamily: "'Inter', sans-serif",
               }}
             >

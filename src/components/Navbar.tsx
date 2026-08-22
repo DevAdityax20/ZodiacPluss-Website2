@@ -23,24 +23,32 @@ export default function Navbar({ currentPage, onNavigate, dark = false, onToggle
   }, [])
 
   // Identify pages with dark background hero sections where text needs to be white when transparent
-  const isBannerDark = currentPage !== "Home" && currentPage !== "Book"
+  const isBannerDark = currentPage !== "Book"
+  const isHeroUnscrolled = !scrolled && (currentPage === "Home" || isBannerDark)
 
-  // Base dynamic styling variables
-  const textColor = scrolled
-    ? (dark ? "#f5f5f5" : "#1a1a2e")
-    : (isBannerDark ? "#ffffff" : (dark ? "#f5f5f5" : "#1a1a2e"))
+  // Base dynamic styling variables (pure white text for hero navbar in both light & dark mode)
+  const textColor = isHeroUnscrolled
+    ? "#ffffff"
+    : scrolled
+      ? (dark ? "#f5f5f5" : "#1a1a2e")
+      : (dark ? "#f5f5f5" : "#1a1a2e")
 
-  const subtitleColor = scrolled
-    ? (dark ? "#a1a1aa" : "#6b7280")
-    : (isBannerDark ? "rgba(255, 255, 255, 0.7)" : (dark ? "#a1a1aa" : "#6b7280"))
+  const subtitleColor = isHeroUnscrolled
+    ? "rgba(255, 255, 255, 0.85)"
+    : scrolled
+      ? (dark ? "#a1a1aa" : "#6b7280")
+      : (dark ? "#a1a1aa" : "#6b7280")
 
   const linkColor = (link: string) => {
     if (currentPage === link) {
-      return textColor
+      return isHeroUnscrolled ? "#ffffff" : textColor
+    }
+    if (isHeroUnscrolled) {
+      return "rgba(255, 255, 255, 0.9)"
     }
     return scrolled
       ? (dark ? "rgba(255, 255, 255, 0.75)" : "#4b5563")
-      : (isBannerDark ? "rgba(255, 255, 255, 0.8)" : (dark ? "rgba(255, 255, 255, 0.75)" : "#4b5563"))
+      : (dark ? "rgba(255, 255, 255, 0.75)" : "#4b5563")
   }
 
   // Beautiful resizable nav container layout classes
